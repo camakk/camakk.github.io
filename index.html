@@ -3,16 +3,16 @@
 <head>
     <title>Cameron Akker - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/raleway.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <style>
       html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       .w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
     </style>
-
+    <script src="js/jquery-3.1.1.min.js"></script>
     <link rel="icon" href="default.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 
 <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -30,8 +30,6 @@
   <a href="#" class="w3-padding w3-text-teal">HOME</a>
   <a href="#" class="w3-padding">ABOUT</a>
   <a href="#" class="w3-padding">CONTACT</a>
-  <script src="js/projects.js"></script>
-  <script>printPolygon()</script>
 
   <div class="w3-section w3-padding-top w3-large">
     <a href="https://facebook.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
@@ -178,10 +176,6 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidenav").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
-}
-
-function get_projects() {
-
 }
 
 var filters; // holds all the filters that are active
