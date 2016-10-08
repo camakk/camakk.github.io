@@ -28,11 +28,9 @@
   </div>
   <a href="index.html" class="w3-padding w3-text-teal">HOME</a>
   <a href="about.html" class="w3-padding">ABOUT</a>
-  <a href="#" class="w3-padding" onclick="$(this).hide();">CONTACT</a>
+  <a href="#" class="w3-padding">CONTACT</a>
 
-<!--
-  <p id='heythere'> hey there what's up </p>
--->
+
 
   <div class="w3-section w3-padding-top w3-large">
     <a href="https://facebook.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
@@ -57,22 +55,20 @@
 
 <!-- Header with name and filters -->
 <header class="w3-container">
-    <a href="#"><img src="img_avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <a href="#"><img src="img_avatar_g2.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <br>
-    <h1 style="margin-left:15px;font-size:22pt;"><b><font face="verdana"> Cameron Akker</b></h1>
-    <div class="w3-section w3-bottombar w3-padding-16">
-      <span class="w3-margin-right">Projects:</span>
+    <h1 style="margin-left:15px;line-height:25px;"><b><font face="verdana"> Cameron Akker</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-8">
+      <span style="margin-left:15px;" class="w3-margin-right">Projects:</span>
       <button class="w3-btn">ALL</button>
-      <button class="w3-btn w3-white"><i class="fa fa-diamond w3-margin-right"></i>FPGA</button>
-      <button class="w3-btn w3-white"><i class="fa fa-photo w3-margin-right"></i>Analog/PCB</button>
-      <button class="w3-btn w3-white"><i class="fa fa-map-pin w3-margin-right"></i>CS/Development</button>
-      <button class="w3-btn w3-white"><i class="fa fa-bolt w3-margin-right"></i>Robotics</button>
-      <button class="w3-btn w3-white"><i class="fa fa-bullseye w3-margin-right"></i>HackHarvard</button>
-      <button class="w3-btn w3-white"><i class="fa fa-bullhorn w3-margin-right"></i>Contact</button>
+      <button class="w3-btn w3-white"><i class="fa fa-bolt w3-margin-right"></i>Electrical Engineering</button>
+      <button class="w3-btn w3-white"><i class="fa fa-keyboard-o w3-margin-right"></i>Programming</button>
+      <button class="w3-btn w3-white"><i class="fa fa-map-pin w3-margin-right"></i>Mechanical Design</button>
+      <button class="w3-btn w3-white"><i class="fa fa-university w3-margin-right"></i>Community</button>
+      <button class="w3-btn w3-white"><i class="fa fa-sticky-note w3-margin-right"></i>Misc.</button>
     </div>
 </header>
-
 
 <!-- First Photo Grid-->
 <div class="w3-row-padding">
@@ -122,11 +118,14 @@
       <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
     </div>
   </div>
+
+  <div id="testhere"></div>
+
 </div>
 
 
 <!-- Pagination -->
-<div class="w3-center w3-padding-32">
+<div class="w3-center w3-padding-16">
     <ul class="w3-pagination">
       <li><a class="w3-black" href="#">1</a></li>
       <!--
@@ -186,12 +185,29 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
-var filters; // holds all the filters that are active
+$(document).ready(function() {
+  $("#testhere").html("<h1>Here is some text</h1>");
+});
 
 </script>
 
+
+
 <script src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/projects.js"></script>
+<script src="js/w3data.js"></script>
+
+<!--
+<script>
+  w3IncludeHTML();
+</script>
+-->
+
+<script>
+   $(function(){
+    $("#testhere").load("test.html");
+   }
+</script>
 
 </body>
 </html>
