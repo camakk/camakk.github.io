@@ -12,6 +12,186 @@
     </style>
     <link rel="icon" href="default.ico">
 
+<!-- CONTROLS FILTERS AT THE TOP OF THE DOCUMENT -->
+<script>
+
+  var filters = {all:true, ee:false, pr:false, me:false, cm:false, ms:false}
+  var page = 1;
+  function updatefilter_all() {
+    if(filters.all == false) {
+      filters.all = true;
+      filters.ee = false;
+      filters.pr = false;
+      filters.me = false;
+      filters.cm = false;
+      filters.ms = false;
+      $("#filter-all").removeClass("w3-white");
+      $("#filter-ee").addClass("w3-white");
+      $("#filter-pr").addClass("w3-white");
+      $("#filter-me").addClass("w3-white");
+      $("#filter-cm").addClass("w3-white");
+      $("#filter-ms").addClass("w3-white");
+    }
+  }
+  function updatefilter_ee() {
+    if(filters.ee == false) {
+      filters.all = false;
+      filters.ee = true;
+      filters.pr = false;
+      filters.me = false;
+      filters.cm = false;
+      filters.ms = false;
+      $("#filter-all").addClass("w3-white");
+      $("#filter-ee").removeClass("w3-white");
+      $("#filter-pr").addClass("w3-white");
+      $("#filter-me").addClass("w3-white");
+      $("#filter-cm").addClass("w3-white");
+      $("#filter-ms").addClass("w3-white");
+    }
+  }
+  function updatefilter_pr() {
+    if(filters.pr == false) {
+      filters.all = false;
+      filters.ee = false;
+      filters.pr = true;
+      filters.me = false;
+      filters.cm = false;
+      filters.ms = false;
+      $("#filter-all").addClass("w3-white");
+      $("#filter-ee").addClass("w3-white");
+      $("#filter-pr").removeClass("w3-white");
+      $("#filter-me").addClass("w3-white");
+      $("#filter-cm").addClass("w3-white");
+      $("#filter-ms").addClass("w3-white");
+    }
+  }
+  function updatefilter_me() {
+    if(filters.me == false) {
+      filters.all = false;
+      filters.ee = false;
+      filters.pr = false;
+      filters.me = true;
+      filters.cm = false;
+      filters.ms = false;
+      $("#filter-all").addClass("w3-white");
+      $("#filter-ee").addClass("w3-white");
+      $("#filter-pr").addClass("w3-white");
+      $("#filter-me").removeClass("w3-white");
+      $("#filter-cm").addClass("w3-white");
+      $("#filter-ms").addClass("w3-white");
+    }
+  }
+  function updatefilter_cm() {
+    if(filters.cm == false) {
+      filters.cm = false;
+      filters.ee = false;
+      filters.pr = false;
+      filters.me = false;
+      filters.cm = true;
+      filters.ms = false;
+      $("#filter-all").addClass("w3-white");
+      $("#filter-ee").addClass("w3-white");
+      $("#filter-pr").addClass("w3-white");
+      $("#filter-me").addClass("w3-white");
+      $("#filter-cm").removeClass("w3-white");
+      $("#filter-ms").addClass("w3-white");
+    }
+  }
+  function updatefilter_ms() {
+    if(filters.ms == false) {
+      filters.all = false;
+      filters.ee = false;
+      filters.pr = false;
+      filters.me = false;
+      filters.cm = false;
+      filters.ms = true;
+      $("#filter-all").addClass("w3-white");
+      $("#filter-ee").addClass("w3-white");
+      $("#filter-pr").addClass("w3-white");
+      $("#filter-me").addClass("w3-white");
+      $("#filter-cm").addClass("w3-white");
+      $("#filter-ms").removeClass("w3-white");
+    }
+  }
+
+function load_hackharvard2016(slot) {
+      $("#box" + slot).attr("href", "about.html");
+      $("#img" + slot).attr("src","home/hackharvard2016.jpg");
+      $("#img" + slot).attr("alt","hackharvard2016");
+      $("#title" + slot).html("<b> Director of HackHarvard 2016</b>");
+      $("#description" + slot).html("Directing a 550-person hackathon, the largest at Harvard University and second ever HackHarvard event, held from Oct 21-23, 2016");
+}
+function load_custompcb(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/pcb.jpg");
+    $("#img" + slot).attr("alt","PCB");
+    $("#title" + slot).html("<b>Embedded programming with Attiny44</b>");
+    $("#description" + slot).html("Designing board in Eagle, milling copper laminate PCB with ShopBot, soldering on all components, programming with avrdude");
+}
+function load_hrexi(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/fpga.jpg");
+    $("#img" + slot).attr("alt","FPGA");
+    $("#title" + slot).html("<b>FPGA Programming on Virtex-II for HREXI</b>");
+    $("#description" + slot).html("Programming in Verilog/VHDL to implement data buffering hardware as part of lab at the Harvard-Smithsonian Center for Astrophysics");
+}
+function load_hackharvard2015(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/hackharvard2015.jpg");
+    $("#title" + slot).html("<b>Organizer of HackHarvard 2015</b>");
+    $("#description" + slot).html("Organizing a 500-person hackathon, the largest at Harvard University and first ever HackHarvard event, held from Nov 13-15, 2015");
+}
+function load_tf(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/tf.jpg");
+    $("#img" + slot).attr("alt","teaching");
+    $("#title" + slot).html("<b>Teaching Fellow at Harvard University</b>");
+    $("#description" + slot).html("Assisted in teaching over 100 students in introductory (ENG-SCI 50) and second-year (ENG-SCI 153) electrical engineering courses");
+}
+function load_electriccar(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/electriccar.jpg");
+    $("#img" + slot).attr("alt","electric_car");
+    $("#title" + slot).html("<b>Custom Designed Personal Electric Vehicle</b>");
+    $("#description" + slot).html("Worked alongside students at the Hong Kong University of Science and Technology (HKUST) to design and build an personal electric vehicle");
+}
+function load_foodspeak(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/foodspeak.jpg");
+    $("#img" + slot).attr("alt","foodspeak");
+    $("#title" + slot).html("<b>Developing a Custom Personal Electric Vehicle</b>");
+    $("#description" + slot).html("lol");
+}
+function load_tourguide(slot) {
+    $("#box" + slot).attr("href", "about.html");
+    $("#img" + slot).attr("src","home/tourguide.jpg");
+    $("#img" + slot).attr("alt","tour guide");
+    $("#title" + slot).html("<b>Tour guide at Harvard University</b>");
+    $("#description" + slot).html("Lead walking tours through Harvard University during the summer of 2015 as a tour guide employed by Trademark Tours");
+}
+
+
+
+window.onload = function() {
+ load_hackharvard2016(1);
+ load_custompcb(2);
+ load_tf(3);
+ load_hrexi(4);
+ load_electriccar(5);
+ load_tourguide(6);
+
+
+
+
+ //load_foodspeak(6);
+ //load_hackharvard2015(3);
+
+}
+
+</script>
+
+
+
 </head>
 
 <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -28,14 +208,16 @@
   </div>
   <a href="index.html" class="w3-padding w3-text-teal">HOME</a>
   <a href="about.html" class="w3-padding">ABOUT</a>
-  <a href="#" class="w3-padding">CONTACT</a>
+  <a href="tutorials.html" class="w3-padding">TUTORIALS</a>
+  <a href="resume.html" class="w3-padding">RESUME</a>
+  <a href="contact.html" class="w3-padding">CONTACT</a>
 
 
 
   <div class="w3-section w3-padding-top w3-large">
     <a href="https://facebook.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
     <a href="https://github.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-github"></i></a>
-    <a href="https://github.com/camakk" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><img src="css/devpost.png" height="18px" style="PADDING-BOTTOM:3px;PADDING-LEFT:0px;"></i></a>
+    <a href="https://devpost.com/camakk" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><img src="css/devpost.png" height="18px" style="PADDING-BOTTOM:3px;PADDING-LEFT:0px;"></i></a>
     <a href="https://www.linkedin.com/in/cameronakker" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
   </div>
@@ -55,69 +237,84 @@
 
 <!-- Header with name and filters -->
 <header class="w3-container">
-    <a href="#"><img src="img_avatar_g2.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <br>
     <h1 style="margin-left:15px;line-height:25px;"><b><font face="verdana"> Cameron Akker</b></h1>
     <div class="w3-section w3-bottombar w3-padding-8">
       <span style="margin-left:15px;" class="w3-margin-right">Projects:</span>
-      <button class="w3-btn">ALL</button>
-      <button class="w3-btn w3-white"><i class="fa fa-bolt w3-margin-right"></i>Electrical Engineering</button>
-      <button class="w3-btn w3-white"><i class="fa fa-keyboard-o w3-margin-right"></i>Programming</button>
-      <button class="w3-btn w3-white"><i class="fa fa-map-pin w3-margin-right"></i>Mechanical Design</button>
-      <button class="w3-btn w3-white"><i class="fa fa-university w3-margin-right"></i>Community</button>
-      <button class="w3-btn w3-white"><i class="fa fa-sticky-note w3-margin-right"></i>Misc.</button>
+      <button id="filter-all" class="w3-btn" onClick="updatefilter_all()">ALL</button>
+      <button id="filter-ee" class="w3-btn w3-white" onClick="updatefilter_ee()"><i class="fa fa-bolt w3-margin-right"></i>Electrical Engineering</button>
+      <button id="filter-pr" class="w3-btn w3-white" onClick="updatefilter_pr()"><i class="fa fa-keyboard-o w3-margin-right"></i>Programming</button>
+      <button id="filter-me" class="w3-btn w3-white" onClick="updatefilter_me()"><i class="fa fa-map-pin w3-margin-right"></i>Mechanical Design</button>
+      <button id="filter-cm" class="w3-btn w3-white" onClick="updatefilter_cm()"><i class="fa fa-university w3-margin-right"></i>Community</button>
+      <button id="filter-ms" class="w3-btn w3-white" onClick="updatefilter_ms()"><i class="fa fa-sticky-note w3-margin-right"></i>Misc.</button>
     </div>
 </header>
 
 <!-- First Photo Grid-->
+
 <div class="w3-row-padding">
-  <div class="w3-third w3-container w3-margin-bottom">
-    <img src="home/hackharvard2.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>HackHarvard</b></p>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+  <a id="box1">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img1" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title1"></p>
+        <p id="description1"></p>
+      </div>
     </div>
-  </div>
-  <div class="w3-third w3-container w3-margin-bottom">
-    <img src="home/computer.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>Analog/PCB Circuit Design</b></p>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+  </a>
+
+  <a id="box2">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img2" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title2"></p>
+        <p id="description2"></p>
+      </div>
     </div>
-  </div>
-  <div class="w3-third w3-container">
-    <img src="home/fpga.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>FPGA Programming</b></p>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+  </a>
+
+  <a id="box3">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img3" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title3"></p>
+        <p id="description3"></p>
+      </div>
     </div>
-  </div>
+  </a>
 </div>
 
 <!-- Second Photo Grid-->
 <div class="w3-row-padding">
-  <div class="w3-third w3-container w3-margin-bottom">
-    <img src="home/csdev.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>Mentoring Computer Science Students</b></p>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+  <a id="box4">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img4" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title4"></p>
+        <p id="description4"></p>
+      </div>
     </div>
-  </div>
-  <div class="w3-third w3-container w3-margin-bottom">
-    <img src="home/electric_car.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>Fully-Electric Personal Electric Vehicle</b></p>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+  </a>
+  <a id="box5">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img5" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title5"></p>
+        <p id="description5"></p>
+      </div>
     </div>
-  </div>
-  <div class="w3-third w3-container">
-    <img src="home/tours.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>Tour Guide Work</b></p>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+  </a>
+  <a id="box6">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img6" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title6"></p>
+        <p id="description6"></p>
+      </div>
     </div>
-  </div>
+  </a>
 
   <div id="testhere"></div>
 
@@ -136,37 +333,9 @@
   </div>
 
   <!-- Footer -->
-<footer class="w3-container w3-padding-32 w3-white">
+<footer class="w3-container w3-padding-16 w3-white">
   <div class="w3-row-padding">
-    <div class="w3-third">
-      <h3>FOOTER</h3>
-      <p>Praesent tincidunt sed tellus ut rutrum.</p>
-      <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </div>
-
-    <div class="w3-third">
-      <h3>BLOG POSTS</h3>
-      <ul class="w3-ul w3-hoverable">
-        <li class="w3-padding-16">
-          <!--
-          <img src="#" class="w3-left w3-margin-right" style="width:50px">
-        -->
-          <span class="w3-large">Lorem</span><br>
-          <span>Sed mattis nunc</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="w3-third">
-      <h3>POPULAR TAGS</h3>
-      <p>
-        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">London</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">DIY</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Family</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Shopping</span>
-      </p>
-    </div>
-
+   <p>© 2016 Cameron Akker<br> Powered by <a href="http://www.w3schools.com/w3css/">w3.css</a></p>
   </div>
 </footer>
 
@@ -185,29 +354,8 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
-$(document).ready(function() {
-  $("#testhere").html("<h1>Here is some text</h1>");
-});
-
 </script>
-
-
 
 <script src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/projects.js"></script>
 <script src="js/w3data.js"></script>
-
-<!--
-<script>
-  w3IncludeHTML();
-</script>
--->
-
-<script>
-   $(function(){
-    $("#testhere").load("test.html");
-   }
-</script>
-
-</body>
-</html>

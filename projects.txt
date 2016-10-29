@@ -1,0 +1,48 @@
+Electrical Engineering:
+Electric Car
+MIPS Processor
+Embedded Programming Chip (Attiny44)
+ALU (CS141)
+Grindlay Lab (HREXI)
+In-System Programmer
+8051 Computer
+Stoplight
+Vortex
+
+Programming:
+Slash Hack: JustMenu
+FoodSpeak
+LightRunner
+HackDartmouth: Jukebox
+Wumpus
+DFO 2
+Wisdom of the Ancients
+
+
+Mechanical Design:
+Workbench
+Electric Car
+Press-Fit Boxes
+Robotics
+
+Community
+HH 2016
+i-lab community nights
+Illuminate Global 2016
+HH 2015
+DfA Mentoring
+Other Hackathons (VR Hackathon, HMS, Appathon, Makeathon, HS Hacks (Andrew), Toledo)
+
+
+Misc:
+Teaching Fellow (ES 50)
+Teaching Fellow (ES 153)
+Tour Guide
+Om nom omelets
+EasyPark
+DRL
+
+
+Programming
+PennApps: BingeWatch
+HackMIT: QuickNote
