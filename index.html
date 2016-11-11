@@ -170,23 +170,52 @@ function load_tourguide(slot) {
     $("#description" + slot).html("Lead walking tours through Harvard University during the summer of 2015 as a tour guide employed by Trademark Tours");
 }
 
+function load_all(pagenum) {
+  load_hackharvard2016(1);
+  load_custompcb(2);
+  load_tf(3);
+  load_hrexi(4);
+  load_electriccar(5);
+  load_tourguide(6);
+}
 
 
 window.onload = function() {
- load_hackharvard2016(1);
- load_custompcb(2);
- load_tf(3);
- load_hrexi(4);
- load_electriccar(5);
- load_tourguide(6);
-
-
-
-
- //load_foodspeak(6);
- //load_hackharvard2015(3);
-
+  load_all(page);
 }
+
+function updatePage(pagenum) {
+  page = pagenum;
+  $("#page1").removeClass("w3-black");
+  $("#page1").addClass("w3-hover-black");
+  $("#page2").removeClass("w3-black");
+  $("#page2").addClass("w3-hover-black");
+  $("#page3").removeClass("w3-black");
+  $("#page3").addClass("w3-hover-black");
+  $("#page4").removeClass("w3-black");
+  $("#page4").addClass("w3-hover-black");
+  switch(pagenum) {
+    case 1:
+      $("#page1").addClass("w3-black");
+      $("#page1").removeClass("w3-hover-black");
+      break;
+    case 2:
+      $("#page2").addClass("w3-black");
+      $("#page2").removeClass("w3-hover-black");
+      break;
+    case 3:
+      $("#page3").addClass("w3-black");
+      $("#page3").removeClass("w3-hover-black");
+      break;
+    case 4:
+      $("#page4").addClass("w3-black");
+      $("#page4").removeClass("w3-hover-black");
+      break;
+    default:
+      break;
+  }
+}
+
 
 </script>
 
@@ -324,11 +353,10 @@ window.onload = function() {
 <!-- Pagination -->
 <div class="w3-center w3-padding-16">
     <ul class="w3-pagination">
-      <li><a class="w3-black" href="#">1</a></li>
-      <!--
-      <li><a class="w3-hover-black" href="#">2</a></li>
-      <li><a class="w3-hover-black" href="#">3</a></li>
-    -->
+      <li id="page1" onclick="updatePage(1)"><a class="w3-black">1</a></li>
+      <li id="page2" onclick="updatePage(2)"><a class="w3-hover-black">2</a></li>
+      <li id="page3"><a class="w3-hover-black">3</a></li>
+      <li id="page4"><a class="w3-hover-black">4</a></li>
     </ul>
   </div>
 
