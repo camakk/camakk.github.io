@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cameron Akker - Home</title>
+    <title>Akker - Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/raleway.css">
@@ -26,13 +26,13 @@
     <p id="mypersonaldescription" class="w3-text-grey"></p>
   </div>
 
-  <a href="index.html" class="w3-padding w3-text-teal">HOME</a>
-  <a id="projectsbutton" href="projects.html" class="w3-padding">PROJECTS</a>
+  <a href="index.html" class="w3-padding">HOME</a>
+  <a id="projectsbutton" href="#" class="w3-padding" onclick="toggleProjects()">PROJECTS</a>
     <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
   <a href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
   <a href="contact.html" class="w3-padding">CONTACT</a>
 
-<!--
+
   <div class="w3-section w3-padding-top w3-large">
     <a href="https://facebook.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
     <a href="https://github.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-github"></i></a>
@@ -40,7 +40,6 @@
     <a href="https://www.linkedin.com/in/cameronakker" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
   </div>
--->
 
   <div class="w3-container">
     <p class="w3-text-grey"></p>   <!-- this line is for including the total number of projects-->
@@ -60,6 +59,7 @@
     <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <br>
+    
     <div class="w3-row">
       <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:20px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
       <div class="w3-col s6 w3-dark-grey w3-padding">
@@ -72,135 +72,95 @@
       </div>
     </div>
 
+
     <div class="w3-section w3-bottombar w3-padding-8">
+      <span style="margin-left:15px;" class="w3-margin-right">Projects:</span>
+      <button id="filter-all" class="w3-btn" onClick="updatefilter('all')">ALL</button>
+      <button id="filter-ee" class="w3-btn w3-white" onClick="updatefilter('ee')"><i class="fa fa-bolt w3-margin-right"></i>Electrical Engineering</button>
+      <button id="filter-pr" class="w3-btn w3-white" onClick="updatefilter('pr')"><i class="fa fa-keyboard-o w3-margin-right"></i>Programming</button>
+      <button id="filter-me" class="w3-btn w3-white" onClick="updatefilter('me')"><i class="fa fa-map-pin w3-margin-right"></i>Mechanical Design</button>
+      <button id="filter-cm" class="w3-btn w3-white" onClick="updatefilter('cm')"><i class="fa fa-sticky-note w3-margin-right"></i>Community</button>
+    </div>
 </header>
 
-<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;">
-  <h1 style="padding-left:10px; padding-top:15px; margin-bottom:0px"><b>Engineer, Hacker, Inventor</b></h1>
-  <h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px">Eagle 7.7 | Autodesk Inventor 2017 | C Programming | Verilog | Xilinx ISE | Solidworks | CNC Milling</h4>
-  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">B.S. Electrical Engineering Student at Harvard University, Class of 2018</h5>
+<!-- First Photo Grid-->
 
-
-<!-- PROJECTS -->
-<h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px"><b>Projects I've Completed</b></h4>
-  <div class="w3-row-padding">
-    <a id="box1">
-      <div class="w3-col s2 w3-padding">
-        <img id="img1" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="title1"></p>
-        </div>
+<div class="w3-row-padding">
+  <a id="box1">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img1" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title1"></p>
+        <p id="description1"></p>
       </div>
-    </a>
+    </div>
+  </a>
 
-    <a id="box2">
-      <div class="w3-col s2 w3-padding">
-        <img id="img2" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="title2"></p>
-        </div>
+  <a id="box2">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img2" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title2"></p>
+        <p id="description2"></p>
       </div>
-    </a>
+    </div>
+  </a>
 
-    <a id="box3">
-      <div class="w3-col s2 w3-padding">
-        <img id="img3" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="title3"></p>
-        </div>
+  <a id="box3">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img3" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title3"></p>
+        <p id="description3"></p>
       </div>
-    </a>
-
-    <a id="box4">
-      <div class="w3-col s2 w3-padding">
-        <img id="img4" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="title4"></p>
-        </div>
-      </div>
-    </a>
-
-    <a id="box5">
-      <div class="w3-col s2 w3-padding">
-        <img id="img5" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="title5"></p>
-        </div>
-      </div>
-    </a>
-
-    <a id="box6">
-      <div class="w3-col s2 w3-padding">
-        <img id="img6" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="title6"></p>
-        </div>
-      </div>
-    </a>
-
+    </div>
+  </a>
 </div>
-<!-- END PROJECTS -->
 
-<!-- PROJECTS -->
-<h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px"><b>Tutorials I've Compiled</b></h4>
-  <div class="w3-row-padding">
-    <a id="tutorial1">
-      <div class="w3-col s2 w3-padding">
-        <img id="tut" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="tut_title1"></p>
-        </div>
+<!-- Second Photo Grid-->
+<div class="w3-row-padding">
+  <a id="box4">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img4" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title4"></p>
+        <p id="description4"></p>
       </div>
-    </a>
+    </div>
+  </a>
+  <a id="box5">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img5" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title5"></p>
+        <p id="description5"></p>
+      </div>
+    </div>
+  </a>
+  <a id="box6">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img id="img6" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id="title6"></p>
+        <p id="description6"></p>
+      </div>
+    </div>
+  </a>
 
-    <a id="tutorial2">
-      <div class="w3-col s2 w3-padding">
-        <img id="tut2" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="tut_title2"></p>
-        </div>
-      </div>
-    </a>
-
-    <a id="tutorial3">
-      <div class="w3-col s2 w3-padding">
-        <img id="tut3" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="tut_title3"></p>
-        </div>
-      </div>
-    </a>
-
-    <a id="tutorial4">
-      <div class="w3-col s2 w3-padding">
-        <img id="tut4" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="tut_title4"></p>
-        </div>
-      </div>
-    </a>
-
-    <a id="tutorial5">
-      <div class="w3-col s2 w3-padding">
-        <img id="tut5" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="tut_title5"></p>
-        </div>
-      </div>
-    </a>
-
-    <a id="tutorial6">
-      <div class="w3-col s2 w3-padding">
-        <img id="tut6" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p id="tut_title6"></p>
-        </div>
-      </div>
-    </a>
+  <div id="testhere"></div>
 
 </div>
 
 
+<!-- Pagination -->
+<div class="w3-center w3-padding-16">
+    <ul class="w3-pagination">
+      <li onclick="load_all(1)"><a id="page1class" class="w3-black">1</a></li>
+      <li onclick="load_all(2)"><a id="page2class"class="w3-hover-black">2</a></li>
+      <li onclick="load_all(3)"><a id="page3class" class="w3-hover-black">3</a></li>
+      <li onclick="load_all(4)"><a id="page4class" class="w3-hover-black">4</a></li>
+    </ul>
+  </div>
 
   <!-- Footer -->
 <footer class="w3-container w3-padding-16 w3-white">
@@ -228,7 +188,7 @@ window.onload = function() {
   load_all(page);
   document.getElementById("projectshtml").innerHTML = projectshtml;
   document.getElementById("mypersonaldescription").innerHTML = personaldescription;
-  $("#projects_sidebar").addClass("w3-text-teal");
+  $("#projectsbutton").addClass("w3-text-teal");
 }
 
 </script>

@@ -1,18 +1,18 @@
 // projects.js
 // this document has all the JavaScript for my page
 
-var projectsExpanded = false;
-var filters = {all:true, ee:false, pr:false, me:false, cm:false, ms:false}
+var projectsExpanded = true;
+var filters = {all:true, ee:false, pr:false, me:false, cm:false}
 var page = 1;
 
 
 function toggleProjects() {
   if(projectsExpanded == false) {
     projectsExpanded = true;
-    document.getElementById("sidebar").innerHTML = sidebar;
+    document.getElementById("projectshtml").innerHTML = projectshtml;
   } else {
     projectsExpanded = false;
-    document.getElementById("sidebar").innerHTML = "";
+    document.getElementById("projectshtml").innerHTML = "";
   }
 }
 
@@ -22,13 +22,11 @@ function updatefilter(filter) {
   filters.pr = false;
   filters.me = false;
   filters.cm = false;
-  filters.ms = false;
   $("#filter-all").addClass("w3-white");
   $("#filter-ee").addClass("w3-white");
   $("#filter-pr").addClass("w3-white");
   $("#filter-me").addClass("w3-white");
   $("#filter-cm").addClass("w3-white");
-  $("#filter-ms").addClass("w3-white");
   switch(filter) {
     case "all":
       filters.all = true;
@@ -49,10 +47,6 @@ function updatefilter(filter) {
     case "cm":
       filters.cm = true;
       $("#filter-cm").removeClass("w3-white");
-      break;
-    case "ms":
-      filters.ms = true;
-      $("#filter-ms").removeClass("w3-white");
       break;
     default:
       break;
@@ -196,16 +190,38 @@ function load_all(pagenum) {
   }
 }
 
+var personaldescription = 'An engineer by education, a hacker by nature, an inventor by aspiration. Harvard College Class of 2018.';
 
-var sidebar = '<div style="font-size:11pt; list-style-type:lower-alpha; margin-left:10px;">';
+
+var projectshtml = '<div style="font-size:10pt; list-style-type:none; margin-left:10px;">';
 // electrical engineering projects
-sidebar += '<b style="margin-left:0px;"> Electrical Engineering Projects </b>';
-sidebar += '<li><a href="resistorboxes.html" id="resistorboxes_sidebar">Resistor Boxes</a></li>';
-sidebar += '<li><a href="about.html">HackHarvard</a></li>';
-sidebar += '<li><a href="contact.html">Tour Guide</a></li>';
+projectshtml += '<b style="margin-left:0px;" class="w3-light-grey2"> Electrical Engineering Projects </b>';
+projectshtml += '<li><a href="about.html">Electric Car</a></li>';
+//projectshtml += '<li><a href="contact.html">MIPS Processor</a></li>';
+projectshtml += '<li><a href="contact.html">Stepper Motor Driver</a></li>';
+//projectshtml += '<li><a href="contact.html">Arithmatic Logic Unit</a></li>';
+projectshtml += '<li><a href="contact.html">8051 Computer</a></li>';
+projectshtml += '<li><a href="contact.html">Stoplight</a></li>';
+projectshtml += '<li><a href="contact.html">Vortex</a></li>';
+// programming projects
+projectshtml += '<b style="margin-left:0px;"  class="w3-light-grey2"> Programming Projects </b>';
+projectshtml += '<li><a href="resistorboxes.html">FoodSpeak</a></li>';
+//projectshtml += '<li><a href="about.html">LightRunner</a></li>';
+//projectshtml += '<li><a href="contact.html">Jukebox</a></li>';
 // mechanical engineering projects
-sidebar += '<b style="margin-left:0px;"> Mechanical Design Projects </b>';
-sidebar += '<li><a href="resistorboxes.html" >Resistor Boxes</a></li>';
-sidebar += '<li><a href="about.html">HackHarvard</a></li>';
-sidebar += '<li><a href="contact.html">Tour Guide</a></li>';
-sidebar += '</div>';
+projectshtml += '<b style="margin-left:0px;" class="w3-light-grey2"> Mechanical Design Projects </b>';
+projectshtml += '<li><a href="resistorboxes.html" id="resistorboxes_projectshtml">MDF Laser-Cut Resistor Boxes</a></li>';
+projectshtml += '<li><a href="knight.html" id="knight_projectshtml">Cast-Bismuth Knight Chess Piece</a></li>';
+projectshtml += '<li><a href="toolbench.html" id="toolbench_projectshtml">Wooden Workbench</a></li>';
+projectshtml += '<li><a href="shield.html">Composite Captain America Shield</a></li>';
+//projectshtml += '<li><a href="bust.html">3D Scanned Upper Body Bust</a></li>';
+//projectshtml += '<li><a href="robotics.html">Robotics</a></li>';
+// community projects
+projectshtml += '<b style="margin-left:0px;" class="w3-light-grey2"> Community Projects </b>';
+projectshtml += '<li><a href="about.html">HackHarvard 2016</a></li>';
+//projectshtml += '<li><a href="about.html">Illuminate Global 2016</a></li>';
+//projectshtml += '<li><a href="about.html">i-lab Community Nights</a></li>';
+//projectshtml += '<li><a href="about.html">HackHarvard 2015</a></li>';
+//projectshtml += '<li><a href="contact.html">Trademark Tour Guide</a></li>';
+//projectshtml += '<li><a href="about.html">MIT Design for America</a></li>';
+projectshtml += '</div>';
