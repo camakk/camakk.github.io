@@ -19,20 +19,21 @@
 <!-- Sidenav/menu -->
 <nav class="w3-sidenav w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidenav"><br>
   <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-padding" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="home/profile.jpg" style="width:100%;" class="w3-round"><br><br>
-    <h4 class="w3-padding-0"><b>Cameron Akker</b></h4>
-    <p id="mypersonaldescription" class="w3-text-grey"></p>
+    <!-- JavaScript for Personal Description -->
+    <div id="personaldescriptionhtml"></div>
+    <!-- JavaScript for Personal Description -->
+
   </div>
-  <a href="index.html" class="w3-padding">HOME</a>
-  <a href="index.html" class="w3-padding" id="projects_sidebar">PROJECTS</a>
-
-  <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"></div>
-
-  <a href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
-  <a href="contact.html" class="w3-padding">CONTACT</a>
+  <a id="homebutton" href="index.html" class="w3-padding">HOME</a>
+  <a id="projectsbutton" href="projects.html" class="w3-padding w3-text-teal">PROJECTS</a>
+    <!-- JavaScript for Project Listings -->
+    <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
+    <!-- JavaScript for Project Listings -->
+  <a id="tutorialsbutton" href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
+  <a id="contactbutton" href="contact.html" class="w3-padding">CONTACT</a>
 
 
   <div class="w3-container">
@@ -53,18 +54,15 @@
     <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <br>
-    <div class="w3-row">
-      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:20px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
+    <div class="w3-row" style="margin-bottom:0px;">
+      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
       <div class="w3-col s6 w3-dark-grey w3-padding">
-        <h4 style="margin-left:15px;line-height:15px;" class="w3-right">
-          <a href="https://facebook.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
-          <a href="https://github.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-black w3-show-inline-block"><i class="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/cameronakker" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
-          <a href="https://twitter.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
-        </h4>
+        <!-- JavaScript for Header HTML -->
+        <div id="headerhtml"></div>
+        <!-- JavaScript for Header HTML -->
       </div>
     </div>
-    <div class="w3-section w3-bottombar w3-padding-8">
+    <div class="w3-section w3-bottombar w3-padding-8" style="margin-top:0px;">
       <a href="projects.html"><button id="returnbutton" class="w3-btn w3-white">Return to Projects</button></a>
     </div>
 </header>
@@ -153,16 +151,22 @@
   }
 
   window.onload = function() {
-    document.getElementById("projectshtml").innerHTML = projectshtml;
-    $("#resistorboxes_projectshtml").addClass("w3-text-teal");
-    $("#projects_sidebar").addClass("w3-text-teal");
+    $("#projectshtml").html(projectshtml);
+    $("#headerhtml").html(headerhtml);
+    $("#personaldescriptionhtml").html(personaldescriptionhtml);
+    $("#footerhtml").html(footerhtml);
+    $("#resistorboxes_button").addClass("w3-text-teal");
+    $("#projectsbutton").addClass("w3-text-teal");
   }
 
 </script>
 
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/projects.js"></script>
-
+<script src="js/w3data.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
+<script type="text/javascript" src="js/projects.js"></script>
 
 </body>
 </html>

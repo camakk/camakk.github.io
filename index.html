@@ -18,29 +18,22 @@
 <!-- Sidenav/menu -->
 <nav class="w3-sidenav w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidenav"><br>
   <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-padding" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="home/profile.jpg" style="width:100%;" class="w3-round"><br><br>
-    <h4 class="w3-padding-0"><b>Cameron Akker</b></h4>
-    <p id="mypersonaldescription" class="w3-text-grey"></p>
+
+    <!-- JavaScript for Personal Description -->
+    <div id="personaldescriptionhtml"></div>
+    <p class="w3-text-grey">An engineer by education, a hacker by nature, an inventor by aspiration. Harvard College Class of 2018.</p>
+    <!-- JavaScript for Personal Description -->
+
   </div>
 
-  <a href="index.html" class="w3-padding w3-text-teal">HOME</a>
+  <a id="homebutton" href="index.html" class="w3-padding w3-text-teal">HOME</a>
   <a id="projectsbutton" href="projects.html" class="w3-padding">PROJECTS</a>
-    <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
-  <a href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
-  <a href="contact.html" class="w3-padding">CONTACT</a>
-
-<!--
-  <div class="w3-section w3-padding-top w3-large">
-    <a href="https://facebook.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
-    <a href="https://github.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-github"></i></a>
-    <a href="https://devpost.com/camakk" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><img src="css/devpost.png" height="18px" style="PADDING-BOTTOM:3px;PADDING-LEFT:0px;"></i></a>
-    <a href="https://www.linkedin.com/in/cameronakker" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/camakk" style="PADDING-RIGHT:3px;" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
-  </div>
--->
+      <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
+  <a id="tutorialsbutton" href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
+  <a id="contactbutton" href="contact.html" class="w3-padding">CONTACT</a>
 
   <div class="w3-container">
     <p class="w3-text-grey"></p>   <!-- this line is for including the total number of projects-->
@@ -61,18 +54,16 @@
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <br>
     <div class="w3-row">
-      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:20px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
+      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px; "><b><font face="verdana"> Cameron Akker</b></h2></div>
       <div class="w3-col s6 w3-dark-grey w3-padding">
-        <h4 style="margin-left:15px;line-height:15px;" class="w3-right">
-          <a href="https://facebook.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
-          <a href="https://github.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-black w3-show-inline-block"><i class="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/cameronakker" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
-          <a href="https://twitter.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
-        </h4>
+        <!-- JavaScript for Header HTML -->
+        <div id="headerhtml"></div>
+        <!-- JavaScript for Header HTML -->
       </div>
     </div>
 
     <div class="w3-section w3-bottombar w3-padding-8">
+
 </header>
 
 <div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;">
@@ -204,9 +195,7 @@
 
   <!-- Footer -->
 <footer class="w3-container w3-padding-16 w3-white">
-  <div class="w3-row-padding">
-   <p>© 2016 Cameron Akker<br> Powered by <a href="http://www.w3schools.com/w3css/">w3.css</a></p>
-  </div>
+  <div id="footerhtml"></div>
 </footer>
 
 <!-- End page content -->
@@ -226,13 +215,18 @@ function w3_close() {
 
 window.onload = function() {
   load_all(page);
-  document.getElementById("projectshtml").innerHTML = projectshtml;
-  document.getElementById("mypersonaldescription").innerHTML = personaldescription;
-  $("#projects_sidebar").addClass("w3-text-teal");
+  $("#projectshtml").html(projectshtml);
+  $("#headerhtml").html(headerhtml);
+  $("#personaldescriptionhtml").html(personaldescriptionhtml);
+  $("#footerhtml").html(footerhtml);
+  $("#home_button").addClass("w3-text-teal");
 }
 
 </script>
 
 <script src="js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="js/projects.js"></script>
 <script src="js/w3data.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
+<script type="text/javascript" src="js/projects.js"></script>
