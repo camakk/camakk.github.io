@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cameron Akker - Stepper Motor Driver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/raleway.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <style>
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      .w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
+    </style>
+    <link rel="icon" href="default.ico">
+
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-padding" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <!-- JavaScript for Personal Description -->
+    <div id="personaldescriptionhtml"></div>
+    <!-- JavaScript for Personal Description -->
+
+  </div>
+  <a id="homebutton" href="index.html" class="w3-padding">HOME</a>
+  <a id="projectsbutton" href="projects.html" class="w3-padding w3-text-teal">PROJECTS</a>
+    <!-- JavaScript for Project Listings -->
+    <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
+    <!-- JavaScript for Project Listings -->
+  <a id="tutorialsbutton" href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
+  <a id="contactbutton" href="contact.html" class="w3-padding">CONTACT</a>
+
+
+  <div class="w3-container">
+    <p class="w3-text-grey"></p>   <!-- this line is for including the total number of projects-->
+  </div>
+
+</nav>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+<!-- Header with name and filters -->
+<header class="w3-container">
+    <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <br>
+    <div class="w3-row" style="margin-bottom:0px;">
+      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
+      <div class="w3-col s6 w3-dark-grey w3-padding">
+        <!-- JavaScript for Header HTML -->
+        <div id="headerhtml"></div>
+        <!-- JavaScript for Header HTML -->
+      </div>
+    </div>
+    <div class="w3-section w3-bottombar w3-padding-8" style="margin-top:0px;">
+      <a href="projects.html"><button id="returnbutton" class="w3-btn w3-white">Return to Projects</button></a>
+    </div>
+</header>
+
+<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
+
+  <h1 style="padding-left:10px; padding-top:15px; margin-bottom:0px"><b>Custom Stepper Motor Driver Board Using H-Bridges</b></h1>
+  <h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px">Eagle 7.7 | ShopBot Desktop | C Programming | AVRDUDE</h4>
+  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Completed as part of 4.140 (MIT Graduate-Level Class), November 2016</h5>
+  <div style="padding-left:20px">
+
+
+
+
+    <img class="w3-image" src="./img/steppermotordriver/img0.jpg" alt="overview" width="90%"> <br>
+
+
+    <h2> Designing the motor driver in Eagle</h2>
+    <p>
+      This week I got to complete real progress toward my milling machine project which I am delighted about. My final project will be a PCB milling machine and in order to have precise control over the toolpath, it is essential that stepper motors drive positioning of the bit on the X, Y, and Z axes.  I began by taking the template design for a motor driver board and adding a power LED and status RGB LED to it so I could use it more effectively in my milling machine.
+    </p>
+    <img class="w3-image" src="./img/steppermotordriver/img1.jpg" alt="schematic">
+    <p>
+      This is the most complex circuit I've design thus far and I decided to do everything I could to fit it into as small a space as possible.  The spec for this particular motor (Found on Pololu at <a href="https://www.pololu.com/product/1209"> this link</a>) says that its maximum current draw is 1A.  I had to carefully choose the trace width on my board to make sure I didn't have any heat dissipation problems with that much current. Assuming a copper depth of 0.1mm, the minimum trace size to carry 1A is 10.8mil.  To be safe, I set most of my high current traces at 24mil width.
+    </p>
+
+    <img class="w3-image" src="./img/steppermotordriver/img2.jpg" alt="board layout"> <br>
+
+    <p>
+      I had some difficult routing all the traces especially with needing to route VREG (5V), VRAW (9V), and GND (0V) to both the H bridge chips.  Ultimately, I had to use two 0 ohm jumpers which wasn't the worst thing in the world. It did make my board stick out a little bit on the right side, but that's not too bad.
+    </p>
+    <img class="w3-image" src="./img/steppermotordriver/img3.jpg" alt="milling boards"> <br>
+    <img class="w3-image" src="./img/steppermotordriver/img4.jpg" alt="finished traces"> <br>
+    <p>
+      I set up to mill the boards and I realized that the Harvard section was running out of copper boards.  Also, conveniently, the size of my board was just right so that I could fit two of them on one board.  Since I was very confident in my design, I decided to just go ahead and mill two boards at the same time.  I did the traces for the first board, zeroed the y axis to exactly 1.300 inches above the original y, then did the traces for the second board.
+    </p><p>
+      In addition, I added a small X and a small Y to each board in order to tell them apart.  Since I would have needed a 3rd board anyways to do the Z axis, I decided to just make two additional boards giving me four in total.  The boards were labeled X, Y, Z, and CA (which stands for Cameron Akker) allowing me to have one backup board if one of the others broke.
+    </p>
+    <h2> Soldering (stuffing) the boards </h2>
+    <img class="w3-image" src="./img/steppermotordriver/img5.jpg" alt="finished milled boards"> <br>
+    <img class="w3-image" src="./img/steppermotordriver/img6.jpg" alt="reference board image"> <br>
+
+    <p>
+      Soldering the boards took a lifetime and a half. By my count, each board had 6 resistors, 4 capacitors, 3 ICs, 2 LEDs (one RGB), 3 connectors, and one regulator.  Multiply all of that by 4, carry the one, and you'll see I made about 200 solder connections to finish all the boards.
+    </p>
+    <img class="w3-image" src="./img/steppermotordriver/img7.jpg" alt="fully soldered boards"> <br>
+    <p>
+      The bad news was that it took an hour, but the good news is that all of the connections turned out well. I laid out my boards well and I could tell just by looking at the board if there were any issues with the soldering.  As far as I know, there are no bad connections.
+    </p>
+    <h2> Programming and Testing the Boards </h2>
+    <p>
+      I used avrdude on a Linux VM to program the board - a thorough documentation of the process can be found in my <a href="week7.html">week 7 page</a>.  Since my board did not vary significantly from the template board other than the inclusion of status indicator LEDs, I could implement the code without modifying it too heavily.
+    </p>
+    <img class="w3-image" src="./img/steppermotordriver/img8.jpg" alt="pcb"> <br>
+    <p>
+      Once the board was all programmed and hooked up, I ran into a pretty confounding problem.  The ATtiny44 was outputting PWM signals to the motor driver chips, but the output to the motors was just a flat 5V signal.  After fiddling with it for an hour and checking that all the pins were tied correctly, I sent an email to Rob describing the problem.  He told me that the H bridge chips need to run at at least 8V in order to work.  I was a little concerned because the motors were spec'ed for 2.7V, but he assured me it wasn't a problem. I switched from a 5V supply to the bench variable power supply at 9.4V and the stepper motor began to wiggle.
+    </p>
+    <img class="w3-image" src="./img/steppermotordriver/img9.jpg" alt="pcb"> <br>
+    <p>
+      I cycled through all four boards that I had made and I was delighted to find that every single one could drive the stepper motor without a problem.
+    </p>
+    <img class="w3-image" src="./img/steppermotordriver/img10.jpg" alt="pcb"> <br>
+
+    <p>
+      I'm glad I made all three required boards this week because next week, I can do the interface programming that allows them all to talk to one another.  The electrical part of my final project is coming together!
+    </p>
+
+
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-white">
+    <div id="footerhtml"></div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidenav
+  function w3_open() {
+      document.getElementById("mySidenav").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+  }
+
+  function w3_close() {
+      document.getElementById("mySidenav").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+  }
+
+  window.onload = function() {
+    $("#projectshtml").html(projectshtml);
+    $("#headerhtml").html(headerhtml);
+    $("#personaldescriptionhtml").html(personaldescriptionhtml);
+    $("#footerhtml").html(footerhtml);
+    $("#steppermotordriver_button").addClass("w3-text-teal");
+    $("#projectsbutton").addClass("w3-text-teal");
+  }
+
+</script>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/w3data.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
+<script type="text/javascript" src="js/projects.js"></script>
+
+</body>
+</html>

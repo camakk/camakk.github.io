@@ -20,24 +20,26 @@ function toggleProjects() {
 var projectshtml = '<div style="font-size:10pt; list-style-type:none; margin-left:10px;">';
 // electrical engineering projects
 projectshtml += '<b style="margin-left:0px;" class="w3-light-grey2"> Electrical Engineering Projects </b>';
-projectshtml += '<li><a href="about.html">Electric Car</a></li>';
+projectshtml += '<li><a href="pj_electriccar.html" id="electriccar_button">Electric Car</a></li>';
+projectshtml += '<li><a href="pj_millingmachine.html" id="millingmachine_button">Low-Cost CNC Mill</a></li>';
+
 //projectshtml += '<li><a href="contact.html">MIPS Processor</a></li>';
-projectshtml += '<li><a href="contact.html">Stepper Motor Driver</a></li>';
+projectshtml += '<li><a href="pj_steppermotordriver.html" id="steppermotordriver_button">Stepper Motor Driver</a></li>';
 //projectshtml += '<li><a href="contact.html">Arithmatic Logic Unit</a></li>';
-projectshtml += '<li><a href="contact.html">8051 Computer</a></li>';
+//projectshtml += '<li><a href="contact.html">8051 Computer</a></li>';
 projectshtml += '<li><a href="contact.html">Stoplight</a></li>';
 projectshtml += '<li><a href="contact.html">Vortex</a></li>';
 // programming projects
-projectshtml += '<b style="margin-left:0px;"  class="w3-light-grey2"> Programming Projects </b>';
-projectshtml += '<li><a href="resistorboxes.html">FoodSpeak</a></li>';
+//projectshtml += '<b style="margin-left:0px;"  class="w3-light-grey2"> Programming Projects </b>';
+//projectshtml += '<li><a href="resistorboxes.html">FoodSpeak</a></li>';
 //projectshtml += '<li><a href="about.html">LightRunner</a></li>';
 //projectshtml += '<li><a href="contact.html">Jukebox</a></li>';
 // mechanical engineering projects
 projectshtml += '<b style="margin-left:0px;" class="w3-light-grey2"> Mechanical Design Projects </b>';
-projectshtml += '<li><a href="resistorboxes.html" id="resistorboxes_button">MDF Laser-Cut Resistor Boxes</a></li>';
-projectshtml += '<li><a href="knight.html" id="knight_button">Cast-Bismuth Knight Chess Piece</a></li>';
-projectshtml += '<li><a href="toolbench.html" id="toolbench_button">Wooden Workbench</a></li>';
-projectshtml += '<li><a href="shield.html">Composite Captain America Shield</a></li>';
+projectshtml += '<li><a href="pj_resistorboxes.html" id="resistorboxes_button">MDF Laser-Cut Resistor Boxes</a></li>';
+projectshtml += '<li><a href="pj_knight.html" id="knight_button">Cast-Bismuth Knight Chess Piece</a></li>';
+projectshtml += '<li><a href="pj_toolbench.html" id="toolbench_button">Wooden Workbench</a></li>';
+projectshtml += '<li><a href="pj_shield.html" id="shield_button">Composite Captain America Shield</a></li>';
 //projectshtml += '<li><a href="bust.html">3D Scanned Upper Body Bust</a></li>';
 //projectshtml += '<li><a href="robotics.html">Robotics</a></li>';
 // community projects

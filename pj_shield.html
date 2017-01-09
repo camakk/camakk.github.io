@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cameron Akker - Shield</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/raleway.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <style>
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      .w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
+    </style>
+    <link rel="icon" href="default.ico">
+
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-padding" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <!-- JavaScript for Personal Description -->
+    <div id="personaldescriptionhtml"></div>
+    <!-- JavaScript for Personal Description -->
+
+  </div>
+  <a id="homebutton" href="index.html" class="w3-padding">HOME</a>
+  <a id="projectsbutton" href="projects.html" class="w3-padding w3-text-teal">PROJECTS</a>
+    <!-- JavaScript for Project Listings -->
+    <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
+    <!-- JavaScript for Project Listings -->
+  <a id="tutorialsbutton" href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
+  <a id="contactbutton" href="contact.html" class="w3-padding">CONTACT</a>
+
+
+  <div class="w3-container">
+    <p class="w3-text-grey"></p>   <!-- this line is for including the total number of projects-->
+  </div>
+
+</nav>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+<!-- Header with name and filters -->
+<header class="w3-container">
+    <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <br>
+    <div class="w3-row" style="margin-bottom:0px;">
+      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
+      <div class="w3-col s6 w3-dark-grey w3-padding">
+        <!-- JavaScript for Header HTML -->
+        <div id="headerhtml"></div>
+        <!-- JavaScript for Header HTML -->
+      </div>
+    </div>
+    <div class="w3-section w3-bottombar w3-padding-8" style="margin-top:0px;">
+      <a href="projects.html"><button id="returnbutton" class="w3-btn w3-white">Return to Projects</button></a>
+    </div>
+</header>
+
+<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
+
+  <h1 style="padding-left:10px; padding-top:15px; margin-bottom:0px"><b>Composite Captain America Shield</b></h1>
+  <h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px">Solidworks | PartWorks 3D | VCarvePro | ShopBot PRSalpha</h4>
+  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Completed as part of 4.140 (MIT Graduate-Level Class), November 2016</h5>
+  <div style="padding-left:20px">
+
+
+
+
+
+    <img src="./img/shield/img0.jpg" style="width:90%;" class="w3-round"><br><br>
+    <h2> Designing the shield in Solidworks</h2>
+              <p>
+                This project involves composites - specifically burlap + epoxy for some tough almost plastic-y materials.  It seems the composites projects that turn out the best are those that rely on smooth geometry and don't have super tight corners to force the burlap into.  That made it relatively easy on me to determine a direction for this project, as there's something I've wanted to build for a long time.  A Captain America shield seemed like the perfect thing to build because both its size and its geometry were well-suited to the fabrication process for composites
+              </p>
+              <p>
+                Since the shape of the shield is fundamentally a concave disk, I decided to challenge myself a little bit more with the software. I'm most comfortable making things in Autodesk Inventor or Fusion 360 so I decided to go out of my comfort zone and instead use Solidworks for this project.  In addition, most of my projects in the past have been built off simple constructive geometry - draw a sketch, extrude it, sketch again, revolve or extrude, etc.  I'd never done a project that involved complex surface modeling such as what would be required for a shield (to some degree) so this project was a good opportunity to dip my toes into the world of curved surface modeling.
+              </p>
+
+              <img class="w3-image" src="./img/shield/img1.jpg" alt="side profile of shield"> <br>
+
+              <p>
+                I began in Solidworks by modeling a side profile of the shield.  I'd never used Solidworks before on a 3D project (used it to design laser cutter cuts before) so getting settled into the environment and switching over from Autodesk Inventor took a little bit of time.  Most of the function are basically identical but the representations are more pictographic in Solidworks I feel.  The width of the foam insulation we were working with was only 24" wide on one side, so I was limited to a 24" diameter circle for the main part of the shield.  To allow a little bit of additional space for cutting into the foam, I set up my shield with an internal diameter of only 22".  The curvature on the outside is a spline that I adjusted to roughly be the shape I'd expect a shield to be.
+              </p>
+              <img class="w3-image" src="./img/shield/img2.jpg" alt="first revolve"> <br>
+              <img class="w3-image" src="./img/shield/img3.jpg" alt="second revolve"> <br>
+              <p>
+                After doing a revolution about the center axis, I realized my initial sketch had the flat area in the center of the shield much too small. There's no room for a star! Fortunately, Solidworks makes it extremely easy to redimension a sketch even if there's a solid component revolved from it.  I fixed the center area and made it about 50% the total diameter of the shield which, based on my observations of pictures of the actual shield, was about right.
+              </p>
+              <img class="w3-image" src="./img/shield/img4.jpg" alt="shield image overlay top"> <br>
+              <img class="w3-image" src="./img/shield/img5.jpg" alt="shield image overlay back"> <br>
+
+              <p>
+                Solidworks includes the helpful feature of being able to import an image file into a sketch layer. In this case, I imported a flat color image of the Captain America shield and layered it on top of my initial revolution feature.  There's another feature after importing an image called "auto-trace" - this feature takes areas of high contrast in an imported image and converts them to sketch lines recognized by Solidworks.  I applied auto-trace to the star in the center of the shield after centering the shield properly and was rewarded with a sketch of the star feature on the plane on the front of the shield.
+              </p>
+              <img class="w3-image" src="./img/shield/img6.jpg" alt="star extrusion"> <br>
+              <p>
+                From there, it was a simple matter of extruding the sketch just far enough to make the star feature visible on the shield.  I chose a depth of .25" where the total shield depth was closer to 1.5 inches.  This 1.75" total depth would be easy to do in the foam which only has a thickness of 2".  I exported the image to STL format to prepare to cut.
+              </p>
+              <img class="w3-image" src="./img/shield/img7.jpg" alt="finished shield CAD"> <br>
+
+              <h2> Machining the foam shield </h2>
+              <img class="w3-image" src="./img/shield/img8.jpg" alt="Partworks 3D setup"> <br>
+              <p>
+                I set up the shield in Partworks 3D and found out the total cut time was going to be just over an hour.  I chose an 1/2" normal end mill because the total shield size was 22"x22"x1.8" and I wanted the job to go as quickly as possible.  It was incredibly aesthetically appealing to watch the mill cut out the curved surface of the shield.
+              </p>
+              <img class="w3-image" src="./img/shield/img9.jpg" alt="milling foam part 1"> <br>
+              <img class="w3-image" src="./img/shield/img10.jpg" alt="milling foam part 2"> <br>
+              <img class="w3-image" src="./img/shield/img11.jpg" alt="milling foam part 3"> <br>
+
+              <p>
+                I took the finished foam shield and manually cut out the outline of the shield using an exacto-knife.  The result was a sweet foam shield that I could use in case the whole composites thing didn't work out.  Glenn advised me that the vacuum bag would treat the solid convex shape of the cut-out shield much better than it would the well if I left the shield as part of the bigger foam block.
+              </p>
+              <img class="w3-image" src="./img/shield/img12.jpg" alt="fully milled shield"> <br>
+              <p>
+                From there, the process was extremely straightforward.  I cut out 5 layers of burlap to be used in preparing the material.  Since I'd only extruded the star to a depth of 0.25", it would not have shown up among all the layers of burlap so I decided instead to include some linen in the material as well.
+              </p>
+              <img class="w3-image" src="./img/shield/img13.jpg" alt="layering burlap"> <br>
+              <p>
+                I cut a star-shaped hole in the top layer of the burlap using a sharpie and scissors so that the linen material could show through.  I layered the epoxy over the burlap, set the whole thing in a vacuum bag, sucked out all the air, and left it to dry overnight.
+              </p>
+              <img class="w3-image" src="./img/shield/img14.jpg" alt="vacuum bag"> <br>
+              <img class="w3-image" src="./img/shield/img15.jpg" alt="finished shield"> <br>
+              <p>
+                I could have probably used a little more epoxy as the edge regions of the shield were basically only burlap - turns out a thin layer is not enough and the best projects are the ones that you lather the epoxy on.  The finished shield is pretty strong in the center region.  A very successful composite build!
+              </p>
+      <br><br>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-white">
+    <div id="footerhtml"></div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidenav
+  function w3_open() {
+      document.getElementById("mySidenav").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+  }
+
+  function w3_close() {
+      document.getElementById("mySidenav").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+  }
+
+  window.onload = function() {
+    $("#projectshtml").html(projectshtml);
+    $("#headerhtml").html(headerhtml);
+    $("#personaldescriptionhtml").html(personaldescriptionhtml);
+    $("#footerhtml").html(footerhtml);
+    $("#shield_button").addClass("w3-text-teal");
+    $("#projectsbutton").addClass("w3-text-teal");
+  }
+
+</script>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/w3data.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
+<script type="text/javascript" src="js/projects.js"></script>
+
+</body>
+</html>
