@@ -63,19 +63,31 @@
     </div>
 
 
-    <div class="w3-section w3-bottombar w3-padding-8">
-      <span style="margin-left:15px;" class="w3-margin-right">Projects:</span>
-      <button id="filter-all" class="w3-btn" onClick="updatefilter('all')">ALL</button>
-      <button id="filter-ee" class="w3-btn w3-white" onClick="updatefilter('ee')"><i class="fa fa-bolt w3-margin-right"></i>Electrical Engineering</button>
-      <button id="filter-pr" class="w3-btn w3-white" onClick="updatefilter('pr')"><i class="fa fa-keyboard-o w3-margin-right"></i>Programming</button>
-      <button id="filter-me" class="w3-btn w3-white" onClick="updatefilter('me')"><i class="fa fa-map-pin w3-margin-right"></i>Mechanical Design</button>
-      <button id="filter-cm" class="w3-btn w3-white" onClick="updatefilter('cm')"><i class="fa fa-sticky-note w3-margin-right"></i>Community</button>
+    <div class="w3-section w3-padding-8">
+      <div class="w3-col m4 l9">
+        <span style="margin-left:15px;" class="w3-margin-right">Projects:</span>
+        <button id="filter-all" class="w3-btn" onClick="updatefilter('all')">ALL</button>
+        <button id="filter-ee" class="w3-btn w3-white" onClick="updatefilter('ee')"><i class="fa fa-bolt w3-margin-right"></i>Electrical Engineering</button>
+        <button id="filter-pr" class="w3-btn w3-white" onClick="updatefilter('pr')"><i class="fa fa-keyboard-o w3-margin-right"></i>Programming</button>
+        <button id="filter-me" class="w3-btn w3-white" onClick="updatefilter('me')"><i class="fa fa-map-pin w3-margin-right"></i>Mechanical Design</button>
+        <button id="filter-cm" class="w3-btn w3-white" onClick="updatefilter('cm')"><i class="fa fa-sticky-note w3-margin-right"></i>Community</button>
+      </div>
+      <div class="w3-col m4 l3" style="text-align:right; padding-right:10px;">
+        <ul class="w3-pagination w3-padding-0" >
+          <li onclick="load_all(1)"><a class="w3-black page1class">1</a></li>
+          <li onclick="load_all(2)"><a class="w3-hover-black page2class">2</a></li>
+          <li onclick="load_all(3)"><a class="w3-hover-black page3class">3</a></li>
+          <li onclick="load_all(4)"><a class="w3-hover-black page4class">4</a></li>
+        </ul>
+      </div>
     </div>
+
+
 </header>
 
 <!-- First Photo Grid-->
 
-<div class="w3-row-padding">
+<div class="w3-row-padding" style="margin-bottom:10pt; margin-top:10pt;">
   <a id="box1">
     <div class="w3-third w3-container w3-margin-bottom">
       <img id="img1" style="width:100%" class="w3-hover-opacity">
@@ -145,10 +157,10 @@
 <!-- Pagination -->
 <div class="w3-center w3-padding-16">
     <ul class="w3-pagination">
-      <li onclick="load_all(1)"><a id="page1class" class="w3-black">1</a></li>
-      <li onclick="load_all(2)"><a id="page2class"class="w3-hover-black">2</a></li>
-      <li onclick="load_all(3)"><a id="page3class" class="w3-hover-black">3</a></li>
-      <li onclick="load_all(4)"><a id="page4class" class="w3-hover-black">4</a></li>
+      <li onclick="load_all(1)"><a class="w3-black page1class">1</a></li>
+      <li onclick="load_all(2)"><a class="w3-hover-black page2class">2</a></li>
+      <li onclick="load_all(3)"><a class="w3-hover-black page3class">3</a></li>
+      <li onclick="load_all(4)"><a class="w3-hover-black page4class">4</a></li>
     </ul>
   </div>
 

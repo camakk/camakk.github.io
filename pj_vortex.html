@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cameron Akker - Vortex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/raleway.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <style>
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      .w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
+    </style>
+    <link rel="icon" href="default.ico">
+
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-padding" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <!-- JavaScript for Personal Description -->
+    <div id="personaldescriptionhtml"></div>
+    <!-- JavaScript for Personal Description -->
+
+  </div>
+  <a id="homebutton" href="index.html" class="w3-padding">HOME</a>
+  <a id="projectsbutton" href="projects.html" class="w3-padding w3-text-teal">PROJECTS</a>
+    <!-- JavaScript for Project Listings -->
+    <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
+    <!-- JavaScript for Project Listings -->
+  <a id="tutorialsbutton" href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
+  <a id="contactbutton" href="contact.html" class="w3-padding">CONTACT</a>
+
+
+  <div class="w3-container">
+    <p class="w3-text-grey"></p>   <!-- this line is for including the total number of projects-->
+  </div>
+
+</nav>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+<!-- Header with name and filters -->
+<header class="w3-container">
+    <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <br>
+    <div class="w3-row" style="margin-bottom:0px;">
+      <div class="w3-col s6 w3-green w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px;"><b><font face="verdana"> Cameron Akker</b></h2></div>
+      <div class="w3-col s6 w3-dark-grey w3-padding">
+        <!-- JavaScript for Header HTML -->
+        <div id="headerhtml"></div>
+        <!-- JavaScript for Header HTML -->
+      </div>
+    </div>
+    <div class="w3-section w3-bottombar w3-padding-8" style="margin-top:0px;">
+      <a href="projects.html"><button id="returnbutton" class="w3-btn w3-white">Return to Projects</button></a>
+    </div>
+</header>
+
+<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
+
+  <h1 style="padding-left:10px; padding-top:15px; margin-bottom:0px"><b>Vortex - Remake of Classic Arcade Game "Cyclone"</b></h1>
+  <h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px">Arduino | Arduino IDE | Solidworks | Epilog Laser Cutter</h4>
+  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Completed as part of ES 50 (Introduction to Electrical Engineering) at Harvard, Fall 2014</h5>
+  <div style="padding-left:20px">
+
+
+    <img class="w3-image" src="./img/vortex/img0.jpg" alt="finished project">
+    <p>
+      As a final project for ES 50 at Harvard University, I set out to remake the classic Chuck E. Cheese game "Cyclone" using the Arduino platform.  The project had two major components - the mechanical design of the laser-cut board structure and the electronics that would power it. The board for the project was a ring with 11 inch inner radius and 14 inch outer radius.  The material was 3/8" acrylic in a smoke grey color.  The laser cutter used for this project only had a 12"x24" bed, so it was necessary to split the ring into six separate segments, (one of which is shown in the image).
+    </p><p>
+      Different "top" and "bottom" sections to the ring were constructed and then connected using standoffs.  The top section contained the etchings of the numbers and holes for the LEDs while the bottom section just contained plain ring segments.  The top and bottom sections of the ring were placed together with an offset of half of a ring segment which allowed the connecting standoffs to hold the whole assembly together.
+    </p>
+    <img class="w3-image" src="./img/vortex/img1.jpg" alt="solidworks board design">
+    <p>
+      The project included 75 different LEDs that had to be controlled separately from a single Arduino.  There were three "jackpot" LEDs and three sets of 24 LEDs in-between the jackpots.  The LEDs used were large 10mm LEDs with a 330 ohm resistor for each LED.  Multiple 74HC595 shift registers were chained together in order to allow control of 24 LEDs in the "in-between" sections.  The three jackpot LEDs were controlled directly from pins on the Arduino because it allowed the design to be much simpler.
+    </p>
+    <img class="w3-image" src="./img/vortex/img2.jpg" alt="assembling board">
+    <p>
+      The project included 75 different LEDs that had to be controlled separately from a single Arduino.  There were three "jackpot" LEDs and three sets of 24 LEDs in-between the jackpots.  The LEDs used were large 10mm LEDs with a 330 ohm resistor for each LED.  Multiple 74HC595 shift registers were chained together in order to allow control of 24 LEDs in the "in-between" sections.  The three jackpot LEDs were controlled directly from pins on the Arduino because it allowed the design to be much simpler.
+    </p>
+    <img class="w3-image" src="./img/vortex/img3.jpg" alt="electronics in board">
+    <p>
+      The Arduino code would light up each "in-between" LED for 18ms and light up each jackpot LED for 2ms.  In addition, the "in-between" LED right before the jackpot light had a random number generator associated with it that would vary the "on" time between 10ms and 25ms.  Hitting the jackpot would trigger a victory sequence in which multiple LEDs light up in celebration.
+    </p>
+    <img class="w3-image" src="./img/vortex/img4.jpg" alt="simplified design"><br><br>
+
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-white">
+    <div id="footerhtml"></div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidenav
+  function w3_open() {
+      document.getElementById("mySidenav").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+  }
+
+  function w3_close() {
+      document.getElementById("mySidenav").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+  }
+
+  window.onload = function() {
+    $("#projectshtml").html(projectshtml);
+    $("#headerhtml").html(headerhtml);
+    $("#personaldescriptionhtml").html(personaldescriptionhtml);
+    $("#footerhtml").html(footerhtml);
+    $("#vortex_button").addClass("w3-text-teal");
+    $("#projectsbutton").addClass("w3-text-teal");
+  }
+
+</script>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/w3data.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
+<script type="text/javascript" src="js/projects.js"></script>
+
+</body>
+</html>

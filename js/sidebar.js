@@ -27,8 +27,9 @@ projectshtml += '<li><a href="pj_millingmachine.html" id="millingmachine_button"
 projectshtml += '<li><a href="pj_steppermotordriver.html" id="steppermotordriver_button">Stepper Motor Driver</a></li>';
 //projectshtml += '<li><a href="contact.html">Arithmatic Logic Unit</a></li>';
 //projectshtml += '<li><a href="contact.html">8051 Computer</a></li>';
-projectshtml += '<li><a href="contact.html">Stoplight</a></li>';
-projectshtml += '<li><a href="contact.html">Vortex</a></li>';
+projectshtml += '<li><a href="pj_vortex.html" id="vortex_button">Vortex Arcade Game</a></li>';
+projectshtml += '<li><a href="pj_misc_electronics.html" id="misc_electronics_button">Miscellaneous Small Projects</a></li>';
+
 // programming projects
 //projectshtml += '<b style="margin-left:0px;"  class="w3-light-grey2"> Programming Projects </b>';
 //projectshtml += '<li><a href="resistorboxes.html">FoodSpeak</a></li>';

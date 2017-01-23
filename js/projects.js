@@ -45,30 +45,30 @@ function updatefilter(filter) {
 }
 function updatePage(pagenum) {
   page = pagenum;
-  $("#page1class").removeClass("w3-black");
-  $("#page1class").addClass("w3-hover-black");
-  $("#page2class").removeClass("w3-black");
-  $("#page2class").addClass("w3-hover-black");
-  $("#page3class").removeClass("w3-black");
-  $("#page3class").addClass("w3-hover-black");
-  $("#page4class").removeClass("w3-black");
-  $("#page4class").addClass("w3-hover-black");
+  $(".page1class").removeClass("w3-black");
+  $(".page1class").addClass("w3-hover-black");
+  $(".page2class").removeClass("w3-black");
+  $(".page2class").addClass("w3-hover-black");
+  $(".page3class").removeClass("w3-black");
+  $(".page3class").addClass("w3-hover-black");
+  $(".page4class").removeClass("w3-black");
+  $(".page4class").addClass("w3-hover-black");
   switch(pagenum) {
     case 1:
-      $("#page1class").addClass("w3-black");
-      $("#page1class").removeClass("w3-hover-black");
+      $(".page1class").addClass("w3-black");
+      $(".page1class").removeClass("w3-hover-black");
       break;
     case 2:
-      $("#page2class").addClass("w3-black");
-      $("#page2class").removeClass("w3-hover-black");
+      $(".page2class").addClass("w3-black");
+      $(".page2class").removeClass("w3-hover-black");
       break;
     case 3:
-      $("#page3class").addClass("w3-black");
-      $("#page3class").removeClass("w3-hover-black");
+      $(".page3class").addClass("w3-black");
+      $(".page3class").removeClass("w3-hover-black");
       break;
     case 4:
-      $("#page4class").addClass("w3-black");
-      $("#page4class").removeClass("w3-hover-black");
+      $(".page4class").addClass("w3-black");
+      $(".page4class").removeClass("w3-hover-black");
       break;
     default:
       break;
@@ -76,7 +76,7 @@ function updatePage(pagenum) {
 }
 
 function load_hackharvard2016(slot) {
-      $("#box" + slot).attr("href", "about.html");
+      $("#box" + slot).attr("href", "pj_hackharvard.html");
       $("#img" + slot).attr("src","home/hackharvard2016.jpg");
       $("#img" + slot).attr("alt","hackharvard2016");
       $("#title" + slot).html("<b> Director of HackHarvard 2016</b>");
@@ -93,7 +93,7 @@ function load_hrexi(slot) {
     $("#box" + slot).attr("href", "about.html");
     $("#img" + slot).attr("src","home/fpga.jpg");
     $("#img" + slot).attr("alt","FPGA");
-    $("#title" + slot).html("<b>FPGA Programming on Virtex-II for HREXI</b>");
+    $("#title" + slot).html("<b>FPGA Programming on Virtex-II</b>");
     $("#description" + slot).html("Programming in Verilog/VHDL to implement data buffering hardware as part of lab at the Harvard-Smithsonian Center for Astrophysics");
 }
 function load_hackharvard2015(slot) {
@@ -110,10 +110,10 @@ function load_tf(slot) {
     $("#description" + slot).html("Assisted in teaching over 100 students in introductory (ENG-SCI 50) and second-year (ENG-SCI 153) electrical engineering courses");
 }
 function load_electriccar(slot) {
-    $("#box" + slot).attr("href", "about.html");
+    $("#box" + slot).attr("href", "pj_electriccar.html");
     $("#img" + slot).attr("src","home/electriccar.jpg");
     $("#img" + slot).attr("alt","electric_car");
-    $("#title" + slot).html("<b>Custom Designed Personal Electric Vehicle</b>");
+    $("#title" + slot).html("<b>Custom Personal Electric Vehicle</b>");
     $("#description" + slot).html("Worked alongside students at the Hong Kong University of Science and Technology (HKUST) to design and build an personal electric vehicle");
 }
 function load_foodspeak(slot) {
@@ -131,11 +131,18 @@ function load_tourguide(slot) {
     $("#description" + slot).html("Lead walking tours through Harvard University during the summer of 2015 as a tour guide employed by Trademark Tours");
 }
 function load_resistorboxes(slot) {
-    $("#box" + slot).attr("href", "resistorboxes.html");
+    $("#box" + slot).attr("href", "pj_resistorboxes.html");
     $("#img" + slot).attr("src","home/resistorboxes.jpg");
     $("#img" + slot).attr("alt","resistor box");
     $("#title" + slot).html("<b>Custom Resistor Storage Boxes</b>");
     $("#description" + slot).html("Designed in Autodesk Inventor and CorelDRAW, these resistor boxes are for stocking resistors on an electronics toolbench");
+}
+function load_millingmachine(slot) {
+    $("#box" + slot).attr("href", "pj_millingmachine.html");
+    $("#img" + slot).attr("src","home/millingmachine.jpg");
+    $("#img" + slot).attr("alt","milling machine");
+    $("#title" + slot).html("<b>DIY 3-Axis Milling Machine</b>");
+    $("#description" + slot).html("With a laser-cut MDF construction and three stepper motors, this milling machine is primarily used for cutting PCBs");
 }
 
 function load_all(pagenum) {
@@ -143,11 +150,12 @@ function load_all(pagenum) {
     case 1:
       updatePage(1);
       load_hackharvard2016(1);
-      load_custompcb(2);
+      load_millingmachine(2);
       load_tf(3);
       load_hrexi(4);
       load_electriccar(5);
-      load_tourguide(6);
+      load_custompcb(6);
+      //load_tourguide(6);
       break;
     case 2:
       updatePage(2);
