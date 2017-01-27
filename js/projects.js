@@ -76,7 +76,7 @@ function updatePage(pagenum) {
 }
 
 function load_hackharvard2016(slot) {
-      $("#box" + slot).attr("href", "pj_hackharvard.html");
+      $("#box" + slot).attr("href", "pj_hackharvard2016.html");
       $("#img" + slot).attr("src","home/hackharvard2016.jpg");
       $("#img" + slot).attr("alt","hackharvard2016");
       $("#title" + slot).html("<b> Director of HackHarvard 2016</b>");

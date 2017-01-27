@@ -45,8 +45,8 @@ projectshtml += '<li><a href="pj_shield.html" id="shield_button">Composite Capta
 //projectshtml += '<li><a href="robotics.html">Robotics</a></li>';
 // community projects
 projectshtml += '<b style="margin-left:0px;" class="w3-light-grey2"> Community Projects </b>';
-projectshtml += '<li><a href="about.html">HackHarvard 2016</a></li>';
-//projectshtml += '<li><a href="about.html">Illuminate Global 2016</a></li>';
+projectshtml += '<li><a href="pj_hackharvard2016.html" id="hackharvard2016_button">HackHarvard 2016</a></li>';
+projectshtml += '<li><a href="pj_coaching.html" id="coaching_button">Head Coach for Cal Youth Football</a></li>';
 //projectshtml += '<li><a href="about.html">i-lab Community Nights</a></li>';
 //projectshtml += '<li><a href="about.html">HackHarvard 2015</a></li>';
 //projectshtml += '<li><a href="contact.html">Trademark Tour Guide</a></li>';

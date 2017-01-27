@@ -270,6 +270,9 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-transparent{background-color:transparent!important}
 .w3-hover-none:hover{box-shadow:none!important;background-color:transparent!important}
 /* Start of colors */
+.w3-primary,.w3-hover-primary:hover{color:#fff!important;background-color:#3D78CC!important}
+.w3-secondary,.w3-hover-secondary:hover{color:#fff!important;background-color:#3A96C2!important}
+
 .w3-amber,.w3-hover-amber:hover{color:#000!important;background-color:#ffc107!important}
 .w3-aqua,.w3-hover-aqua:hover{color:#000!important;background-color:#00ffff!important}
 .w3-blue,.w3-hover-blue:hover{color:#fff!important;background-color:#2196F3!important}
