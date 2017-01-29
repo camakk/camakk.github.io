@@ -55,7 +55,6 @@
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <br>
     <div class="w3-row" style="margin-bottom:0px;">
-      <!--<a href="projects.html"><div class="w3-col s1 w3-primary w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px;"><b><font face="verdana">←</b></h2></div></a>-->
       <div class="w3-col s12 m12 l7 w3-primary w3-left w3-padding">
         <h2 style="margin-left:15px;line-height:26px;">
           <a href="projects.html" style="text-decoration:none;"><b><font face="verdana"> Projects </a>→ <a style="font-size:14pt; text-decoration:none;">Misc. Electronics</a></b>
@@ -70,6 +69,26 @@
     <div class="w3-section" style="margin-top:0px;"></div>
 </header>
 
+<!-- HREXI -->
+<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
+  <h1 style="padding-left:10px; padding-top:12px; margin-bottom:0px"><b>Buffering Data for Single-Port SRAM aboard HREXI Flight Computer</b></h1>
+    <h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:0px">Verilog | VHDL | Xilinx ISE | ModelSim Simulator</h4>
+  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Harvard-Smithsonian Center for Astrophysics, Research Assistant</h5>
+  <div style="padding-left:20px">
+    <img class="w3-image" src="./img/stoplight/img6.jpg" alt="virtex-ii fpga">
+
+    <p>
+      The CZT detector is a custom board with its own protocol for feeding data into a PCI card on the flight computer through an LVDS cable.  The SRAM aboard the flight computer has a different clock than the CZT board; on top of that, the incoming data rate is asynchronous as it corresponds to GRB events which don't happen at regular intervals making a buffering scheme necessary. Further complicating the problem is the fact that the SRAM in the flight computer is only single-port; once it is full, it cannot receive data while it is reading the data out.
+    </p>
+    <p>
+      The scheme I'm helping to develop utilizes a fall-through FIFO using the PCI card's onboard Virtex-II FPGA to catch incoming data while the SRAM empties its data.  The base code for the PCI card is in VHDL and Verilog and the modules I have added to link in the FIFO are written in Verilog.
+    </p>
+    <img class="w3-image" src="./img/stoplight/img4.jpg" alt="flight computer">
+  </div>
+</div>
+
+<!-- Stoplight Page Content -->
+<a name="stoplight"></a>
 <div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
 
   <h1 style="padding-left:10px; padding-top:12px; margin-bottom:0px"><b>Discrete FSM Stoplight (without Microcontroller)</b></h1>
@@ -87,12 +106,41 @@
       Three separate 74HC164 counters determine the length of time that each light is on.  DIP switches control the value loaded into each counter. By adjusting the load value, the time each light is on can be changed. The Cout of each counter triggers the enable on the following light advancing the FSM
     </p>
     <img class="w3-image" src="./img/stoplight/img2.jpg" alt="schematic" width="90%"><br><br>
-
-
-
   </div>
 </div>
 
+<!-- 8051 Processor Computer -->
+<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
+  <h1 style="padding-left:10px; padding-top:12px; margin-bottom:0px"><b>Simple Computer Built around Discrete 8051 Processor</b></h1>
+  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Completed as part of Physics 123 at Harvard, Spring 2015</h5>
+  <div style="padding-left:20px">
+    <img class="w3-image" src="./img/stoplight/img3.jpg" alt="schematic" width="90%">
+    <p>
+      Also in Physics 123 at Harvard College, I wired together a computer with simple I/O functionality based on a Dallas 8051 chip.  The computer had a processor, 32K of RAM, an address counter, I/O decoder, an ADC converter, and keypad input from an LCD display.  Programs written in assembly for the 8051 architecture could have their code (in hex) loaded into the program memory using the keypad.  Those programs could then be executed either instruction-by-instruction by manually clocking through the program or executed continuously by clocking with the 11MHz oscillator.
+    </p>
+    <p>
+      The glue logic necessary to interface the various components was done through a Xilinx XC9500XL CPLD. The CPLD was programmed through Xilinx ISE and burned into a physical chip that was integrated into the computer board.  A CPLD was chosen because it was much more efficient than using discrete digital logic components and less expensive than using a full FPGA.
+    </p>
+  </div>
+</div>
+
+
+
+<!-- MIPS Datapath -->
+<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;" id="maincontent">
+  <h1 style="padding-left:10px; padding-top:12px; margin-bottom:0px"><b>MIPS Processor/Datapath, written in Verilog</b></h1>
+  <h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Completed as part of CS-141 at Harvard, Fall 2015</h5>
+  <div style="padding-left:20px">
+    <img class="w3-image" src="./img/stoplight/img5.jpg" alt="early sketch">
+    <p>
+      As part of a final project for CS 141, I implemented a simple processor based on the MIPS Instruction Set architecture. The datapath was able to execute R-type, I-type, and J-type instructions from memory loaded with MIPS type instructions.  The image above is from an early sketch about the data flow through a MIPS processor.
+    </p>
+    <p>
+      The seven stages were Instruction Fetch 1 & 2, Decode, Execute, Memory Operation 1 & 2, and Register Writeback. Temporary registers between stages of the processor held values after finishing a cycle. The datapath did not include any pipe-lining in its final implementation but pipe-lining may be added in a future revision.  The processor was constructed in Xilinx ISE and synthesized with a Xilinx Spartan-6 FPGA.
+    </p>
+    <br>
+  </div>
+</div>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-16 w3-white">
