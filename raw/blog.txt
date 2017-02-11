@@ -1,0 +1,101 @@
+So you want to be an electrical engineer.  That's where we'll start.  Maybe you're a computer science student in college who wants that "old school" electrical engineering knowledge, not that way-too-easy required Arduino class.  Maybe you're a highschooler (like I once was) with no clue where to start other than Ohm's law.
+
+Society holds electrical engineering to be some sort of impenetrable fortress.  "Anyone can learn programming, everyone should learn programming!"  We've all heard these words, but "anyone can learn electrical engineering" is a ludicrous proclamation.  Or is it?
+
+I believe anyone can learn the principles of electrical engineering the "old school" way.  My guess is 90% of electrical engineering today doesn't require differential equations, Fourier Analysis, or the other mathematics that commonly restrict it to a college-based course.
+
+If you haven't read about my Salmon-Ladder theory of learning
+
+
+
+
+
+
+
+Let's talk about learning.  Learning as we understand it today seems to be a gradual process - the more you study, the better you better understand the content.  It's loosely a linear-mapping between time spent and understanding achieved.
+
+<Graph of Time Spent Versus Understanding>
+
+Let's use the example of negative numbers to talk about this point.  We all learned about negative numbers at some point in elementary school.  But when did we really learn about them?
+
+
+There are three steps to learning:
+1) First Contact
+2) Acceptance
+3) Incubation
+4) Application (teaching, project)
+
+The first step to learning is the first contact. This is the moment when an idea is introduced to someone with the understanding "you can actually learn this".  Hearing the word "calculus" in elementary school isn't a first contact - but walking into class the first day of pre-calculus, now that's a first contact.  Psychologically, the first contact moment is the moment we decide that this learning is within our reach.  It's when we say "this isn't a mystery anymore; I have the ability to solve it."
+
+Enrolling in a class at school is the most clear-cut form of first contact with a subject.  There's also starting a "unit" while enrolled in a class.  All our lives we're trained that this "first contact" step with a subject or a concept is most legitimate when initiated by a force higher than ourselves.  A first contact primes our minds to receive information.  You can't start learning calculus until you've accepted that you're going to learn calculus.  After first contact, we haven't learned anything yet, but we are self-aware that there is an expectation of learning in the near future.
+
+Continuing our example of negative numbers, the first contact moment happens in 4th or 5th grade when a teacher mentions "numbers less than zero".  "How does that work?" we wonder to ourselves, but the stage is set; we've been introduced to this possibility and our subconscious is now at least primed to the possbility.
+
+
+
+
+After contact, the next step in learning is acceptance.  Acceptance is the hardest barrier to get through because it is the least understood step of the learning process.  I'll try to explain it, but this one's tough.
+
+For any concept, there's a moment when we say "yeah, I believe that."  Think about it.  When you first learned about negative numbers, your reaction was probably "is that even possible?" but as soon as you believed in them, you began to understand their uses.  It's that "believing in them" moment that is so hard to reach sometimes.
+
+In calculus, the concept of taking a derivative has a hard-to-reach acceptance moment.  "How can we look at an infinitely small piece of a line?"  The short answer: by believing that we can.  Before mathematicians crucify me for this simplification, it's important for me to point out that once you "believe" in a concept, you can later modify the justification for "why".  Difficult concepts are difficult because they are not intuitive.  Putting aside your own pride and rational thinking just momentarily and saying "yes, I believe in that" will bring you to a better understanding.  Getting over that "belief" barrier is the hardest part of learning.
+
+It's not an "a-ha" moment... more than anything else it's an "ok, sure" moment.  There won't be celebratory trumpets, no one will say you're a genius.  But you will cross a threshold and go from not understanding to believing, then ultimately to understanding.
+
+
+
+
+The third part of learning is the least glorious but the most necessary - and that is incubation. Once you accept the truth of something in your conscious, your subconscious begins to process and internalize it.  The incubation process is a period of time after you believe in a concept during which it sits in your mind. You've already accepted it - now some time needs to pass in order for the volatility to settle.
+
+If you're like me, you aren't the most confident person in the world. You won't believe you've learned something right away, even if you actually know it.  The incubation period helps us gain confidence in our new understanding. When you know something but don't have to apply it right away, you can build up enough belief in yourself that the knowledge is meaningful later on.
+
+How long does new learning have to incubate?  At absolute minimum, one "sleep".  If you learn something one night and then sleep on it, you'll have more confidence and clarity in it in the morning.  This is why last-minute studying before a final can sometimes be effective - a night of sleep when your brain has just been primed with new information is extremely effective.  For more difficult concepts, up to a week might be needed. I don't think it ever takes more than a week for any single topic - for a new field possibly, but for a single topic, a week is typically enough.
+
+Once you're aware of how incubation works, you can use it.  If you need to understand a difficult subject, try studying it for an hour or two right before going to sleep.  Then as you fall asleep, go over it.  I know - it sounds painful. It's more enjoyable to let your mind wander when it goes to sleep.  But if you bite the bullet and immerse yourself in a subject before falling asleep once or twice a week, you'll find your learning abilities increase immensely.
+
+
+
+
+After the 3rd step of incubation, you've effectively learned whatever you are trying to learn.  But that learning is useless unless you take the fourth step - which is application.  After incubation, your understanding is like a new pair of shoes or a fresh baseball glove - it's beautiful, but it's not truly finished until it is broken in.
+
+Applying the knowledge can mean taking a test.  Getting a score back on that test is the feedback your brain needs to confirm "yes, I've learned that".  Applying that knowledge can mean teaching someone else.  When you teach someone else, you're forced to recall the information that you know. Recalling learned information makes your memory of it stronger.
+
+Application is essential if you want your learning to last beyond just short-term memory!  Write a journal entry about what you learned, call and tell your best friend about it!  These are seemingly innocent activities, but they will solidify and lock in your learning better for the long-term.
+
+
+
+That's how learning works.  Dip your feet in the water, believe what is told you, let it incubate, then apply it.
+
+When you understand how learning works, you can begin to take the Salmon-Ladder approach to learning.  You can read more about it here.
+
+
+
+
+Throughout school, we are taught there is a linear relationship between studying and our learning. "Study more!" parents and teachers say, assuming that more will mean more learning. The process of learning makes us feel a lot like salmon swimming upstream.  We're always exerting energy because we feel like learning is an uphill process.  Flat sections are separated by uphill sections where we have to commit more and more time and energy to learning.
+
+<salmon upstream>
+
+This is an old way of thinking of learning.  Learning isn't an uphill process where more time equals more results. In fact, this couldn't be further from the truth.  Instead of "study more!", what people should really be saying is "Learn faster!".
+Think about it - learning at a faster rate means you get more value for the same amount of studying.  It's just more efficient.
+
+With academics, we assume more resources (specifically time) means more results.  We don't do this with anything else in life!  Imagine you're tasked with designing a new car with the goal of efficiently maximizing its driving range.  If you apply the "more resources" approach we see so often in learning, you might say "that's easy! let's just give it a bigger gas tank."
+
+Of course, you'd be laughed out of the room for suggesting this.  Most cars don't advertise the size of their gas tank because that usually doesn't matter to people.  What they do advertise is their <b>miles-per-gallon</b> because that is a measure of their efficiency.
+
+Let's apply the "miles-per-gallon" philosophy to learning.  Instead of studying for a test for 8 hours, let's find a way to study for 2 hours and get the same results as if we did 8 hours.
+
+
+If a boat is sinking from a leak, you don't put duct tape over the entire bottom surface of the boat.  You find where the leak is and you focus on repairing just that spot.  Studying is the same way. When we prepare for an exam, we have a tendency to repeat studying.  What we should really be doing is spending energy on narrowing in on what we can't do and ONLY doing that stuff.  This brings me to what I call the Salmon-Ladder approach to learning.
+
+The Salmon-Ladder approach to learning says "find the next unknown, focus all your energy on getting through that, and repeat. Above all else, keep moving forward".  
+
+
+
+
+If you haven't read my explanation of modern learning, you can find that here.  That article explains how learning works - in this article, I will talk about actual changes you can make to learn more effectively.  It's something that I call the Salmon-Ladder approach to learning.
+
+<picture of upstream>
+
+
+
+
