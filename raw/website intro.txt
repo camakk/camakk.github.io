@@ -1,7 +1,0 @@
-My name is Cameron Akker and I'm a full-stack inventor. No, not a full-stack developer - I partake in projects that span the entire spectrum of creating things.  I'm one part mechanical engineer, two parts electrical engineer, one part software developer, and two parts entrepreneur.  My motto is break stupid rules.
-
-I love making sense of how the world works.  I believe the best explanations are the simple explanations - the ones that make you go "oh, ok" instead of "eureka I found it!"  I believe in good documentation.
-
-My website both contains information on projects I've done and a number of articles I've written explaining complex topics, titled "Research Notes".  As you venture further and further into difficult physics and engineering, the explanations people give seem to get more confuddled and confuddled.  These "Research Notes" of mine are an attempt to knock down barriers to these complex topics.  I'm writing with the purpose of accessibility - I want people to understand the things I've learned without having to spend hours poring over verbose textbooks.
-
-This website is like a whiteboard full of sketches, not a portfolio.  It captures the process more than the result.

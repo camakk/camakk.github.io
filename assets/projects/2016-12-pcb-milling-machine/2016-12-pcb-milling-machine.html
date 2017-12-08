@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–––– -->
+  <meta charset="utf-8">
+  <title>Milling Machine</title>
+  <meta name="description" content="">
+  <meta name="author" content="Cameron Akker">
+
+  <!-- Mobile Specific Metas and Fonts ––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS –– -->
+  <link rel="stylesheet" href="../../../css/custom_skeleton.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- JavaScript –– -->
+  <script src="../../../css/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../../../css/custom.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../../default.ico">
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout -->
+  <header>
+  </header>
+
+  <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
+    <div id="maincontent" style="padding-left:15px; padding-right:15px;  margin:0px">
+      <img src="../../../images/line_thin.png" style="width:100%"></img>
+      <h4 class="projectyear" style="margin-bottom:0px"><b> PCB Milling Machine</b></h4>
+      <!-- First Row Hardware -->
+      <div class="row">
+        <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px"> Autodesk Inventor | Eagle 7.7 | ShopBot Desktop | Epilog Laser Cutter | C Programming | AVRDUDE</p>
+        <p style="color:#777; margin-top:0px; padding-bottom:5px; margin:0px"> Final Project for 4.140 (MIT Graduate-Level Class), December 2016</p>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <img src="video.gif" width="100%"></img>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+              <br>
+              <p>
+                As an electrical engineer, building circuit boards is much preferred to the painful process of using solderless breadboards. I teach an introductory electrical engineering class for Harvard SEAS and the big clunky awkwardness of breadboards is a pain to troubleshoot constantly.  Yet when I look online for milling machines, the cheapest legitimate ones I can find still cost on the order of $500.  The raw materials for a CNC milling machine aren't too difficult to procure so my goal for the final project is to build a sturdy milling machine specifically for the purpose of milling PCBs.
+              </p><p>
+                For materials selection, I will plan to build the machine primarily out of MDF with metal supports where necessary.  MDF is extremely cheap and one of the tougher options that is still easy to machine.  I will possibly use acrylic for some parts, but I don't like the strength of thin acrylic compared to MDF (acrylic seems to snap very easily).  Home Depot suppliers large 2'x4' sheets of 1/4" MDF so most of the structural components of my design will be based on that.  I'll use press-fit to assemble laser cut parts because that works extremely well from my experience in week 2.
+              </p>
+            <img src="img10.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+              <p>
+                One aspect of this project is keeping the entire milling machine to under $100.  I document the cost of things below:
+              </p>
+              <table width="90%">
+                <tr>
+                  <th>Item</th>
+                  <th>Item Cost</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+                <tr>
+                  <td><a href="http://www.homedepot.com/p/Medium-Density-Fiberboard-Common-1-4-in-x-2-ft-x-4-ft-Actual-0-216-in-x-23-75-in-x-47-75-in-1508104/202089069">2x4 1/4" MDF</a></td>
+                  <td>$7.45</td>
+                  <td>1</td>
+                  <td>$7.25</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.pololu.com/product/1209">Bipolar Stepper Motors (x3)</td>
+                  <td>$15.95</td>
+                  <td>3</td>
+                  <td>$47.85</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.amazon.com/Uxcell-a15080500ux0222-100x70x1-5-Laminate-Circuit/dp/B015PCKPXE/">Copper PCB Boards</td>
+                  <td>$0.60</td>
+                  <td>2</td>
+                  <td>$1.20</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.homedepot.com/p/Everbilt-1-4-in-20-tpi-x-36-in-Stainless-Steel-Threaded-Rod-802477/204274013">1/4"-20x36" Steel threaded rod</td>
+                  <td>$5.24</td>
+                  <td>1</td>
+                  <td>$5.24</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.homedepot.com/p/Everbilt-3-8-in-x-36-in-Aluminum-Round-Rod-801657/204273962">3/8" x 36" Aluminum Rod</td>
+                  <td>$5.97</td>
+                  <td>1</td>
+                  <td>$5.97</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.homedepot.com/p/Everbilt-1-2-in-x-36-in-Aluminum-Round-Rod-801637/204273968">1/2" x 36" Aluminum Rod</td>
+                  <td>$7.21</td>
+                  <td>1</td>
+                  <td>$7.21</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.amazon.com/gp/product/B01C5O1AUW">Hand Drill 555 Motor Chuck</td>
+                  <td>$19.29</td>
+                  <td>1</td>
+                  <td>$19.29</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td><b>TOTAL</b></td>
+                  <td><b>$94.01</b></td>
+                </tr>
+              </table>
+
+              <p>
+              All the tasks required to complete the project are listed below:
+              </p>
+              <div class="row">
+              <div class="six columns">
+                <ul>
+                  <h6 style="font-size:14pt;">Mechanical Design</h6>
+                    <li style="color:green"><b>Base for Y axis motion</b></li>
+                    <li style="color:green"><b>Vertical part for X axis motion</b></li>
+                    <li style="color:green"><b>Module for Z axis motion</b></li>
+                    <li style="color:green"><b>Base table/milling platform</b></li>
+                    <li style="color:green"><b>Front side storage platform</b></li>
+                </ul>
+
+              </div>
+              <div class="six columns">
+                <ul>
+                  <h6 style="font-size:14pt;">Electrical Design</h6>
+                    <li style="color:green"><b>Stepper motor drivers</b></li>
+                    <li style="color:green"><b>Motor command receive code</b></li>
+                    <li style="color:green"><b>Button input to LCD Screen</b></li>
+                    <li style="color:green"><b>FTDI to computer connection</b></li>
+                    <li style="color:green"><b>Driving the spindle motor</b></li>
+                </ul>
+
+              </div>
+
+            </div>
+
+
+            <img src="img7.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              I'll be using two types of raw material for the body construction of the mill: 1/4" MDF and 2x8 cedar board.  These two materials are extremely inexpensive and available at Home Depot in large quantities.  The MDF will be used for more precision structure while the cedar board will be used for load-bearing structure.  The MDF can be cut on the laser cutter whereas any cuts made to the cedar board will be either by miter saw (rough cuts) or by milling machine (precision cuts).
+            </p><p>
+              To support the various components of the platform that will be moving, I've rigged up a simple screw drive mechanism for the X, Y, and Z axis using solid aluminum rods as the rails to stabilize the axis and minimize friction. I imagine I'll be cutting the through-holes with a drill press.  The X and Y axis are more heavy duty and are built with 1/2" diameter solid aluminum rod rails and a 3/8"x 16 threaded rod.  To keep the assembly more compact for action along the Z axis, the rails are 3/8" solid aluminum rod and the threaded rod is 1/4" x 20.  Both of the threaded rodes will interface to the motion block by precision drilled holes and an inset that allows an appropriate flange nut to be press-fit and then superglued into the block of wood.
+            </p><p>
+              I started off thinking that part of the machine would be machined out of 2x8 cedar wood, but the thermal flex qualities of this type of wood made me very suspicious of it. I left a block of wood near my window one night when it got extremely cold and I woke up to find that it had cracked nearly in half. I'm not sure how homes are built out of this stuff.  I modified my original CAD to make the entirety of the structure made from quarter inch MDF.  This proved very simple because all of my wood pieces were dimensioned to be multiples of 0.25" anyways.
+            </p>
+            <img src="img11.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <img src="img12.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <img src="img13.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              It took three sheets of 24"x18" MDF to fully cut out the milling machine.  This is very impressive actually - the entirety of the milling machine body was made from a sheet of wood that only cost <a href="http://www.homedepot.com/p/Medium-Density-Fiberboard-Common-1-4-in-x-2-ft-x-4-ft-Actual-0-216-in-x-23-75-in-x-47-75-in-1508104/202089069"><b> $7.42 at Home Depot</b></a>.  That sure helps to keep material costs down.
+            </p>
+            <p>
+              To cut 1/4" MDF on the laser cutter, I used the settings of 100% power and 1.3% speed on the 100 Watt laser to cut clean through the MDF.  The sheets that I cut were relatively densely packed and took up to 45 minutes to cut per sheet.
+            </p>
+            <img src="img19.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <img src="img20.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <img src="img21.jpg" alt="Milling Machine" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              The three pieces I'm the proudest of making are the three beds for the X, Y, and Z axis. Originally, these pieces were going to be milled from wood, but the thermal expansion and contraction of the wood make me weary of the possibility of misaligned holes just from bringing the project through the cold weather. I opted for the safer alternative which was to build up each of the beds constructively from pieces of MDF sandwiched together.
+            </p>
+
+            <img src="img9.jpg" alt="Drilling Motor" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+            The motor I ordered can be found at <a href="https://www.amazon.com/gp/product/B01C5O1AUW"> this link.</a>  It runs at 12V and provides enough power to make simple cuts.  The motor comes with a mounting bracket that I was able to make in CAD and produce a mounting platform for.</a>.
+            </p>
+
+            <img src="img2.jpg" alt="Motor Custom" width="80%" style="display: block; margin: auto;"><br>
+
+            <p>
+              I took some calipers to the motors I was using and built a fully reconstructed CAD model for the motor in Autodesk Inventor.  If anyone is looking to use the motor model in the future, <a href="motor.ipt"> here is the .ipt file</a> for download.
+            </p>
+
+            <img src="img3.jpg" alt="Shaft Connector" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              The motors I used are standard Pololu stepper motors that I found in lab. Surprisingly, these three motors made up the majority of my costs for this project.  Each motor cost $16 and I used three of them to finish my project. The motors are very straightforward and only require 4 wires to operate.
+            </p>
+            <img src="img8.jpg" alt="Milling Machine Base" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              I was unable to find a 5mm to 1/4" shaft connector in the shop, so I originally tried printing one. The resolution on the Ultimaker wasn't good enough to get the threads on the inside of the motor (or allow the set screw to hold with any strength) so I tried alternatives. I found a 6mm to 1/4" coupler which was great other than the fact my motor shafts were 5mm.  I found a 5mm to 8mm coupler, but nothing I have is 8mm.  I thought about using the lathe to drill out the 8mm hole to 3/8", but that proved too difficult.  In the end, I just used some shim to make the 6mm to 1/4" coupler work with my 5mm shaft.
+            </p>
+            <img src="img15.jpg" alt="Hacksaw" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              There was no saw in the shop suitable for cutting round material down to size, so I ended up sticking it in a vice and manually hacksawing it. Took a lot of arm strength that I did not have.  Hopefully it was a healthy endeavor.
+            </p>
+            <img src="img16.jpg" alt="Shaft Connector" width="80%" style="display: block; margin: auto;"><br>
+            <p>
+              This early build of the milling machine had a somewhat fatal flaw - I included two nuts on either end of each bed platform. As opposed to one nut, this cause the friction on the shaft to increase significantly.  I did an entire redesign of all the bed platforms to allow for a little more slack in the line.  Instead of two nuts on either side, I simplified the design to include just one nut housed in the center of the block assembly.
+            </p>
+            <p>
+              There is one piece of the milling machine that I actually had to mill - and that is the hidden storage compartment. This was originally meant to be a housing for the LCD screen back when this project was ambitious - now it functions solely as a storage compartment.  The angled cuts would not work on the laser cutter and thus I needed to make this piece on the milling machine.
+            </p>
+            <img src="img17.jpg" alt="Shaft Connector" width="80%" style="display: block; margin: auto;"><br>
+            <img src="img18.jpg" alt="Shaft Connector" width="80%" style="display: block; margin: auto;"><br>
+
+            <div class="navigationbar"></div>
+
+        </div>
+      </div>
+
+<br>
+
+<footer>
+
+</footer>
+
+</body>
+
+<!-- Load in Custom CSS -->
+<script>
+  window.onload = function() {
+    $('header').html(header_projects);
+    $('footer').html(footerhtml);
+    $('.navigationbar').html(navigationbar);
+  }
+</script>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–––– -->
+  <meta charset="utf-8">
+  <title>Milling Machine</title>
+  <meta name="description" content="">
+  <meta name="author" content="Cameron Akker">
+
+  <!-- Mobile Specific Metas and Fonts ––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS –– -->
+  <link rel="stylesheet" href="../../../css/custom_skeleton.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- JavaScript –– -->
+  <script src="../../../css/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../../../css/custom.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../../default.ico">
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout -->
+  <header>
+  </header>
+
+  <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
+    <div id="maincontent" style="padding-left:15px; padding-right:15px;  margin:0px">
+      <img src="../../../images/line_thin.png" style="width:100%"></img>
+      <h4 class="projectyear" style="margin-bottom:0px"><b> Personal Electric Vehicle with 1kW Motor</b></h4>
+      <!-- First Row Hardware -->
+      <div class="row">
+        <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px"> Eagle 7.7 | Solidworks | STM32 Programming</p>
+        <p style="color:#777; margin-top:0px; padding-bottom:5px; margin:0px"> A Collaboration Between Harvard and Hong Kong University of Science and Technology, Summer 2016</p>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <img src="video.gif" width="100%"></img>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT STARTS HERE -->
+
+      <div class="row">
+        <div class="twelve columns">
+          <img src="img0.jpg" width="90%" style="display: block; margin: auto;"> <br>
+          <h4> Building a vehicle from scratch</h4>
+          <p>
+            Over the course of Summer 2016, I worked with a team of five other engineering students (two from Harvard, three from the Hong Kong University of Science and Technology, HKUST) to design and build a personal electric vehicle.  This was part of a study-abroad/exchange program called the Harvard-HKUST Summer International Design Experience hosted by Harvard every year.  We spent three weeks in Hong Kong during June doing design work, then four weeks at Harvard in Cambridge, MA during July fabricating the vehicle.
+          </p><p>
+            Partly for safety and partly to keep the project within reasonable scope, we were given a number of design specifications summarized below
+            <ul>
+              <li> <b> Budget: $1500 </b></li>
+              <li> <b> Maximum power: 400W* </b></li>
+              <li> <b> Maximum drive voltage: 48V</b></li>
+              <li> Seatbelt, Brake Lights, E-Stop Button Required </li>
+              <li> Both mechanical and electric braking</li>
+            </ul>
+            Most of these specifications weren't difficult to meet with the exception being the maximum power requirement.  As will be explained below, our car operated closer to 1kW on average with significantly higher energy expended when accelerating from a stopped position.
+          </p>
+          <h4> Early prototyping in Hong Kong</h4>
+          <p>
+            The progression of prototyping went from full-scale visualization to clay modeling to CAD modeling to fabrication.  At each progressive step of the process, we tested the design more and more carefully, spending more time on validation.
+          </p>
+          <img src="img1.jpg" width="90%" style="display: block; margin: auto;">
+          <p>
+            Before doing any physical building, we started out the process by visualizing a personal electric vehicle. How big roughly should it be?  How should it feel?  We took a human-centered design approach to building the vehicle so the first step, naturally, was to figure out what type of design would work best around the human form.  We had one team member sit on the ground and assume the position they believed most natural for driving an electric vehicle.  We then took sticky notes and roughly laid out where the outline of the vehicle should be.
+          </p>
+          <p>
+            Two big early design decisions came from this visualization.  The first was the three-wheel design, sometimes referred to as the tadpole design.  A single back wheel would be much easier to power than two back wheels powered by a differential gear setup.  The whole design could be powered from a single motor instead of two (if back wheels were used) making acceleration and going straight much easier
+          </p>
+          <p>
+            The second design decision we settled on was a tapered back design.  The reasoning here is by making the front of the vehicle wide, it would be stable when making turns and allow the driver to "lean in" to turns better.  A secondary benefit was a reduction of weight in the back region - less weight would mean a better top speed.  With these design considerations in mind, we began to build clay prototypes of the chassis design.
+          </p>
+          <img src="img2.jpg" width="30%" style="display: inline; margin: auto;">
+          <img src="img3.jpg" width="30%" style="display: inline; margin: auto;">
+          <img src="img4.jpg" width="30%" style="display: inline; margin: auto;">   <br>
+          <p>
+            From left to right, you can see progressive iterations on the chassis design (v1, v2, v3).  Our starting point was v1 which was a heavily supported chassis that introduced the single "spinal" support column and triangle supports at multiple points.  The material usage for this first chassis was substantial and the weight was a concern, so we moved to reduce bulk in v2.
+          </p><p>
+            In v2, the cage at the front of the chassis has been removed to reduce weight and the entire design slimmed down significantly.  The metal bars behind the seat are the only extrusion upward in the Z direction.  The wheels are supported by angled support metal to alleviate the warping stress on the center of the chassis.
+          </p><p>
+            The final revision v3 is just a minor improvement on v2. Nearly all the angled-cut pieces have been changed to straight-cut pieces to make manufacturing them easier.  Every unecessary bar from the chassis has been removed and the chassis has thus been simplified as much as possible at this point.  Clay designs early on were advantageous because each model could be constructed in under 15 minutes to accurately capture the substance of the design without worrying about things like exact dimensions and fasteners.  I personally built each of these clay models with the team's input.
+          </p><p>
+            After settling on clay v3 as the base chassis design, we moved to digitizing the design and building it up in SolidWorks.
+          </p>
+          <h4> Building a Solidworks Model of the Car</h4>
+          <img src="img5.jpg" width="80%" style="display: block; margin: auto;">   <br>
+          <p>
+            Our initial solidworks model for the vehicle reflected the v3 clay design almost perfectly.  Every chassis bar was to be made from 2"x1" .125" thick hollow rectangular steel bars.  The support area behind the seat was to be made with 1" steel round tube.  The entire design was to be welded together.
+          </p> <p>
+            A few problems emerged regarding the manufacturability of this design though - the biggest one was that the wheel base for the front two wheels was much larger than the steering system we planned on allowed for.  We would have to shrink the front of the vehicle significantly to accomodate the pre-built steering system we were purchasing.  Also, gaining access to welding proved much more difficult than we initially thought. Every joint would have to be switched from a weld joint to a fastener joint.  Lastly, interfacing the round tube to rectangular tube without welding would prove very difficult.
+          </p>
+          <img src="img6.jpg" width="80%" style="display: block; margin: auto;">   <br>
+          <p>
+            The second Solidworks prototype fixed the majority of the issues in the initial design.  The geometry of the chassis is simplified and relies solely on right angles.  Instead of steel, the entire design was switched aluminum.  Aluminum was approximately a 3rd the weight of steel while being about half as strong.  Thus, the strength per weight of aluminum was better.  Aluminum allowed us to reduce the weight significantly while keeping the loss in structural strength to a minimum.
+          </p>
+          <img src="img7.jpg" width="45%" style="display: inline; margin: auto;">
+          <img src="img8.jpg" width="45%" style="display: inline; margin: auto;"><br>
+          <p>
+            Our simulations in Solidworks showed that the chassis design would support a 200lb individual without deforming too much.  A point load was simulated on the spot where the person would be seated and the deflection of the chassis was calculated to be 4.0mm at that point.  At the scale we were working at, 4.0mm deflection was negligible and meant our design was strong enough to support the rider.
+          </p>
+          <h4> Final Design </h4>
+          <img src="img9.jpg" width="80%" style="display: block; margin: auto;"><br>
+          <img src="img10.jpg" width="80%" style="display: block; margin: auto;"><br>
+          <p>
+            Mounting brackets were made from 1/8" thick steel L-brackets cut to custom 2" pieces to match up to the width of the aluminum.  The seat came with mounting rails that, based off of adjusting the width of the supporting bars underneath, could be attached to the chassis directly.
+          </p>
+          <img src="img11.jpg" width="80%" style="display: block; margin: auto;"><br>
+          <img src="img12.jpg" width="80%" style="display: block; margin: auto;"><br>
+          <p>
+            The steering system was a pitman arm. We had initially talked about using a rack and pinion system, but since integrated rack and pinion systems were expensive/difficult to find suppliers for and  we weren't going to fabricate a rack and pinion system from scratch, this was not the best solution.  The tie-bars are cut down to a custom size to support the front width of our chassis.
+          </p><p>
+            The "gas" and break pedals are mounted at a single point and include springs pulling them into their primary upright position as well as magnetic encoders mounted at their rotation point.  The "gas" pedal only changes the angle observed by the magnetic encoder. This sensor value is fed to the control system onboard that then powers the motor in accordance with the angle of the pedal using a cubic ramping formula to ease acceleration. The brake pedal is both connected to a physical drum brake as well as a magnetic encoder for e-braking. The software controlling the vehicle uses a press on the brake pedal to reduce speed in the motor by running a reverse current.
+          </p>
+          <img src="img13.jpg" width="45%" style="display: inline; margin: auto;">
+          <img src="img14.jpg" width="45%" style="display: inline; margin: auto;">
+          <img src="img16.jpg" width="45%" style="display: inline; margin: auto;">
+          <img src="img17.jpg" width="45%" style="display: inline; margin: auto;">
+          <p>
+            The motor was a 36V motor rated for up to 600W. It ran at 480rpm giving the vehicle a top speed of roughly 20mph.  While we were supposed to try to keep the operating wattage to 400W, it proved essentially impossible.  We were constantly drawing between 30 and 35 amps when starting the car from a still position.  When we gave the car a push-start, the current draw at the start could be below 30 amps.  At steady velocity, the resting current was just under 30 amps.
+          </p>
+          <p>
+            The slowly ramping acceleration of the car can be seen in the following video of me test-driving it.  The car eventually reaches a good speed of about 10mph, but the acceleration to get to that point draws significant current.
+          </p>
+
+          <div style="text-align:center; display:block">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1iMqqQVm6as" frameborder="0" allowfullscreen></iframe>
+          </div><br>
+          <p>
+            The electric vehicle was a success and is currently on display at the School of Engineering and Applied Sciences at Harvard University.
+          </p>
+            <div class="navigationbar"></div>
+
+        </div>
+      </div>
+
+<br>
+
+<footer>
+
+</footer>
+
+</body>
+
+<!-- Load in Custom CSS -->
+<script>
+  window.onload = function() {
+    $('header').html(header_projects);
+    $('footer').html(footerhtml);
+    $('.navigationbar').html(navigationbar);
+  }
+</script>
+
+</html>

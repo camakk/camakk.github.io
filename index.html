@@ -1,256 +1,350 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cameron Akker - Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-    <link rel="stylesheet" href="css/w3.css">
-    <link rel="stylesheet" href="css/raleway.css">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-    <style>
-      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-      .w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
-    </style>
-    <link rel="icon" href="default.ico">
+
+  <!-- Basic Page Needs–––– -->
+  <meta charset="utf-8">
+  <title>Cameron Akker</title>
+  <meta name="description" content="">
+  <meta name="author" content="Cameron Akker">
+
+  <!-- Mobile Specific Metas and Fonts ––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS –– -->
+  <link rel="stylesheet" href="css/custom_skeleton.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- JavaScript –– -->
+  <script src="css/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="css/custom.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="default.ico">
+
 </head>
 
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<body>
 
-<!-- Sidenav/menu -->
-<nav class="w3-sidenav w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidenav"><br>
-  <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-padding" title="close menu">
-      <i class="fa fa-remove"></i>
-    </a>
+  <!-- Primary Page Layout -->
+  <header>
+  </header>
 
-    <!-- JavaScript for Personal Description -->
-    <div id="personaldescriptionhtml"></div>
-    <p class="w3-text-grey">An engineer by education, a hacker by nature, an inventor by aspiration. Harvard College Class of 2018.</p>
-    <!-- JavaScript for Personal Description -->
+  <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
+    <div id="maincontent" style="padding-left:15px; padding-right:15px;  margin:0px">
+      <img src="images/line_thin.png" style="width:100%"></img>
+      <h4 class="projectyear"><b> Engineering Projects</b></h4>
+      <!-- First Row Engineering Projects -->
+      <div class="row">
 
-  </div>
+        <!-- Wearable Motherboard -->
+        <div class="three columns projects">
+          <a  style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2017-12-wearable-motherboard/thumbnail.jpg" style="width:100%;" class="greyed-out"></img>
+                <span class="fa fa-star checked star"></span>
+              </div>
+              <p class="projects subtitle"> Wearable Motherboard</p>
+              <p class="projects projectdate"> December 2017 </p>
+          </div>
+          </a>
+        </div>
 
-  <a id="homebutton" href="index.html" class="w3-padding w3-text-teal">HOME</a>
-  <a id="projectsbutton" href="projects.html" class="w3-padding">PROJECTS</a>
-      <div id="projectshtml" style="font-size:11pt; list-style-type:lower-alpha; margin-left:15px;"> </div>
-  <a id="tutorialsbutton" href="tutorials.html" class="w3-padding">RESEARCH NOTES</a>
-  <a id="contactbutton" href="contact.html" class="w3-padding">CONTACT</a>
+        <!-- Better Blender -->
+        <div class="three columns projects">
+          <a href="assets/projects/2017-11-better-blender/2017-11-better-blender.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2017-11-better-blender/thumbnail.jpg" style="width:100%;" class="thumbnail"></img>
+                <span class="fa fa-star checked star"></span>
+              </div>
+              <p class="projects subtitle"> Better Blender</p>
+              <p class="projects projectdate"> November 2017 </p>
+          </div>
+          </a>
+        </div>
 
-  <div class="w3-container">
-    <p class="w3-text-grey"></p>   <!-- this line is for including the total number of projects-->
-  </div>
+        <!-- PCB Milling Machine -->
+        <div class="three columns projects">
+          <a href="assets/projects/2016-12-pcb-milling-machine/2016-12-pcb-milling-machine.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2016-12-pcb-milling-machine/thumbnail.jpg" style="width:100%;" class="thumbnail"></img>
+                <span class="fa fa-star checked star"></span>
+              </div>
+              <p class="projects subtitle">PCB Milling Machine</p>
+              <p class="projects projectdate"> December 2016 </p>
+          </div>
+          </a>
+        </div>
 
-</nav>
+        <!-- Electric Vehicle -->
+        <div class="three columns projects">
+          <a href="assets/projects/2016-07-electric-vehicle/2016-07-electric-vehicle.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2016-07-electric-vehicle/thumbnail.jpg" style="width:100%;" class="thumbnail"></img>
+                <span class="fa fa-star checked star"></span>
+              </div>
+              <p class="projects subtitle"> Electric Vehicle</p>
+              <p class="projects projectdate"> July 2016 </p>
+          </div>
+          </a>
+        </div>
 
-<!-- Overlay effect when opening sidenav on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px">
-
-<!-- Header with name and filters -->
-<header class="w3-container">
-    <a href="index.html"><img src="home/profile_small.jpg" alt="image" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
-    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-    <br>
-    <div class="w3-row">
-      <div class="w3-col s12 m12 l6 w3-primary w3-left w3-padding"><h2 style="margin-left:15px;line-height:30px; "><b><font face="verdana"> Cameron Akker</b></h2></div>
-      <div class="w3-col s12 m12 l6 w3-secondary w3-padding">
-        <!-- JavaScript for Header HTML -->
-        <h4 style="margin-left:15px;line-height:29px;" class="w3-right">
-          <a href="contact.html" style="PADDING-RIGHT:12px; PADDING-LEFT:8px; text-decoration:none; font-size:13pt;">About</a>
-          <a href="https://facebook.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
-          <a href="https://github.com/camakk" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-black w3-show-inline-block"><i class="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/cameronakker" style="PADDING-RIGHT:8px; PADDING-LEFT:8px;" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
-        </h4>
-        <!-- JavaScript for Header HTML -->
       </div>
+
+      <!-- Second Row Engineering Projects -->
+      <div class="row">
+
+        <!-- Knight Chess Piece -->
+        <div class="three columns projects">
+          <a href="assets/projects/2016-11-knight-chess-piece/2016-11-knight-chess-piece.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2016-11-knight-chess-piece/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle"> Knight Chess Piece</p>
+              <p class="projects projectdate"> November 2016 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Stepper Motor Driver -->
+        <div class="three columns projects">
+          <a href="assets/projects/2016-11-stepper-motor-driver/2016-11-stepper-motor-driver.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2016-11-stepper-motor-driver/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle"> Stepper Motor Driver</p>
+              <p class="projects projectdate"> November 2016 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Electronics Workbench -->
+        <div class="three columns projects">
+          <a href="assets/projects/2016-10-electronics-workbench/2016-10-electronics-workbench.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2016-10-electronics-workbench/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle">Electronics Workbench</p>
+              <p class="projects projectdate"> October 2016 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Captain America Shield -->
+        <div class="three columns projects">
+            <a href="assets/projects/2016-10-captain-america-shield/2016-10-captain-america-shield.html" style="text-decoration: none;">
+                <div class="projecttile">
+                    <div class="starred">
+                        <img src="assets/projects/2016-10-captain-america-shield/thumbnail.jpg" style="width:100%;"></img>
+                    </div>
+                    <p class="projects subtitle"> Captain America Shield</p>
+                    <p class="projects projectdate"> October 2016 </p>
+                </div>
+            </a>
+        </div>
+
+
+      </div>
+
+      <!-- Third Row Engineering Projects -->
+      <div class="row">
+
+        <!-- Stacking Boxes -->
+        <div class="three columns projects">
+            <a href="assets/projects/2016-09-stacking-boxes/2016-09-stacking-boxes.html" style="text-decoration: none;">
+                <div class="projecttile">
+                    <div class="starred">
+                        <img src="assets/projects/2016-09-stacking-boxes/thumbnail.jpg" style="width:100%;"></img>
+                    </div>
+                    <p class="projects subtitle"> Stacking Boxes</p>
+                    <p class="projects projectdate"> September 2016 </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Stoplight -->
+        <div class="three columns projects">
+          <a href="assets/projects/2015-05-stoplight/2015-05-stoplight.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2015-05-stoplight/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle">Stoplight</p>
+              <p class="projects projectdate"> May 2015 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Vortex -->
+        <div class="three columns projects">
+            <a href="assets/projects/2014-12-vortex/2014-12-vortex.html" style="text-decoration: none;">
+                <div class="projecttile">
+                    <div class="starred">
+                        <img src="assets/projects/2014-12-vortex/thumbnail.jpg" style="width:100%;"></img>
+                    </div>
+                    <p class="projects subtitle"> Vortex</p>
+                    <p class="projects projectdate"> December 2014 </p>
+                </div>
+            </a>
+        </div>
+
+
+      </div>
+
+      <br>
+
+      <h4 class="projectyear"><b> Events & Conferences</b></h4>
+
+      <!-- First Row -->
+      <div class="row">
+
+        <!-- HackHarvard 2017 -->
+        <div class="three columns projects">
+          <a href="index.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/events/2017-10-hackharvard-2017/thumbnail.jpg" style="width:100%;"></img>
+                <span class="fa fa-star checked star"></span>
+              </div>
+              <p class="projects subtitle"> HackHarvard 2017 </p>
+              <p class="projects projectdate" style="margin:0;"> Third HackHarvard </p>
+              <p class="projects projectdate"> October 2017 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Coaching Flag Football -->
+        <div class="three columns projects">
+          <a href="assets/events/2017-03-coaching-flag-football/2017-03-coaching-flag-football.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/events/2017-03-coaching-flag-football/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle"> Coaching Football </p>
+              <p class="projects projectdate" style="margin:0.5px;"> for 10-11 year olds </p>
+              <p class="projects projectdate"> October 2016 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- HackHarvard 2016 -->
+        <div class="three columns projects">
+          <a href="index.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src= "assets/events/2016-10-hackharvard-2016/thumbnail.jpg" style="width:98%;"></img>
+              </div>
+              <p class="projects subtitle"> HackHarvard 2016 </p>
+              <p class="projects projectdate" style="margin:0;"> Second HackHarvard </p>
+              <p class="projects projectdate"> October 2016 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- HackHarvard 2015 -->
+        <div class="three columns projects">
+          <a href="index.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/events/2015-11-hackharvard-2015/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle"> HackHarvard 2015 </p>
+              <p class="projects projectdate" style="margin:0;"> First HackHarvard </p>
+              <p class="projects projectdate"> November 2015 </p>
+          </div>
+          </a>
+        </div>
+
+      </div>
+
+      <br>
+
+
+      <h4 class="projectyear"><b> Websites </b></h4>
+
+      <!-- First Row -->
+      <div class="row">
+
+        <!-- MakeHarvard Website -->
+        <div class="three columns projects">
+          <a href="http://makeharvard.io" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2017-08-makeharvard-website/thumbnail.jpg" style="width:100%;"></img>
+                <span class="fa fa-star checked star"></span>
+              </div>
+              <p class="projects subtitle"> MakeHarvard Website </p>
+              <p class="projects projectdate" style="margin:0;"> http://makeharvard.io </p>
+              <p class="projects projectdate"> Fall 2016 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- HVIET Website -->
+        <div class="three columns projects">
+          <a href="http://hviet.org" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2017-10-hviet-website/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle"> HVIET Website</p>
+              <p class="projects projectdate" style="margin:0;"> http://hviet.org </p>
+              <p class="projects projectdate"> Fall 2017 </p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Personal Website -->
+        <div class="three columns projects">
+          <a href="index.html" style="text-decoration: none;">
+            <div class="projecttile">
+              <div class="starred">
+                <img src="assets/projects/2014-01-personal-website/thumbnail.jpg" style="width:100%;"></img>
+              </div>
+              <p class="projects subtitle">Personal Website</p>
+              <p class="projects projectdate" style="margin:0;"> http://cameronakker.com </p>
+              <p class="projects projectdate"> (this website) </p>
+          </div>
+          </a>
+        </div>
+
+      </div>
+
+
+      </div>
+      <br>
+      <img src="images/line_thin.png" style="width:100%"></img><br><br>
+      <p style="color:#777; padding-top:0px; margin-left:15px; padding-bottom:0px; margin:5px"> <b>Engineering</b> documents electrical and mechanical engineering projects I've completed</p>
+      <p style="color:#777; padding-top:0px; margin-left:15px; padding-bottom:0px; margin:5px"> <b>Events</b> documents conferences, hackathons, and other activities I've been a part of organizing</p>
+      <p style="color:#777; padding-top:0px; margin-left:15px; padding-bottom:0px;margin:5px"> <b>Websites</b> documents websites that I have built and am maintaining</p>
+      <br>
     </div>
 
-    <div class="w3-section">
+  </div>
 
-</header>
+<br>
 
-<div class="w3-container w3-white" style="margin-left:25px; margin-bottom:30px;">
+<footer>
 
-
-<h1 style="padding-left:10px; padding-top:15px; margin-bottom:0px; font-family: Lato; font-size:28pt;"><b>My name is Cameron Akker; I'm a full-stack inventor</b>. </h1>
-    <h4 style="padding-left:20px; padding-top:10px; margin-top:0px; margin-bottom:0px">No, not a full-stack developer - I partake in projects that span the entire spectrum of creating things.  I'm one part <b>mechanical engineer</b>, two parts <b>electrical engineer</b>, one part <b>software developer</b>, and two parts <b>entrepreneur</b>.</h4><br>
-
-<!-- PROJECTS -->
-<h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:10px"><b>Projects I've Completed</b></h4>
-  <div class="w3-row-padding">
-    <a href="pj_hackharvard2016.html" style="text-align: center; vertical-align: middle; font-size:9.8pt;">
-      <div class="w3-col s12 m4 l2  w3-padding">
-        <img src="./home/hackharvard2016.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>Director of HackHarvard 2016</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_millingmachine.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/millingmachine.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>DIY 3-Axis PCB Milling Machine</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_electriccar.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2  w3-padding">
-        <img src="./home/electriccar.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>Custom Personal Electric Vehicle</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_misc_electronics.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2  w3-padding">
-        <img src="./home/fpga.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>FPGA (Virtex-II) Programming</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_knight.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/knight.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>Casted Knight Chess Piece</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="projects.html" style="text-align: center; vertical-align: middle;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/more.png" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>More projects</b></p>
-        </div>
-      </div>
-    </a>
-
-</div>
-<!-- END PROJECTS -->
-
-<h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">I like to get my hands dirty.  I do a lot of projects.  And I believe in good documentation.</h5>
-
-<h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">Several of the projects here were completed as part of classes as part of my undergraduate education at Harvard.  On nearly all of them, the class project was loosely constrained - the project I completed was of my own inspiration and execution.  In other words, each of these projects was my idea (within general project guidelines) unless specified otherwise.</h5><br>
-
-
-
-<!-- TUTORIALS
-<h4 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:10px"><b>Research Notes</b></h4>
-  <div class="w3-row-padding">
-    <a href="pj_hackharvard.html" style="text-align: center; vertical-align: middle; font-size:9.8pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/teaching.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>Director of HackHarvard 2016</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_millingmachine.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/teaching.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>DIY 3-Axis PCB Milling Machine</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_electricar.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/teaching.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>Custom Personal Electric Vehicle</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_hrexi.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/teaching.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>FPGA (Virtex-II) Programming</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="pj_knight.html" style="text-align: center; vertical-align: middle; font-size:10.5pt;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/teaching.jpg" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>Casted Knight Chess Piece</b></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="projects.html" style="text-align: center; vertical-align: middle;">
-      <div class="w3-col s12 m4 l2 w3-padding">
-        <img src="./home/more.png" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-          <p><b>More projects</b></p>
-        </div>
-      </div>
-    </a>
-
-</div>
-
-<h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">My website includes Projects as well as my blog Research Notes.  I believe the best explanations are the simple explanations - the ones that make you go "oh, ok" instead of "eureka I found it!"  I'm writing with the purpose of accessibility - I want people to understand that difficult subjects can be learned without having to spend hours poring over textbooks.</h5>
-
-<h5 style="padding-left:20px; padding-top:0px; margin-top:0px; margin-bottom:15px">These Research Notes articles range in topics from calculus to using Eagle for PCB design.  They are the articles I wish I had when I was trying to learn these topics.  Each article is written assuming little to no experience in its subject matter.</h5><br>
-
--->
-
-
-<div class="w3-center">
-  <img src="home/chip7.png" width="90%"><br><br><br>
-  <h3 style="padding-left:20px; padding-top:10px; margin-top:0px; margin-bottom:0px">  This website is more of a <b>whiteboard</b>, not just a portfolio.</h3>
-  <h3 style="padding-left:20px; padding-top:10px; margin-top:0px; margin-bottom:0px"> It aims to capture the <b>process</b> as well as the result.</h3><br><br>
-</div>
-
-
-
-  <!-- Footer -->
-<footer class="w3-container w3-padding-16 w3-white">
-  <div id="footerhtml"></div>
 </footer>
 
-<!-- End page content -->
-</div>
+</body>
 
+<!-- Load in Custom CSS -->
 <script>
-// Script to open and close sidenav
-function w3_open() {
-    document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidenav").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-window.onload = function() {
-  load_all(page);
-  $("#projectshtml").html(projectshtml);
-  $("#headerhtml").html(headerhtml);
-  $("#personaldescriptionhtml").html(personaldescriptionhtml);
-  $("#footerhtml").html(footerhtml);
-  $("#home_button").addClass("w3-text-teal");
-}
-
+  window.onload = function() {
+    $('header').html(header_index);
+    $('footer').html(footerhtml);
+  }
 </script>
 
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/w3data.js"></script>
-<script type="text/javascript" src="js/header.js"></script>
-<script type="text/javascript" src="js/footer.js"></script>
-<script type="text/javascript" src="js/sidebar.js"></script>
-<script type="text/javascript" src="js/projects.js"></script>
+</html>
