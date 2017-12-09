@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–––– -->
+  <meta charset="utf-8">
+  <title>Vortex</title>
+  <meta name="description" content="">
+  <meta name="author" content="Cameron Akker">
+
+  <!-- Mobile Specific Metas and Fonts ––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS –– -->
+  <link rel="stylesheet" href="../../../css/custom_skeleton.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- JavaScript –– -->
+  <script src="../../../css/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../../../css/custom.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../../default.ico">
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout -->
+  <header>
+  </header>
+
+  <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
+    <div id="maincontent" style="padding-left:15px; padding-right:15px;  margin:0px">
+      <img src="../../../images/line_thin.png" style="width:100%"></img>
+      <h4 class="projectyear" style="margin-bottom:0px"><b>Vortex - Remake of Classic Arcade Game "Cyclone"</b></h4>
+      <!-- First Row Hardware -->
+      <div class="row">
+        <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px"> Arduino | Arduino IDE | Solidworks | Epilog Laser Cutter</p>
+        <p style="color:#777; margin-top:0px; padding-bottom:5px; margin:0px"> Completed as part of ES 50 (Introduction to Electrical Engineering) at Harvard, Fall 2014</p>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <img src="video.gif" width="100%"></img>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT STARTS HERE -->
+
+      <div class="row">
+        <div class="twelve columns">
+          <img src="img0.jpg" width="90%" style="display: block; margin: auto;"> <br>
+          <p>
+            As a final project for ES 50 at Harvard University, I set out to remake the classic Chuck E. Cheese game "Cyclone" using the Arduino platform.  The project had two major components - the mechanical design of the laser-cut board structure and the electronics that would power it. The board for the project was a ring with 11 inch inner radius and 14 inch outer radius.  The material was 3/8" acrylic in a smoke grey color.  The laser cutter used for this project only had a 12"x24" bed, so it was necessary to split the ring into six separate segments, (one of which is shown in the image).
+          </p><p>
+            Different "top" and "bottom" sections to the ring were constructed and then connected using standoffs.  The top section contained the etchings of the numbers and holes for the LEDs while the bottom section just contained plain ring segments.  The top and bottom sections of the ring were placed together with an offset of half of a ring segment which allowed the connecting standoffs to hold the whole assembly together.
+          </p>
+          <img src="img1.jpg" width="90%" style="display: block; margin: auto;"> <br>
+          <p>
+            The project included 75 different LEDs that had to be controlled separately from a single Arduino.  There were three "jackpot" LEDs and three sets of 24 LEDs in-between the jackpots.  The LEDs used were large 10mm LEDs with a 330 ohm resistor for each LED.  Multiple 74HC595 shift registers were chained together in order to allow control of 24 LEDs in the "in-between" sections.  The three jackpot LEDs were controlled directly from pins on the Arduino because it allowed the design to be much simpler.
+          </p>
+          <img src="img2.jpg" width="90%" style="display: block; margin: auto;"> <br>
+          <p>
+            The project included 75 different LEDs that had to be controlled separately from a single Arduino.  There were three "jackpot" LEDs and three sets of 24 LEDs in-between the jackpots.  The LEDs used were large 10mm LEDs with a 330 ohm resistor for each LED.  Multiple 74HC595 shift registers were chained together in order to allow control of 24 LEDs in the "in-between" sections.  The three jackpot LEDs were controlled directly from pins on the Arduino because it allowed the design to be much simpler.
+          </p>
+          <img src="img3.jpg" width="90%" style="display: block; margin: auto;"> <br>
+          <p>
+            The Arduino code would light up each "in-between" LED for 18ms and light up each jackpot LED for 2ms.  In addition, the "in-between" LED right before the jackpot light had a random number generator associated with it that would vary the "on" time between 10ms and 25ms.  Hitting the jackpot would trigger a victory sequence in which multiple LEDs light up in celebration.
+          </p>
+          <img src="img4.jpg" width="90%" style="display: block; margin: auto;"> <br>
+
+            <div class="navigationbar"></div>
+
+        </div>
+      </div>
+
+<br>
+
+<footer>
+
+</footer>
+
+</body>
+
+<!-- Load in Custom CSS -->
+<script>
+  window.onload = function() {
+    $('header').html(header_projects);
+    $('footer').html(footerhtml);
+    $('.navigationbar').html(navigationbar);
+  }
+</script>
+
+</html>
