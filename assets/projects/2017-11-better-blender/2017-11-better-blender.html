@@ -35,19 +35,116 @@
   <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
     <div id="maincontent" style="padding-left:15px; padding-right:15px;  margin:0px">
       <img src="../../../images/line_thin.png" style="width:100%"></img>
-      <h4 class="projectyear" style="margin-bottom:0px"><b> Better Blender</b></h4>
+      <h4 class="projectyear" style="margin-bottom:0px"><b> Better Blender: A Redesigned Smart IoT Blender</b></h4>
       <!-- First Row Hardware -->
       <div class="row">
-        <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px"> Autodesk Fusion 360 | Altium Designer</p>
+        <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px"> Autodesk Fusion 360 | Autodesk Inventor | Laser Cutting | Raspberry Pi</p>
         <p style="color:#777; margin-top:0px; padding-bottom:5px; margin:0px"> Project for ES91r at Harvard, Fall 2017</p>
       </div>
+      <img src="img0.jpg" width="60%" style="display: block; margin: auto;"><br>
+
+      <div class="row" style="margin-bottom:0px">
+          <p> This project page documents an independent venture into product development during which I hope to explore all of the fundamental aspects of product R&amp;D by building a smart blender from beginning to end.  I hope to gain three things out of this project: </p>
+
+          <p><b>Improve as an electrical engineer</b> - since electrical engineering is my concentration, I will take special care to build a smart blender that has electrical systems that are well-constructed and reflect my ability as a senior electrical engineering student at Harvard.</p>
+
+          <p><b>Improve as a mechanical engineer</b> - I've had classes before relating to CAD and mechanical design, but none of those classes required me to build the entirety of a project in any sort of CAD software.  This blender is entirely under my creative jurisdiction so the materials and prototyping in CAD are an opportunity to improve as a mechanical engineer.</p>
+
+          <p><b>Improve as a designer</b>  - a perfectly-engineered product won't sell unless the design is appealing.  My goal is to design for usability as well as design for aesthetics. There are no heavily-involved theory-based design courses at the undergraduate level at Harvard, but I hope to incorporate elements of good design throughout the process (and I will point them out when I do!)</p>
+
+      <div class="six columns" style="background-color:#eee; padding:8px; margin-bottom:0px; padding-bottom:0px">
+        <ol>
+          <h6 style="font-size:9pt; margin:0px;"><b>Contents</b></h6>
+            <li style="margin:0px; font-size:9pt">Overview</li>
+            <li style="margin:0px; font-size:9pt">Project Planning & Schedule</li>
+            <li style="margin:0px; font-size:9pt">Mechanical Design</li>
+            <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+              <li style="margin:0px; font-size:8pt">3.1 Prototype 1 in Autodesk Inventor</li>
+              <li style="margin:0px; font-size:8pt">3.2 Prototype 2 in Fusion 360</li>
+              <li style="margin:0px; font-size:8pt">3.3 Manufacturing Design</li>
+            </ul>
+            <li style="margin:0px; font-size:9pt">Electrical Design</li>
+            <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+              <li style="margin:0px; font-size:8pt">4.1 Motor Driving</li>
+              <li style="margin:0px; font-size:8pt">4.2 Temperature Sensor</li>
+              <li style="margin:0px; font-size:8pt">4.3 LEDs for Display</li>
+            </ul>
+            <li style="margin:0px; font-size:9pt">Raspberry Pi & Programming</li>
+            <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+              <li style="margin:0px; font-size:8pt">5.1 Operating System</li>
+              <li style="margin:0px; font-size:8pt">5.2 Touchscreen</li>
+              <li style="margin:0px; font-size:8pt">5.3 Python Program</li>
+            </ul>
+            <li style="margin:0px; font-size:9pt">Final Thoughts</li>
+        </ol>
+      </div>
+    </div><br>
 
 
       <div class="row">
         <div class="twelve columns">
-
-              <img src="img0.jpg" width="80%" style="display: block; margin: auto;">
               <!-- Content Goes Here -->
+              <h4 style="padding-bottom:0px; margin-bottom:0px"> Overview </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+              <p> The Better Blender is an attempt to bring the Internet of Things to blender technology. Instead of push-buttons, the entire blender will operate off of a touchscreen that helps the user determine how to make things with the blender.</p>
+
+              <h4 style="padding-bottom:0px; margin-bottom:0px"> Project Planning & Schedule</h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+              <p> Copy and paste from other website</p>
+
+              <h4 style="padding-bottom:0px; margin-bottom:0px"> Mechanical Design </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+              <p> The most significant amount of the work on this project turned out to be on the aspects related to building a housing to contain the blender. The hardest part of creating the blender body was not just determining the sizes and arrangements of the various parts, but rather preparing those parts for manufacturing and actually getting them manufactured. I went through several iterations that are documented below.
+
+                <h5 style="font-size:16pt">Prototype #1 in Autodesk Inventor</h5>
+                <p>
+                  The first prototype for the body of the blender was based mainly around the measurements of an actual blender I took apart to examine the insides of.  The blender was the cheapest model I could find on Amazon - a <a href="https://www.amazon.com/gp/product/B00HTFARRU/"> Black+Decker Counter-Top Blender</a> that only cost $17.99 at the time of purchase.  I spent a week taking apart this blender to understand some of how it worked before setting a course for building up my own blender.
+                </p>
+                <img src="img1.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  The Black+Decker blender runs off of an AC motor and a TRIAC circuit for switching the current to the motor at various speeds. The entire switch housing is kept in a cleverly-engineered spring-loaded box that only allows for one button to be pressed at a time.  There is a lot of space left in the bottom of the blender underneath the motor assembly to allow for cooling of the motor. For an AC motor like this one, there is a fan attached to the motor that blows air in and around the motor while it is operating.
+                </p>
+                <p>
+                  Starting with the dimensions of the Black+Decker Motor, I went about creating a shell for the device in Autodesk Inventor. I chose Autodesk Inventor for making my first prototype because it functions very similarly to Solidworks and has a pretty effective export-to-3D print function.  Most of my blender will be built through parametric modeling, so I don't need the sculpting and surface-modeling features provided by some other CAD programs.
+                </p>
+                <img src="img2.jpg" width="90%" style="display: block; margin: auto;"><br>
+                <p>
+                  I built up the side profile of the blender using two constraints to primarily drive the design - the first was the size of the motor. I'm using a XYD-6D 24V motor which requires approximately 5 square inches of mounting board to attach to. The "top" of the blender, where the pitcher sits, is sized with the intent of allowing the motor to attach to it.  The second constraint was the size of the LCD touch screen. The screen measured 2.25" long meaning the "chin" that sticks out of the blender needed to be at least that long. Every other measurement is chosen for aesthetics.
+                </p>
+                <img src="img3.jpg" width="90%" style="display: block; margin: auto;"><br>
+                <p>
+                  Hexagonal slots are cut into the site of the blender in part to save on material costs, but also to allow ventilation to the motor during normal operation. The front "ridge" serves the same purpose, helping better airflow in to the motor.
+                </p>
+                <img src="img4.jpg" width="90%" style="display: block; margin: auto;"><br>
+                <p>
+                  The compartment into which the touchscreen is placed is engineered to allow the screen to comfortably press-fit into it. A slot at the back allows the wires from the GPIO part of the Raspberry Pi to exit and power the primary motor of the blender.
+                </p>
+                <img src="img5.jpg" width="90%" style="display: block; margin: auto;"><br>
+                <p>
+                  This prototype served its purpose but was never manufactured at the actual scale of the device. My original intent was to 3D print the entire assembly.  There are large-scale 3D printers that could print a device with the dimensions of 5" by 7" by 6" as my blender would have been, but cost and availability were concerns.  I needed to simplify the design and reduce the size to make it more easily printable.  I kept those considerations in mind when moving to the second prototype.
+                </p>
+                <h5 style="font-size:16pt">Prototype #2 in Fusion 360</h5>
+                <p>
+                  A second prototype came with the use of a new CAD software: Fusion 360. I'd never used Fusion 360 for a large CAD project before this point but wanted to give it a try because it has very powerful tools for designing something for manufacturing.  I started by building up the same model as prototype #1, but I knew I would have to shrink the depth of the model as well as the height in order to make it manufacturable on my rapid-prototyping equipment.
+                </p>
+                <img src="img6.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <img src="img7.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  An opportunity presented itself during the design process - if I reduced the total 3D printed material down to just angle and corner brackets, I could complete my prints on the Formlabs Form 2 SLA printer and have much higher quality pieces than on a standard FDM printer.  For the in-between portions, I could just laser-cut those from acryllic and the design would look the same.  I got to work hollowing out the in-between portions to create something that would look very much like my final prototype.
+                </p>
+                <img src="gif1.gif" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  The final stages of the creation process in the GIF above show two notable steps. The first was my decision to change the body material from Formlabs Grey Resin over to the Tough Resin which has a blue color. Since these angle brackets would be holding up the weight of the motor used in the blender, I thought it would be very important that they are strong. The Tough Resin has much better mechanical properties than the Formlabs Grey resin and, since the lab had it in stock, I decided to make the switch.
+                </p>
+                <img src="img8.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  Also notable is the decision to slice the model into 10 smaller parts. The bed size of the Formlabs Form 2 printer is only about 5 inches by 5 inches - smaller parts print much more easily than larger parts. There is also a lower failure rate when the parts are small.  With these two things in mind, I simplified the "cuts" in the blender body and cut it into pieces to prepare for manufacturing.
+                </p>
+                <img src="img9.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  The touchscreen slot has also undergone a transformation - instead of a single wide slot to fit all the outgoing wires, three specific cuts have been made to accomodate the audio jack, HDMI plug, and microUSB cable which will be used to power the device.  The slits on the front of the device have been removed because the Z height has been reduced making them unecessary.  The hexagonal cut-outs on the side of the blender remain as they were before, but now are cuts in acrylic instead of being 3D printed.
+                </p>
+                <p>
+                  A final render of the CAD model is included below with the motor and touchscreen added in for fun: all ready for manufacturing now!
+                </p>
+                <img src="img10.jpg" width="100%" style="display: block; margin: auto;"><br>
 
         </div>
       </div>
