@@ -63,17 +63,11 @@
               <li style="margin:0px; font-size:8pt">3.2 Prototype 2 in Fusion 360</li>
               <li style="margin:0px; font-size:8pt">3.3 Manufacturing Design</li>
             </ul>
-            <li style="margin:0px; font-size:9pt">Electrical Design</li>
+            <li style="margin:0px; font-size:9pt">Electrical Design & Programming</li>
             <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
-              <li style="margin:0px; font-size:8pt">4.1 Motor Driving</li>
-              <li style="margin:0px; font-size:8pt">4.2 Temperature Sensor</li>
-              <li style="margin:0px; font-size:8pt">4.3 LEDs for Display</li>
-            </ul>
-            <li style="margin:0px; font-size:9pt">Raspberry Pi & Programming</li>
-            <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
-              <li style="margin:0px; font-size:8pt">5.1 Operating System</li>
-              <li style="margin:0px; font-size:8pt">5.2 Touchscreen</li>
-              <li style="margin:0px; font-size:8pt">5.3 Python Program</li>
+              <li style="margin:0px; font-size:8pt">4.1 Block Diagram & Motor Driving</li>
+              <li style="margin:0px; font-size:8pt">4.2 Touchscreen</li>
+              <li style="margin:0px; font-size:8pt">4.3 Python Program</li>
             </ul>
             <li style="margin:0px; font-size:9pt">Final Thoughts</li>
         </ol>
@@ -88,7 +82,27 @@
               <p> The Better Blender is an attempt to bring the Internet of Things to blender technology. Instead of push-buttons, the entire blender will operate off of a touchscreen that helps the user determine how to make things with the blender.</p>
 
               <h4 style="padding-bottom:0px; margin-bottom:0px"> Project Planning & Schedule</h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
-              <p> Copy and paste from other website</p>
+              <p> The breakdown of the work I completed each week is documented below:
+                <ol style="list-style-type:none; margin:0; padding:0">
+                  <li style="margin:0; padding:0"> <b>Week 0: Overview and Schedule (9/1 - 9/8)</b> the beginnings of brainstorming a project and its schedule</li>
+                  <li style="margin:0; padding:0"> <b>Week 1: Project Proposal (9/8 - 9/15) </b>includes the project proposal submitted to SEAS</li>
+                  <li style="margin:0; padding:0"> <b>Week 2: Electrical Block Diagram (9/15 - 9/22) </b>motor part selection, voltages, processor</li>
+                  <li style="margin:0; padding:0"> <b>Week 3: Mechanical Proto 1 (9/22 - 9/29) </b>brainstorming what it looks like</li>
+                  <li style="margin:0; padding:0"> <b>Week 4: Mechanical Proto 1 cont'd (9/29 - 10/6) </b>CADing in Autodesk Inventor</li><br>
+                  <li style="margin:0; padding:0"> <b>Week 5: Electrical Implementation (10/6 - 10/13) </b>getting the motor spinning</li>
+                  <li style="margin:0; padding:0"> <b>Week 6: Mechanical Proto 2 (10/13 - 10/20) </b>new CAD in Fusion 360</li>
+                  <li style="margin:0; padding:0"> <b>Week 7: Manufacturing 1 (10/20 - 10/27) </b>first set of 3D printing</li>
+                  <li style="margin:0; padding:0"> <b>Week 8: Manufacturing 2 (10/27 - 11/3) </b>second set of 3D printing & laser cuts</li><br>
+                  <li style="margin:0; padding:0"> <b>Week 9: Assembly (11/3 - 11/10) </b>super glue and hex screws</li>
+                  <li style="margin:0; padding:0"> <b>Week 10: Touch Screen 1 (11/10 - 11/17) </b>operating system and drivers</li>
+                  <li style="margin:0; padding:0"> <b>Week 11: Touch Screen 2 (11/17 - 11/24) </b>GPIO and PWM output</li>
+                  <li style="margin:0; padding:0"> <b>Week 12: Python (11/24 - 12/1) </b>programming for hardware</li>
+
+                  <li style="margin:0; padding:0"> <b>Week 13: Documentation & Wrap-Up (12/1 - 12/8) </b>this page</li><br>
+
+                </ol>
+
+              </p>
 
               <h4 style="padding-bottom:0px; margin-bottom:0px"> Mechanical Design </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
               <p> The most significant amount of the work on this project turned out to be on the aspects related to building a housing to contain the blender. The hardest part of creating the blender body was not just determining the sizes and arrangements of the various parts, but rather preparing those parts for manufacturing and actually getting them manufactured. I went through several iterations that are documented below.
@@ -145,7 +159,93 @@
                   A final render of the CAD model is included below with the motor and touchscreen added in for fun: all ready for manufacturing now!
                 </p>
                 <img src="img10.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <h5 style="font-size:16pt">Manufacturing Design</h5>
+                <p>
+                  I finished designing the pieces I would need to assembly the blender, but then came the issue of actually manufacturing those pieces so that the entire blender could be assembled. I started out with the 3D-printed corner brackets for the main blender housing.  The three images below show the three manufacturing sets I needed to setup in order to print all of the necessary parts.
+                </p>
+                <img src="img11.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  The back pieces of the blender were the thinnest, so I was able to fit the largest number of them onto the Form 2 build platform. Since the front pieces are a little bulkier (to support the special well that the touchscreen sits in) I had to print the lower part of that and upper part as two separate prints.
+                </p>
+                <img src="img12.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  The diagonal orientation of the pieces serves a two-fold purpose. Diagonal pieces make good use of the entire build volume inside the printer allowing me to fit larger pieces into the printer. Additionally, the same SLA printing works requires peeling the piece off of the surface of the bottom of the tank - lower cross-sectional area reduces the chance of failure and minimizes manufacturing time because I don't lose days because of failed prints.
+                </p>
+                <img src="img13.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  I had to set up each bracket in Preform, the Formlabs Form 2 print software, before being able to sent it to the printer. In stereolithography (SLA) printers, it is best to print the model using supports so that it is elevated of the surface of the build platform and smooth edges come out nicer.  The print time for each set up brackets was approximately 11 hours, so I started most of these prints in the evening and let them run overnight.  The final pieces came out resin-soaked, but with beautiful edges.
+                </p>
+                <img src="img14.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  SLA printing produces beautiful parts, but those parts have to undergo a wash and cure process before they are ready to use. I had to wash the resin-soaked parts in isopropyl alcohol (IPA) in 20 minutes to remove any leftover resin. After the IPA bath, I had to let the parts dry and then move them over to a UV cure station where they were cured under UV light for 120 minutes. This process was complex and time-consuming, but led to beautiful parts like show below.
+                </p>
+                <img src="img15.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  With all of the parts 3D-printed, I could assemble a wire-frame for the blender. This was very beautiful, but didn't feel complete without the laser cut in-between parts. I moved on to designing the files for that shortly after finishing 3D-printing.
+                </p>
+                <img src="img16.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  Laser cutting was a relatively straightforward process - I quickly designed the pieces in Fusion 360 based off of the area remaining in the original blender model once I reduced it to just corner pieces.
+                </p>
+                <img src="img17.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  Since I used 1/4" clear acrylic, I needed relatively powerful laser cut settings in order to cut clean through the material. I ended up using a speed of 8% and a power of 100 on the laser at 5000Hz.  This created very clean cuts and meant a total cut time of about 13 minutes per sheet.
+                </p>
+                <img src="img18.jpg" width="100%" style="display: block; margin: auto;"><br>
 
+                <h4 style="padding-bottom:0px; margin-bottom:0px"> Electrical Design & Programming</h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+                <p> The electrical aspect of this project mainly involved driving a DC motor from an LCD touchscreen. There are several layers of abstraction here, but fundamentally, the Raspberry Pi has the ability to supply a PWM signal which will be used in a power MOSFET circuit to drive the DC motor.  The motor I am using is originally used in electric scooters and therefore has plenty of torque for blending.
+
+                  <h5 style="font-size:16pt">Block Diagram & Motor Driving</h5>
+                  <p>
+                    I started off the electrical design by putting together an electrical block diagram that shows all of the essential parts of the circuit. Additional sensors like temperature sensors or capsense level sense devices are simple GPIO devices that just require an ADC pin or a couple pins to communicate over SPI or I2C. These devices can be added later but will clutter the block diagram if added too early.
+                  </p>
+                  <img src="img19.jpg" width="100%" style="display: block; margin: auto;"><br>
+                  <p>
+                    The motor is a highly inductive load and has to have a diode to protect it for safety. I chose to use the XYD-6D motor which runs at 24V ideally and provides 2600rpm at top speed which corresponds to roughly 43rps which is plenty for blending soft things like fruits and vegetables.  I am driving the motor via a power MOSFET and a PWM signal that comes straight from the Raspberry Pi. The rest of the circuit is mostly straightforward.
+                  </p>
+                  <h5 style="font-size:16pt">Touchscreen</h5>
+                  <p>
+                    I found an <a href="https://www.amazon.com/gp/product/B01N3JROH8/">LCD touchscreen</a> that only costs $17.99 on Amazon made by Elegoo. It runs off of the XPT2046 touch controller and has a curious amount of control circuitry on the back of the PCB.
+                  </p>
+                  <img src="img20.jpg" width="100%" style="display: block; margin: auto;"><br>
+                  <p>
+                    Probing these pins on the small ICs isn't necessary unless something goes terribly wrong with the LCD screen touchscreen. If I had more time to explore this PCB, it would be very interesting to understand why a 12-bit ripple counter was necessary to the operation of this device.
+                  </p>
+                  <img src="img21.jpg" width="100%" style="display: block; margin: auto;"><br>
+                  <p>
+                    After connecting the touchscreen to the Raspberry Pi, I promptly entered driver hell. The standard operating system for a Raspberry Pi is called Raspbian and is based off of the Debian Linux OS.  The user guide for the Elegoo touchscreen recommended installing a custom flavor of Raspbian that actually had the touchscreen drivers pre-installed on it. I needed to format an SD card using the Windows virtual machine on my Mac, and then write the IMG file of this custom OS onto that card so it could be booted from the Raspberry Pi.
+                  </p>
+                  <p>
+                    I used a helpful program called "Etcher" to write the Raspbian image to the SD card and it took about 25 minutes to complete. When I booted up the Raspberry Pi by plugging in a Micro-USB power source, the touch screen just showed a blank image
+                  </p>
+                  <img src="img22.jpg" width="100%" style="display: block; margin: auto;"><br>
+                  <p>
+                    I tried a separate SD card before finally determining the source of the error was the disk IMG being corrupted, not the writing to the SD card. I decided to go a separate route at this point and installed the drivers separately on a clean installation of Raspbian.  This was a complex process because the Raspbian IMG file is just over 4GB in size - I had to locate a 8GB SD card since the 4GB ones I had been using would not be big enough. I burned the disk image to the SD card and had to connect the system to an external monitor for setup.
+                  </p>
+                  <img src="img23.jpg" width="80%" style="display: block; margin: auto;"><br>
+                  <p>
+                    Connecting the Raspberry Pi to Harvard University wireless turned out to be a rabbit hole of its own - Harvard networks require users to register devices by their MAC address in order to allow them to connect to Harvard Wifi. Turns out the Raspberry Pi MAC address is accessible from the command line.  I had to type the command <code>ifconfig eth0</code> which then caused the following to display, in which the MAC address is embedded.
+                    <pre><code>eth0 Link encap:Ethernet  HWaddr <b>c7:35:ce:fd:8e:a1</b>
+inet addr:192.168.0.16  Bcast:192.168.0.255  Mask:255.255.255.0
+inet6 addr: fe80::ba27:ebff:fefc:9fd2/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</code></pre>
+                  </p>
+                  <p>
+                    I took this MAC address to the Harvard new device registration portal at <a href="https://getonline.harvard.edu/guest/mac_create.php">https://getonline.harvard.edu/guest/mac_create.php</a> and began setting up the new device. Once it was created, it required 60 seconds to official become available to connect.
+                  </p>
+                  <img src="img24.jpg" width="100%" style="display: block; margin: auto;"><br>
+                  <p>
+                    Only after this was all said and done, I could get the Raspberry Pi online. From there, I needed to download the drivers for the touchscreen from a special Git repo hosted by the company that makes the touchscreen.  After many terminal commands and frustration, I finally managed to load the touchscreen without having the external monitor there as well.
+                  </p>
+                  <img src="img25.jpg" width="100%" style="display: block; margin: auto;"><br>
+                  <h5 style="font-size:16pt">Python Program</h5>
+                  <p>
+                    The final step of the puzzle was to allow the Raspberry Pi to output PWM that could control the motor. This was a non-trivial step as the Raspberry Pi is abstracted far enough away from the hardware programming of something like Arduino that correctly accessing the GPIO pins necessary to pulse width modulate the motor was a daunting task.
+                  </p>
+                  <p>
+                    I decided to write this portion of the code in Python since I have some experience in it and it is a language for which there is a ton of Raspberry Pi support. I needed to initialize the pins as outputs and then cause the Raspberry Pi to pulse-width modulate on them to turn the motor.
+                  </p>
         </div>
       </div>
 
