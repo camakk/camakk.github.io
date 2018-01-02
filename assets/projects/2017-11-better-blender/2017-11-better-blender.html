@@ -69,7 +69,7 @@
               <li style="margin:0px; font-size:8pt">4.2 Touchscreen</li>
               <li style="margin:0px; font-size:8pt">4.3 Python Program</li>
             </ul>
-            <li style="margin:0px; font-size:9pt">Final Thoughts</li>
+
         </ol>
       </div>
     </div><br>
@@ -244,8 +244,39 @@ UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</code></pre>
                     The final step of the puzzle was to allow the Raspberry Pi to output PWM that could control the motor. This was a non-trivial step as the Raspberry Pi is abstracted far enough away from the hardware programming of something like Arduino that correctly accessing the GPIO pins necessary to pulse width modulate the motor was a daunting task.
                   </p>
                   <p>
-                    I decided to write this portion of the code in Python since I have some experience in it and it is a language for which there is a ton of Raspberry Pi support. I needed to initialize the pins as outputs and then cause the Raspberry Pi to pulse-width modulate on them to turn the motor.
+                    I decided to do this portion of the code in Python since I have some experience in it and it is a language for which there is a ton of Raspberry Pi support. I needed to initialize the pins as outputs and then cause the Raspberry Pi to pulse-width modulate on them to turn the motor.
                   </p>
+                  <p>
+                    The basic outline of the code is borrowed from <a href="">this Circuit Digest article</a> with the ports and exact duty-cycle adjusted to match my hardware configuration.  The code is excerpted below:
+                  </p>
+                  <xmp>
+import RPi.GPIO as IO
+
+import time
+
+IO.setmode (IO.BCM)
+
+IO.setup(26,IO.OUT)
+
+p = IO.PWM(26,100)
+p.start(0)
+
+while 1:
+    for x in range (50):
+        p.ChangeDutyCycle(x)
+        time.sleep(0.1)
+
+    for x in range (50):
+        p.ChangeDutyCycle(50-x)
+        time.sleep(0.1)
+                  </xmp>
+                  <p>
+                    I was able to control PWM on the GPIO pin which, combined with the MOSFET circuit from above, allowed me to change the speed of the motor at will. When controlled from the touchscreen, this creates a system where no buttons are needed to input controls to the primary blender motor.
+                  </p><p>
+                    A completed working demo of the blender motor control circuit is included below! In future development it would be important to establish waterproofing and food-safe design for the project. For the time being, it is a solid design prototype.
+                  </p>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BmIxkZV7KEE?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
         </div>
       </div>
 
