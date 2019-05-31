@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Smart Blender</title>
+
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+      body {
+        font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height:1.6
+      }
+    </style>
+	</head>
+	<body>
+    <div class="container" style="max-width:800px">
+		<a id="page-top"></a>
+		<!-- Main NavBar -->
+		<nav id="mainNavbar" class="navbar navbar-expand-md navbar-light bg-white fixed-top m-0 p-1">
+				<div class="container px-3" style="max-width:800px">
+						<div class="align-items-center d-inline-flex flex-row justify-content-center">
+								<!-- <a class="navbar-brand m-0 p-0" href="#page-top"><img class="image-fluid d-inline m-3" src="../icon.png" id="brand" height="20px"></a> -->
+								<span class="mx-0 py-3 d-inline d-lg-inline" style="font-size:1.4rem"><strong>Cameron Akker</strong></span>
+						</div>
+
+						<button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span></button>
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto align-items-center">
+								<li class="nav-item mx-lg-2 mx-md-1">
+										<a class="nav-link" href="/">portfolio</a>
+								</li>
+								<li class="nav-item mx-lg-2 mx-md-1">
+										<a class="nav-link" href="/about">about</a>
+								</li>
+              </ul>
+						</div>
+
+				</div>
+		</nav>
+
+    <!-- space for top fixed navbar -->
+    <div style="height:65px"></div>
+
+    <section>
+      <div class="container" style="max-width:800px">
+
+        <div class="docs-section" style="padding-left:0px; padding-top:5px; padding-right:0px; max-width:800px; margin:auto;">
+  <div style="margin:0px">
+
+    <img src="/assets/projects/2017-11-smart-blender/img0.jpg" width="80%" style="display: block; margin: auto;"><br>
+
+    <h1 style="margin-bottom:0px"><b> Smart Blender</b></h1>
+    <h4 style="color:#555; padding-top:5px; margin-left:0px; margin-bottom:0px; margin:0px"> A Redesigned IoT Blender, an independent project</h4>
+    <div width="200px" class="py-1 my-1 d-flex align-items-center">
+      <div width="70px" height="70px" class="d-inline-flex">
+        <img src="/assets/camakk.jpg" class="rounded-circle p-1" width="60px" height="60px" style="display:inline">
+      </div>
+      <div width="140px" class="pl-2" style="line-height:1.2">
+        <span class="m-0 p=0">Cameron Akker</span><br>
+        <span class="m-0 p-0" style="color:grey; font-size:0.9em"> Nov 2017 • engineering</span>
+      </div>
+    </div>
+
+    <div class="container py-2">
+      <div class="row" style="margin-bottom:0px">
+    <p> This project page documents an independent venture into product development during which I hope to explore all of the fundamental aspects of product R&amp;D by building a smart blender from beginning to end.  I hope to gain three things out of this project: </p>
+
+    <p><b>Improve as an electrical engineer</b> - since electrical engineering is my concentration, I will take special care to build a smart blender that has electrical systems that are well-constructed and reflect my ability as a senior electrical engineering student at Harvard.</p>
+
+    <p><b>Improve as a mechanical engineer</b> - I've had classes before relating to CAD and mechanical design, but none of those classes required me to build the entirety of a project in any sort of CAD software.  This blender is entirely under my creative jurisdiction so the materials and prototyping in CAD are an opportunity to improve as a mechanical engineer.</p>
+
+    <p><b>Improve as a designer</b>  - a perfectly-engineered product won't sell unless the design is appealing.  My goal is to design for usability as well as design for aesthetics. There are no heavily-involved theory-based design courses at the undergraduate level at Harvard, but I hope to incorporate elements of good design throughout the process (and I will point them out when I do!)</p>
+
+<!--
+<div class="col-6" style="background-color:#eee; padding:8px; margin-bottom:0px; padding-bottom:0px">
+  <ol>
+    <h6 style="font-size:9pt; margin:0px;"><b>Contents</b></h6>
+      <li style="margin:0px; font-size:9pt">Overview</li>
+      <li style="margin:0px; font-size:9pt">Project Planning & Schedule</li>
+      <li style="margin:0px; font-size:9pt">Mechanical Design</li>
+      <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+        <li style="margin:0px; font-size:8pt">3.1 Prototype 1 in Autodesk Inventor</li>
+        <li style="margin:0px; font-size:8pt">3.2 Prototype 2 in Fusion 360</li>
+        <li style="margin:0px; font-size:8pt">3.3 Manufacturing Design</li>
+      </ul>
+      <li style="margin:0px; font-size:9pt">Electrical Design & Programming</li>
+      <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+        <li style="margin:0px; font-size:8pt">4.1 Block Diagram & Motor Driving</li>
+        <li style="margin:0px; font-size:8pt">4.2 Touchscreen</li>
+        <li style="margin:0px; font-size:8pt">4.3 Python Program</li>
+      </ul>
+
+  </ol>
+</div>-->
+  <!-- Content Goes Here -->
+
+  <h2 style="padding-bottom:0px; margin-bottom:0px"> Mechanical Design </h2><hr style="margin:0px; padding:0px; margin-bottom:15px">
+  <p> The most significant amount of the work on this project turned out to be on the aspects related to building a housing to contain the blender. The hardest part of creating the blender body was not just determining the sizes and arrangements of the various parts, but rather preparing those parts for manufacturing and actually getting them manufactured. I went through several iterations that are documented below.
+
+    <h3 style="font-size:16pt">Prototype #1 in Autodesk Inventor</h3>
+    <p>
+      The first prototype for the body of the blender was based mainly around the measurements of an actual blender I took apart to examine the insides of.  The blender was the cheapest model I could find on Amazon - a <a href="https://www.amazon.com/gp/product/B00HTFARRU/"> Black+Decker Counter-Top Blender</a> that only cost $17.99 at the time of purchase.  I spent a week taking apart this blender to understand some of how it worked before setting a course for building up my own blender.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img1.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      The Black+Decker blender runs off of an AC motor and a TRIAC circuit for switching the current to the motor at various speeds. The entire switch housing is kept in a cleverly-engineered spring-loaded box that only allows for one button to be pressed at a time.  There is a lot of space left in the bottom of the blender underneath the motor assembly to allow for cooling of the motor. For an AC motor like this one, there is a fan attached to the motor that blows air in and around the motor while it is operating.
+    </p>
+    <p>
+      Starting with the dimensions of the Black+Decker Motor, I went about creating a shell for the device in Autodesk Inventor. I chose Autodesk Inventor for making my first prototype because it functions very similarly to Solidworks and has a pretty effective export-to-3D print function.  Most of my blender will be built through parametric modeling, so I don't need the sculpting and surface-modeling features provided by some other CAD programs.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img2.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      I built up the side profile of the blender using two constraints to primarily drive the design - the first was the size of the motor. I'm using a XYD-6D 24V motor which requires approximately 5 square inches of mounting board to attach to. The "top" of the blender, where the pitcher sits, is sized with the intent of allowing the motor to attach to it.  The second constraint was the size of the LCD touch screen. The screen measured 2.25" long meaning the "chin" that sticks out of the blender needed to be at least that long. Every other measurement is chosen for aesthetics.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img3.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      Hexagonal slots are cut into the site of the blender in part to save on material costs, but also to allow ventilation to the motor during normal operation. The front "ridge" serves the same purpose, helping better airflow in to the motor.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img4.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      The compartment into which the touchscreen is placed is engineered to allow the screen to comfortably press-fit into it. A slot at the back allows the wires from the GPIO part of the Raspberry Pi to exit and power the primary motor of the blender.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img5.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      This prototype served its purpose but was never manufactured at the actual scale of the device. My original intent was to 3D print the entire assembly.  There are large-scale 3D printers that could print a device with the dimensions of 5" by 7" by 6" as my blender would have been, but cost and availability were concerns.  I needed to simplify the design and reduce the size to make it more easily printable.  I kept those considerations in mind when moving to the second prototype.
+    </p>
+    <h3 style="font-size:16pt">Prototype #2 in Fusion 360</h3>
+    <p>
+      A second prototype came with the use of a new CAD software: Fusion 360. I'd never used Fusion 360 for a large CAD project before this point but wanted to give it a try because it has very powerful tools for designing something for manufacturing.  I started by building up the same model as prototype #1, but I knew I would have to shrink the depth of the model as well as the height in order to make it manufacturable on my rapid-prototyping equipment.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img6.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img7.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      An opportunity presented itself during the design process - if I reduced the total 3D printed material down to just angle and corner brackets, I could complete my prints on the Formlabs Form 2 SLA printer and have much higher quality pieces than on a standard FDM printer.  For the in-between portions, I could just laser-cut those from acryllic and the design would look the same.  I got to work hollowing out the in-between portions to create something that would look very much like my final prototype.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/gif1.gif" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      The final stages of the creation process in the GIF above show two notable steps. The first was my decision to change the body material from Formlabs Grey Resin over to the Tough Resin which has a blue color. Since these angle brackets would be holding up the weight of the motor used in the blender, I thought it would be very important that they are strong. The Tough Resin has much better mechanical properties than the Formlabs Grey resin and, since the lab had it in stock, I decided to make the switch.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img8.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      Also notable is the decision to slice the model into 10 smaller parts. The bed size of the Formlabs Form 2 printer is only about 5 inches by 5 inches - smaller parts print much more easily than larger parts. There is also a lower failure rate when the parts are small.  With these two things in mind, I simplified the "cuts" in the blender body and cut it into pieces to prepare for manufacturing.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img9.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      The touchscreen slot has also undergone a transformation - instead of a single wide slot to fit all the outgoing wires, three specific cuts have been made to accomodate the audio jack, HDMI plug, and microUSB cable which will be used to power the device.  The slits on the front of the device have been removed because the Z height has been reduced making them unecessary.  The hexagonal cut-outs on the side of the blender remain as they were before, but now are cuts in acrylic instead of being 3D printed.
+    </p>
+    <p>
+      A final render of the CAD model is included below with the motor and touchscreen added in for fun: all ready for manufacturing now!
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img10.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <h3 style="font-size:16pt">Manufacturing Design</h3>
+    <p>
+      I finished designing the pieces I would need to assembly the blender, but then came the issue of actually manufacturing those pieces so that the entire blender could be assembled. I started out with the 3D-printed corner brackets for the main blender housing.  The three images below show the three manufacturing sets I needed to setup in order to print all of the necessary parts.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img11.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      The back pieces of the blender were the thinnest, so I was able to fit the largest number of them onto the Form 2 build platform. Since the front pieces are a little bulkier (to support the special well that the touchscreen sits in) I had to print the lower part of that and upper part as two separate prints.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img12.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      The diagonal orientation of the pieces serves a two-fold purpose. Diagonal pieces make good use of the entire build volume inside the printer allowing me to fit larger pieces into the printer. Additionally, the same SLA printing works requires peeling the piece off of the surface of the bottom of the tank - lower cross-sectional area reduces the chance of failure and minimizes manufacturing time because I don't lose days because of failed prints.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img13.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      I had to set up each bracket in Preform, the Formlabs Form 2 print software, before being able to sent it to the printer. In stereolithography (SLA) printers, it is best to print the model using supports so that it is elevated of the surface of the build platform and smooth edges come out nicer.  The print time for each set up brackets was approximately 11 hours, so I started most of these prints in the evening and let them run overnight.  The final pieces came out resin-soaked, but with beautiful edges.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img14.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      SLA printing produces beautiful parts, but those parts have to undergo a wash and cure process before they are ready to use. I had to wash the resin-soaked parts in isopropyl alcohol (IPA) in 20 minutes to remove any leftover resin. After the IPA bath, I had to let the parts dry and then move them over to a UV cure station where they were cured under UV light for 120 minutes. This process was complex and time-consuming, but led to beautiful parts like show below.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img15.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      With all of the parts 3D-printed, I could assemble a wire-frame for the blender. This was very beautiful, but didn't feel complete without the laser cut in-between parts. I moved on to designing the files for that shortly after finishing 3D-printing.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img16.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      Laser cutting was a relatively straightforward process - I quickly designed the pieces in Fusion 360 based off of the area remaining in the original blender model once I reduced it to just corner pieces.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img17.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+    <p>
+      Since I used 1/4" clear acrylic, I needed relatively powerful laser cut settings in order to cut clean through the material. I ended up using a speed of 8% and a power of 100 on the laser at 5000Hz.  This created very clean cuts and meant a total cut time of about 13 minutes per sheet.
+    </p>
+    <div class="row">
+      <div class="col-12">
+        <img src="/assets/projects/2017-11-smart-blender/img18.jpg" class="img-fluid py-2">
+      </div>
+    </div>
+
+    <h2 style="padding-bottom:0px; margin-bottom:0px"> Electrical Design & Programming</h2><hr style="margin:0px; padding:0px; margin-bottom:15px">
+    <p> The electrical aspect of this project mainly involved driving a DC motor from an LCD touchscreen. There are several layers of abstraction here, but fundamentally, the Raspberry Pi has the ability to supply a PWM signal which will be used in a power MOSFET circuit to drive the DC motor.  The motor I am using is originally used in electric scooters and therefore has plenty of torque for blending.
+
+      <h3 style="font-size:16pt">Block Diagram & Motor Driving</h3>
+      <p>
+        I started off the electrical design by putting together an electrical block diagram that shows all of the essential parts of the circuit. Additional sensors like temperature sensors or capsense level sense devices are simple GPIO devices that just require an ADC pin or a couple pins to communicate over SPI or I2C. These devices can be added later but will clutter the block diagram if added too early.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img19.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <p>
+        The motor is a highly inductive load and has to have a diode to protect it for safety. I chose to use the XYD-6D motor which runs at 24V ideally and provides 2600rpm at top speed which corresponds to roughly 43rps which is plenty for blending soft things like fruits and vegetables.  I am driving the motor via a power MOSFET and a PWM signal that comes straight from the Raspberry Pi. The rest of the circuit is mostly straightforward.
+      </p>
+      <h3 style="font-size:16pt">Touchscreen</h3>
+      <p>
+        I found an <a href="https://www.amazon.com/gp/product/B01N3JROH8/">LCD touchscreen</a> that only costs $17.99 on Amazon made by Elegoo. It runs off of the XPT2046 touch controller and has a curious amount of control circuitry on the back of the PCB.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img20.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <p>
+        Probing these pins on the small ICs isn't necessary unless something goes terribly wrong with the LCD screen touchscreen. If I had more time to explore this PCB, it would be very interesting to understand why a 12-bit ripple counter was necessary to the operation of this device.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img21.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <p>
+        After connecting the touchscreen to the Raspberry Pi, I promptly entered driver hell. The standard operating system for a Raspberry Pi is called Raspbian and is based off of the Debian Linux OS.  The user guide for the Elegoo touchscreen recommended installing a custom flavor of Raspbian that actually had the touchscreen drivers pre-installed on it. I needed to format an SD card using the Windows virtual machine on my Mac, and then write the IMG file of this custom OS onto that card so it could be booted from the Raspberry Pi.
+      </p>
+      <p>
+        I used a helpful program called "Etcher" to write the Raspbian image to the SD card and it took about 25 minutes to complete. When I booted up the Raspberry Pi by plugging in a Micro-USB power source, the touch screen just showed a blank image
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img22.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <p>
+        I tried a separate SD card before finally determining the source of the error was the disk IMG being corrupted, not the writing to the SD card. I decided to go a separate route at this point and installed the drivers separately on a clean installation of Raspbian.  This was a complex process because the Raspbian IMG file is just over 4GB in size - I had to locate a 8GB SD card since the 4GB ones I had been using would not be big enough. I burned the disk image to the SD card and had to connect the system to an external monitor for setup.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img23.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <p>
+        Connecting the Raspberry Pi to Harvard University wireless turned out to be a rabbit hole of its own - Harvard networks require users to register devices by their MAC address in order to allow them to connect to Harvard Wifi. Turns out the Raspberry Pi MAC address is accessible from the command line.  I had to type the command <code>ifconfig eth0</code> which then caused the following to display, in which the MAC address is embedded.
+        <pre><code>eth0 Link encap:Ethernet  HWaddr <b>c7:35:ce:fd:8e:a1</b>
+inet addr:192.168.0.16  Bcast:192.168.0.255  Mask:255.255.255.0
+inet6 addr: fe80::ba27:ebff:fefc:9fd2/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</code></pre>
+      </p>
+      <p>
+        I took this MAC address to the Harvard new device registration portal at <a href="https://getonline.harvard.edu/guest/mac_create.php">https://getonline.harvard.edu/guest/mac_create.php</a> and began setting up the new device. Once it was created, it required 60 seconds to official become available to connect.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img24.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <p>
+        Only after this was all said and done, I could get the Raspberry Pi online. From there, I needed to download the drivers for the touchscreen from a special Git repo hosted by the company that makes the touchscreen.  After many terminal commands and frustration, I finally managed to load the touchscreen without having the external monitor there as well.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/projects/2017-11-smart-blender/img25.jpg" class="img-fluid py-2">
+        </div>
+      </div>
+      <h3 style="font-size:16pt">Python Program</h3>
+      <p>
+        The final step of the puzzle was to allow the Raspberry Pi to output PWM that could control the motor. This was a non-trivial step as the Raspberry Pi is abstracted far enough away from the hardware programming of something like Arduino that correctly accessing the GPIO pins necessary to pulse width modulate the motor was a daunting task.
+      </p>
+      <p>
+        I decided to do this portion of the code in Python since I have some experience in it and it is a language for which there is a ton of Raspberry Pi support. I needed to initialize the pins as outputs and then cause the Raspberry Pi to pulse-width modulate on them to turn the motor.
+      </p>
+      <p>
+        The basic outline of the code is borrowed from <a href="">this Circuit Digest article</a> with the ports and exact duty-cycle adjusted to match my hardware configuration.  The code is excerpted below:
+      </p>
+      <xmp>
+import RPi.GPIO as IO
+
+import time
+
+IO.setmode (IO.BCM)
+
+IO.setup(26,IO.OUT)
+
+p = IO.PWM(26,100)
+p.start(0)
+
+while 1:
+for x in range (50):
+p.ChangeDutyCycle(x)
+time.sleep(0.1)
+
+for x in range (50):
+p.ChangeDutyCycle(50-x)
+time.sleep(0.1)
+      </xmp>
+      <p>
+        I was able to control PWM on the GPIO pin which, combined with the MOSFET circuit from above, allowed me to change the speed of the motor at will. When controlled from the touchscreen, this creates a system where no buttons are needed to input controls to the primary blender motor.
+      </p><p>
+        A completed working demo of the blender motor control circuit is included below! In future development it would be important to establish waterproofing and food-safe design for the project. For the time being, it is a solid design prototype.
+      </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/BmIxkZV7KEE?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div><br>
+
+    </div>
+
+    <!-- Display Title at Top -->
+    <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px">
+      
+        <button type="button" class="btn-sm btn-secondary m-1" disabled> Autodesk Fusion 360 </button>
+      
+        <button type="button" class="btn-sm btn-secondary m-1" disabled> Autodesk Inventor </button>
+      
+        <button type="button" class="btn-sm btn-secondary m-1" disabled> Laser Cutting </button>
+      
+        <button type="button" class="btn-sm btn-secondary m-1" disabled> Raspberry Pi </button>
+      
+        <button type="button" class="btn-sm btn-secondary m-1" disabled> Python </button>
+      
+    </p>
+    <hr>
+
+    <div width="200px" class="py-1 my-1 d-flex align-items-center">
+      <div width="70px" height="70px" class="d-inline-flex">
+        <img src="/assets/camakk.jpg" class="rounded-circle p-1" width="60px" height="60px" style="display:inline">
+      </div>
+      <div width="140px" class="pl-2" style="line-height:1.2">
+        <span class="m-0 p=0">Cameron Akker</span><br>
+        <span class="m-0 p-0" style="color:grey; font-size:0.9em"> Harvard '19 | B.S. Electrical Engineering</span>
+      </div>
+    </div>
+
+
+      </div>
+    </section>
+
+    <div style="height:75px"></div>
+    <footer style="padding-bottom: 20px">
+      <div class="container" style="max-width:800px">
+        <div class="row">
+          <div class="col-6">
+            <p style="color:black; margin:0px; text-align:left">© 2013-2019</p>
+          </div>
+          <div class="col-6 row-flex" style="text-align:right">
+            <a href="/about" style="text-decoration:none; font-size:13pt; padding-right:25px; color:black">About</a>
+            <a href="https://www.linkedin.com/in/cameronakker"><i class="fa fa-linkedin" style="color:black; padding-right:20px"></i></a>
+            <a href="https://github.com/camakk"><i class="fa fa-github" style="color:black; padding-right:5px"></i></a>
+          </div>
+        </div>
+        </div>
+    </footer>
+  </div>
+
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+		<script src="js/css3-animate-it.js"></script>
+    <script src="/custom.js">
+
+    </script>
+		<script>
+			$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–––– -->
+  <meta charset="utf-8">
+  <title>Wearable Motherboard</title>
+  <meta name="description" content="">
+  <meta name="author" content="Cameron Akker">
+
+  <!-- Mobile Specific Metas and Fonts ––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS –– -->
+  <link rel="stylesheet" href="../../../css/custom_skeleton.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- JavaScript –– -->
+  <script src="../../../css/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../../../css/custom.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../../default.ico">
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout -->
+  <header>
+  </header>
+
+  <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
+    <div id="maincontent" style="padding-left:15px; padding-right:15px;  margin:0px">
+      <img src="../../../images/line_thin.png" style="width:100%"></img>
+      <h4 class="projectyear" style="margin-bottom:0px"><b> Outpatient Medical Wearable Motherboard</b></h4>
+      <!-- First Row Hardware -->
+      <div class="row">
+        <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px"> Altium Designer | Fabricated by Advanced Circuits</p>
+        <p style="color:#777; margin-top:0px; padding-bottom:5px; margin:0px"> Project for ES96 at Harvard, Fall 2017</p>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <img src="img0-1.png" width="100%" style="display: block; margin: auto;"><br>
+        </div>
+        <div class="six columns">
+          <img src="img0-2.png" width="95%" style="display: block; margin: auto;"><br>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-bottom:0px">
+          <p>
+            For my junior design project at Harvard, I had a chance to work in a consulting role to the Dana Farber Cancer Institute and Global Health Initiative based in Boston in order to develop the electronics for a medical device to help pediatric cancer patients. This "outpatient wearable" is a small wristwatch-like device that has an integrated temperature sensor that monitors a patient's temperature. An elevated temperature in a child's body after they have been diagnosed with some form of cancer can often mean they are highly at risk. This temperature monitor is worn by the child at all times to mitigate the risk of an elevated temperature going unnoticed by a parent or guardian.
+          </p> <p>
+            I designed the board in Altium Designer and selected the components. There was a mechanical component to the medical device that was completed by a separate team - only the electrical part is documented here.
+          </p>
+
+      <div class="six columns" style="background-color:#eee; padding:8px; margin-bottom:0px; padding-bottom:0px">
+        <ol>
+          <h6 style="font-size:9pt; margin:0px;"><b>Contents</b></h6>
+            <li style="margin:0px; font-size:9pt"><a href="#section1" style="color:#005883">Overview</a></li>
+            <li style="margin:0px; font-size:9pt"><a href="#section2" style="color:#005883">Schematic Capture</a></li>
+            <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+              <li style="margin:0px; font-size:8pt"><a href="#section2.1" style="color:#005883">2.1 Microcontroller: ATtiny44</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section2.2" style="color:#005883">2.2 Audio Transducer Circuit</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section2.3" style="color:#005883">2.3 Temperature Sensor</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section2.4" style="color:#005883">2.4 Battery Charge Circuit</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section2.5" style="color:#005883">2.5 Battery Check Circuit</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section2.6" style="color:#005883">2.6 Information Read-Out LEDs</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section2.7" style="color:#005883">2.7 Programming Headers</a></li>
+            </ul>
+            <li style="margin:0px; font-size:9pt"><a href="#section3" style="color:#005883">Board Layout and Routing</a></li>
+            <ul style="list-style:none; margin-top:0px; margin-bottom:0px">
+              <li style="margin:0px; font-size:8pt"><a href="#section3.1" style="color:#005883">3.1 Board Stackup</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section3.2" style="color:#005883">3.2 Board Layout: Top Layer</a></li>
+              <li style="margin:0px; font-size:8pt"><a href="#section3.3" style="color:#005883">3.3 Board Layout: Bottom Layer</a></li>
+            </ul>
+            <li style="margin:0px; font-size:9pt"><a href="#section4" style="color:#005883">DFM, Fabrication, and Soldering</a></li>
+        </ol>
+      </div>
+    </div><br>
+
+
+      <div class="row">
+        <div class="twelve columns">
+              <a name="section1"></a>
+              <h4 style="padding-bottom:0px; margin-bottom:0px"> Overview </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+              <p>
+                Fundamentally, the electronics for this device include microcontroller, temperature sensor, and LEDs to indicate when the temperature sensor detects a reading that is too high. Beyond that, there is some battery management circuitry.  I will break down each component of the overall schematic separately.
+              </p>
+              <a name="section2"></a>
+              <h4 style="padding-bottom:0px; margin-bottom:0px"> Schematic Capture </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+              <p>
+                Selecting components was the first step toward getting the motherboard to the point where it could be fabricated.  The components selected had to have form factors selected for which footprints could be found for producing the board in Altium Designer.
+              </p><p>
+                Standard libraries don’t exist for most components used on the board, but a free library at snapeda.com has a large enough sample library of parts from Digikey that it wasn’t too hard to find all of the parts on there. A few components had to be switched out for other components because finding the footprint or a mechanical diagram for them was impossible. Most notably was the waterproof micro-USB port which switched from a JAE electronics part to a MOLEX part, and the audio transducer which was chosen because it was the only part in that family of parts for which a footprint could be found.
+              </p>
+              <a name="section2.1"></a>
+              <h5 style="font-size:16pt">Microcontroller: ATtiny44</h5>
+              <img src="img1.jpg" style="display: block; margin: auto;"><br>
+                <p>
+                  The ATTiny44 is at the center of the whole motherboard and with good reason - it takes in the input from the temperature sensor, calculates the temperature reading, and then outputs to the LEDs and audio transducer if needed. The ATtiny44-20SSU comes in the 14-SOIC package with two lines of 7 pins on either side of the IC. This form factor was chosen for two reasons: (1) it is a relatively compact form factor compared to something like a DIP package and (2) it is solderable by hand because there is approximately a 15 mil spacing between the pads which is plenty.
+                </p> <p>
+                  Even more notable here is that every single GPIO pin on the ATtiny is used: out of the 12 GPIO pins, 3 are used for LEDs, 2 for the temperature sensor, 1 for the speaker, 3 for programming, 2 for FTDI debugging, and 1 as a hardware reset. This processor is optimized perfectly for the number of inputs and outputs our device had.  And with a dedicated hardware PWM for the speaker, the processor saved us the need to include a transducer driver chip.
+                </p>
+                <a name="section2.2"></a>
+                <h5 style="font-size:16pt">Audio Transducer Circuit</h5>
+                <img src="img2.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  The audio transducer is a simple MOSFET driver for an inductive load using a Schottky diode for protection on the speaker. The 220 ohm resistor at the gate of the MOSFET is for frequency compensation but could potentially be left out since the highest frequency we reach for this driver is only around 4kHz. The transducer comes in a 3 pin package in which only 2 of the pins are used which makes for very simple wiring.
+                </p><p>
+                  The Schottky diode came in the miniscule SOD-323 package which is only 1.7mm by 1.25mm package and tiny 0.8 square mm pads. This component was the second-most-difficult to solder behind the micro-USB (7 mil traces with 7 mil spacing).  What made the SOD-323 so difficult was the fact that the soldering iron tip was significantly bigger than the pad, so a kludgy rework system was the only way to ensure a good solder joint.
+                </p>
+                <a name="section2.3"></a>
+                <h5 style="font-size:16pt">Temperature Sensor</h5>
+                <p>
+                  From a motherboard perspective, the temperature sensor was the easiest component to account for. The temperature sensor we were using came on a separate PCB and connected to the motherboard using three 30-gauge wires that carried the ENABLE, DATA_OUT, and GND signals to the other board.  The VCC and ENABLE lines were tied together on that board meaning the temperature sensor was always on.
+                </p><p>
+                  To accommodate these on the motherboard, three through-hole solder points would be needed to connect the 30-gauge wire from the temperature sensor. These through-hole points would then route to the microcontroller which would be able to read in the values. The temperature sensor communicated an analog voltage back to the microcontroller so the DATA_OUT signal is routed to PA7 (pin 6 on the microcontroller) which has a built in ADC for reading in that value.
+                </p>
+                <a name="section2.4"></a>
+                <h5 style="font-size:16pt">Battery Charge Circuit</h5>
+                <img src="img3.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  A key aspect of allowing the outpatient wearable to be usable in low-middle income settings was allowing users to charge it using a cable or system they are familiar with. The micro-USB receptacle here serves the sole purpose of allowing the user to charge via a standard micro-USB cable such as the kind that ships with most Android phones.
+                </p> <p>
+                  Only the +5V bus and GND lines of the micro-USB are used - the other two lines are left disconnected because instead of allowing in-system programming on the ATtiny44 using an FTDI RS-232 chip, all of our systems are one-time flash with no option to reprogram once they are completed and sealed away.
+                </p> <p>
+                  The chip that handles the battery charging is the MCP73831T which ships on standard Adafruit chargers such as the one that comes with our 150mAH battery. This is a fully integrated charge controller that can determine when a battery is full and when it is time to stop charging. The 10K resistor sets the charge rate at 100mA which is a safe value for the 150mAH battery. This means our charge time is approximately 90 minutes from empty for our battery.
+                </p> <p>
+                  The capacitor on the left side of the circuit is for noise filtering and charge stabilization.  The 5V supply line is not used anywhere except as input to the battery charge circuitry.
+                </p>
+                <a name="section2.5"></a>
+                <h5 style="font-size:16pt">Battery Check Circuit</h5>
+                <img src="img4.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  In order to let the user know when the battery on the device had run out of power, we installed a very basic LED connected across the leads of the battery with a small push-button.  Press the button and, as long as the button is pressed, the RGB LED on the board should light up green.
+                </p> <p>
+                  An RGB LED was chosen here because it serves double purpose by also letting the user know when the device is plugged in and successfully charging. This LED will turn red because it is connected to a “status” output on the charge controller that lets the user know when the device is plugged into a micro-USB and successfully charging.
+                </p>
+                <a name="section2.6"></a>
+                <h5 style="font-size:16pt">Information Read-Out LEDs</h5>
+                <img src="img5.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  These are the most important LEDs as they are the ones that allow the user to know when their health is potentially compromised from a higher than usual body temperature. They are of the 1206 SMT value which was large enough to be visible from a healthy distance while still fitting in between the programming headers that would also have to be included on the board.
+                </p> <p>
+                  Each LED is complemented with a 1k ohm resistor which limits the current and allows the brightness of the LED to be at an acceptable level.
+                </p>
+                <a name="section2.7"></a>
+                <h5 style="font-size:16pt">Programming Headers</h5>
+                <img src="img6.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  In what is perhaps the least aesthetically pleasing design decision on this board, two sets of headers were added to assist in the research and development of this board.  These ugly gold pads only show up on prototype boards and would surely be removed if the device ever went to mass production.
+                </p> <p>
+                  The 2x3 rectangular 0.100” header is important for programming the board - it connects to the MISO and MOSI pins of the ATtiny44 to allow it to be programmed by most in-system programmers via something like Atmel Studio or AVRdude from the computer.
+                </p> <p>
+                  The other 1x6 long 0.100” header serves a debugging purpose by allowing an FTDI connection to a computer. There are two massive benefits to having this FTDI header for debugging: (1) it allows us to power up the board to 3.3V without having the battery connected which is an important safety consideration for detecting shorts and other malfunctions within the board.
+                </p> <p>
+                  Another benefit is that (2) the FTDI cable has a built in RS-232 chip that allows the computer to communicate with the board via a Serial terminal or something of that sort in Arduino.  “Print” statements from the computer can be printed to the command line and reveal what is going on inside the processor for the purposes of debugging.
+                </p>
+                <a name="section3"></a>
+                <h4 style="padding-bottom:0px; margin-bottom:0px"> Board Layout and Routing </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+                <p>
+                  After schematic capture, the natural next step in PCB design is to import all of the schematic footprints and netlist to the board layout environment and figure out the best way to fit all of the components and traces onto the predefined board area.  We had a form factor of roughly 1.00” by 0.80” to work with so I had to start with that.
+                </p>
+                <img src="img7.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  The empty board above has the board cutout defined on the M1 layer which is pretty standard for Altium Designer. The little notch on the corner creeps up 0.15” on each side and is cut at a 45 degree angle. This notch was added at the request of the mechanical team to help with orienting the board and to give it a little character. It also served a crucial purpose later on in determining the orientation of the RGB LED when soldering.
+                </p>
+                <a name="section3.1"></a>
+                <h5 style="font-size:16pt">Board Stackup</h5>
+                <img src="img8.jpg" width="100%" style="display: block; margin: auto;"><br>
+                <p>
+                  Before diving into the nitty-gritty of board trace routing, it became important to chose how many signal layers the board would have. We were heavily constrained on Z height so instead of the standard 0.063” thick FR-4 PCB, we decided to go with the thinner 0.031” thick FR-4 boards instead. The fabrication cost was marginally more but the difference in 0.03” for a device with a total thickness of around 0.25” made a pretty big difference to us.
+                </p> <p>
+                  The original design called for a 4-layer board which is pretty typical - we could use the inner layers as ground and power planes, or use them for signal routing if absolutely necessary.  The FR-4 core is pretty standard and the 1080 prepreg was recommended on the website for Advanced Circuits which was our boardhouse.  Ultimately, we chose green soldermask for the board because it was the cheapest of the options available.
+                </p>
+                <a name="section3.2"></a>
+                <h5 style="font-size:16pt">Board Layout: Top Layer</h5>
+                <img src="img9.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  The top layer of the board has fewer components - this is because it is flush with the surface of the case and primarily needs to show the user the 3 LEDs determining the temperature status. Since there is so much extra space not taken up by components, this was a perfect place to include the programming and FTDI headers. The programming header is in the Southeast corner next to the RGB LED for checking battery life, and the FTDI header is on the North side of the LEDs.
+                </p> <p>
+                  Silkscreen was printed with a line near the pads of the LEDs to guide assembly - the green line on the actual LED could be matched up to the silkscreen line near the pads to ensure the LED was oriented correctly. The RGB LED had an even easier guide for ensuring its orientation was correct - the notch at the lower right corner of the RGB LED perfectly aligned to the actual form factor of the board itself. They both had a notch cut out of the same corner making alignment simple.
+                </p> <p>
+                  There are many many vias on this board - the reason for that is about halfway through the routing process, it became clear that everything could fit onto a 2-layer board instead of the aforementioned 4-layer board. The requirement to make it all fit on 2 layers is that the board would required 10 mil vias which was right at the lower limit of what Advanced Circuits was capable of.
+                </p> <p>
+                  Note, finally, the presence of the two large plated holes on the left side of the board for directly soldering wires from the battery onto the motherboard. The battery has 22 AWG wires so the holes for mounting the battery are significantly bigger than the holes for the 30 AWG wires of the temperature sensor.
+                </p>
+                <a name="section3.3"></a>
+                <h5 style="font-size:16pt">Board Layout: Bottom Layer</h5>
+                <img src="img10.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  The bottom layer is where many of the components that make the board work are actually hidden. The center of everything is the ATtiny44, placed centrally because it has traces that run to nearly every other component.  The micro-USB is also placed on the bottom layer and is notable because it has 7 mil traces which pushes the limits of most manufacturing houses.
+                </p> <p>
+                  The battery management circuitry is on the north side of the board because it provides a clean path from the battery mount point to the processor to the micro-USB header. The south side of the board is reserved for signal traces like those for the LEDs and the data from the temperature sensor.  The pushbutton is nested in the southwest corner of the board where it is close to the battery connection points.
+                </p> <p>
+                  The completed board with all electrical layers is shown below in red (top) and blue (bottom):
+                </p>
+                <img src="img11.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  Mechanical layers define the boundaries of the parts and how they may protrude into other parts or off of the board. The mechanical layers are included in the image below:
+                </p>
+                <img src="img12.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  One final rendering of the board with all layers, both electrical and mechanical as well as the keep-out layer and silkscreen is shown below:
+                </p>
+                <img src="img13.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  Altium Designer provides one last feature which is a 3D view of the board. Renderings of the top and bottom of the board with most components included are shown below:
+                </p>
+                <img src="img14.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  And the bottom layer, with processor and other components included in 3D detail.
+                </p>
+                <img src="img15.jpg" width="70%" style="display: block; margin: auto;"><br>
+
+            <a name="section4"></a>
+            <h4 style="padding-bottom:0px; margin-bottom:0px"> DFM, Fabrication, and Soldering </h4><hr style="margin:0px; padding:0px; margin-bottom:15px">
+                <p>
+                  Once the board was designed, there were only a few minor Design for Manufacturing (DFM) issues that needed to be resolved before fabrication. The first one related to the proximity of vias to pads in a couple locations, one of which is highlighted below in the white circle:
+                </p>
+                <img src="img16.jpg" width="70%" style="display: block; margin: auto;"><br>
+                <p>
+                  This type of conflict is only an issue when a through-hole component is being soldered to the hole that ends up in another pad. In this case, the hole was simply a via meant to route the signal that the pad was on anyways. Normally there would be a space left for aesthetics, but the tightness of everything on this board required us to overlook that common design practice to fit everything.
+                </p> <p>
+                  The only other DFM issue was related to the proximity of silkscreen to copper pads. In the library component for the 0603 resistors used in this device, a silkscreen that is right next to the copper pads is defined as shown in the white circle below:
+                </p>
+                <img src="img17.jpg" width="60%" style="display: block; margin: auto;"><br>
+                <p>
+                  The bottom silkscreen is too close to the copper pads which could cause a printing error. These lines on the bottom silkscreen are sort of pointless though - we don’t really care if they’re there or not. To allow the device to pass DFM, we simply asked the program to ignore these silkscreen lines as they served no important purpose.
+                </p> <p>
+                  In our first prototype phase, approximately 50 of these boards were ordered from Advanced Circuits and soldered by hand to test. This process was extremely straightforward as all of the components were carefully chosen to allow for surface-mount soldering using standard techniques. While we had a Zephyrtronics rework station available for use, none of the components were BGA components that required more advanced soldering techniques.
+                </p>
+                <img src="img0-1.png" width="60%" style="display: block; margin: auto;"><br>
+        </div>
+      </div>
+
+<br>
+
+<footer>
+
+</footer>
+
+</body>
+
+<!-- Load in Custom CSS -->
+<script>
+  window.onload = function() {
+    $('header').html(header_projects);
+    $('footer').html(footerhtml);
+    $('.navigationbar').html(navigationbar);
+  }
+</script>
+
+</html>

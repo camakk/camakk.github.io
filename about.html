@@ -1,76 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+---
+layout: default
+title: About
+permalink: /about/
+---
 
-  <!-- Basic Page Needs–––– -->
-  <meta charset="utf-8">
-  <title>Cameron Akker</title>
-  <meta name="description" content="">
-  <meta name="author" content="Cameron Akker">
-
-  <!-- Mobile Specific Metas and Fonts ––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-
-  <!-- CSS –– -->
-  <link rel="stylesheet" href="css/custom_skeleton.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <!-- JavaScript –– -->
-  <script src="css/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="css/custom.js"></script>
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="default.ico">
-
-</head>
-
-<body>
-
-  <!-- Primary Page Layout -->
-  <header>
-  </header>
-
-  <div class="docs-section" style="padding-left:25px; padding-top:3px; padding-right:20px; max-width:750px; margin:auto;">
-    <div id="maincontent" style="padding-left:15px; padding-right:15px; margin:0px">
-      <img src="images/line_thin.png" style="width:100%"></img>
-      <h4 class="projectyear"><b> About Me </b></h4><br>
-
-      <!--Content -->
-      <div class="row" style="max-width:600px; margin:auto">
-
-        <!-- Picture-->
-        <div class="six columns">
-          <img src="images/cameron.png" style="width:100%; padding-top:20px"></img>
-        </div>
-        <div class="six columns">
-          <h4> Cameron Akker </h4>
-          <h5> Senior at Harvard University</h5>
-          <h5 style="font-size:12pt"> Anticipated Bachelor of Science in Electrical Engineering <br>Secondary in Computer Science <br>Graduating December 2018</h5>
-          <a href="MAILTO:cameron.akker@gmail.com"> <h5 style="font-size:12pt">cameron.akker@gmail.com</h5></a>
-        </div>
-
-      </div>
-      <br>
-    </div>
+<div class="row d-flex flex-row align-items-center justify-content-center py-4">
+  <div class="col-sm-6">
+    <h2 style="font-size:20pt"><strong>Cameron Akker</strong></h2>
+    <p style="font-size:13pt">Recently graduated student, looking for positions in engineering and technical project management. Harvard Class of 2019. <br><br>Previously worked at Apple in engineering project management and Formlabs in hardware engineering and global supply chain management.<br><br>Hackathon veteran who has attended 20+ events and organized 6 hackathons including <a href="https://vhacks.org">VHacks</a>, the first ever hackathon at the Vatican City.<br><br> Currently living in Cambridge, MA.</p>
+    <span style="font-size:12pt">
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="fa fa-linkedin" style="color:black; padding-left: 5px; padding-right:20px"></i></a>
+    <a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github" style="color:black; padding-right:5px"></i></a>
+</span>
   </div>
 
-<br>
-<br>
+  <div class="col-sm-6 d-flex flew-row align-items-center justify-content-center pt-3">
+    <!-- <iframe width="340" height="190" src="https://www.youtube.com/embed/DNZyLKyiVCo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
-<footer>
+    <img src="/assets/camakk-full.jpg" class="img-fluid p-1"><br>
+  </div>
+</div>
 
-</footer>
+<div class="d-flex flex-row align-items-center justify-content-center">
+</div>
 
-</body>
 
-<!-- Load in Custom CSS -->
-<script>
-  window.onload = function() {
-    $('header').html(header_about);
-    $('footer').html(footerhtml);
-  }
-</script>
-
-</html>
+<!--
+<div class="d-flex flex-column align-items-center justify-content-center mt-3">
+  <img src="/assets/camakk-large.jpg" class="img-fluid rounded-circle p-1" width="170px" height="140px"><br>
+  <p class="m-0" style="line-height:1">Cameron Akker</p>
+  <p class="m-0" style="line-height:1">Harvard '19 | B.S. Electrical Engineering</p>
+</div>
+-->

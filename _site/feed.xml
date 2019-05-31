@@ -1,0 +1,1459 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-30T23:47:51-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Cameron Akker</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">Quantified Self-Tracking Shoe Insole</title><link href="http://localhost:4000/projects/senior-thesis" rel="alternate" type="text/html" title="Quantified Self-Tracking Shoe Insole" /><published>2019-04-01T00:00:00-04:00</published><updated>2019-04-01T00:00:00-04:00</updated><id>http://localhost:4000/projects/qst-insole</id><content type="html" xml:base="http://localhost:4000/projects/senior-thesis">&lt;!-- MAIN CONTENT STARTS HERE --&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+    &lt;p&gt;
+      From September 2018 until April 2019, I completed my senior thesis project as part of my Bachelor's of Science in Electrical Engineering from Harvard University. The full thesis has been archived and is available for check-out from the Harvard University library system.  Below, I've extracted the most relevant excerpts with regard to project design and fabrication.
+    &lt;/p&gt;&lt;p&gt;
+      Quantified self-tracking (QST) is a recent trend in individual healthfulness in which wearable devices, including Apple Watches and Fitbits, collect data on wearers' motion and exercise patterns in everyday life for later review of personal exercise habits.  Wrist-based devices are the commonly available type on the market, but some potential customers are driven away by the devices' bulkiness and aesthetic limitations.
+    &lt;/p&gt;&lt;p&gt;
+      This project involves design of a standalone, noninvasive shoe insole that collects data comparable to what a wrist-based quantified self-tracking device would be able to provide.  This QST insole includes custom electrical design, mechanical design, and software.
+    &lt;/p&gt;
+    &lt;h2&gt;Electrical Design&lt;/h2&gt;
+    &lt;p&gt;
+      The design of the QST insole can be divided into its electrical circuitry and mechanical design.  The first section on Proto 1 will cover the qualification and testing of sensors used in the final assembly.  The second section focuses in on the design decisions made for the system integration Proto 2 build.  The Proto 2 build brings together the electrical sensors with a processing center in a smaller package area to create a better &quot;product&quot; than the Proto 1 build which only has an electrical component.
+    &lt;/p&gt;
+    &lt;h3&gt;Proto 1 Electrical Build&lt;/h3&gt;
+    &lt;p&gt;
+      Proto 1 is a functional prototype which showcases the electrical components of the QST insole.  This prototype uses wires that are manually cut to size and an Arduino to handle data processing.  The onboard battery, power circuit, and processor are omitted in favor of a bulkier &quot;processing block&quot; meant to be carried separate from the insole, strapped to the top of the shoe containing the insole.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img1.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Block Diagram Demonstrating Sensor Layout of Proto 1 Build
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      Sensors were tested by adhering them to the inside of the insole of a commercially-available Men's Size 10.5 fabric shoe purchased from Primark. The shoe was chosen because it was a relatively hard base underneath the insole and could be used as an inexpensive test shoe on which to do sensor validation. The goal of Proto 1 was to install sensors in conditions similar to what would be experienced in the final product and validate those sensors' performance.
+    &lt;/p&gt;
+    &lt;p&gt;
+      A &quot;processing block&quot; was secured using a Velcro strap to the top of the shoe during testing.  The pressure sensors could be plugged into the breadboard and the resistors on the surface could be swapped out easily while calibrating the pressure sensors.  The system was robust enough to withstand regular indoor movement but could only be used outdoor under dry, controlled conditions.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;figure&gt;
+          &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img2.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+          &lt;figcaption&gt;
+            Bottom side of insole with sensors visible
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;figure&gt;
+          &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img3.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+          &lt;figcaption&gt;
+            &quot;Processing block&quot; on top of shoe
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      A pressure sensor was required to provide data for &quot;steps walked&quot; as defined in the design specification.  There are many sensors that are capable of measuring force or pressure, so a thorough analysis was conducted to determine the most suitable one for this application.  The chosen sensor would need to provide a binary value supporting users weighing between 0lbs and 300lbs.  Measurements would need to be consistent across time, with minimal variance from measurement to measurement.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The BMP 388 Altimeter was chosen over the LIS3DH Accelerometer because it provided a much simpler data output.  The purpose of the sensor was purely to measure changes in the Z altitude of the sensor, so the X and Y measurements of the accelerometer would need to be discarded.  The BMP 388 streamed SPI data out and, through the implementation of a library provided with the board, that data could be converted to an integer value representing the absolute altitude relative to sea level.
+    &lt;/p&gt;
+    &lt;p&gt;
+      For simplicity, an Arduino Micro was chosen as the central microcontroller board for the Proto 1 design. The Arduino Micro is one of the smaller Arduinos and its small form factor made it easy to plug into a breadboard for prototyping purposes.  The ATmega32U4 microcontroller on the Arduino has built-in USB support which allowed for easy data-streaming.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Once data is streamed to a computer via Micro USB, it can be logged in a terminal program once a connection is opened with the correct baud rate.  The program CoolTerm has the benefit of being able to write serial data to a text file for later analysis.  The data for all Proto 1 tests was collected using this mechanism and stored in raw text files for later analysis.
+    &lt;/p&gt;
+    &lt;h3&gt;Proto 2 Electrical Design&lt;/h3&gt;
+    &lt;p&gt;
+      Five subsystems are contained within the motherboard of the Proto 2.  Those five subsystems are (1) Main Microcontroller and AVR Programming Header, (2) FTDI Data Output, (3) Pressure Sensor Inputs, (4) MicroSD Card, and (5) Barometer Input.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The microcontroller chosen for the Proto 2 board was an ATtiny 44 primarily due to its small form factor and ability to satisfy the I/O pin requirements to support all necessary peripherals.  The RESET pin of the microcontroller was tied to VCC via a 10k resistor.  The necessary programming pins (MOSI, MISO, SCK, RST) in addition to VCC and GND were routed to a 2x3 header that allowed programming of the ATtiny 44 while it was soldered onto the board surface.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;figure&gt;
+          &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img4.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+          &lt;figcaption&gt;
+            Board with all layers shown
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;figure&gt;
+          &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img5.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+          &lt;figcaption&gt;
+            Top traces layer only
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      An FTDI data output was chosen as the primary means to stream data off of the board because it provided the slimmest output port in terms of Z height at only 0.1&quot; with the 90 degree headers.  The six pins for FTDI (RX, TX, RTS, CTS) and VCC and GND were routed to a 6x1 0.1&quot; 90 degree header on the edge of the board.  This positioning allowed for an FTDI cable to be connected at the boundary of the insole to stream data out up the user's leg toward a computer.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Four pressure sensor plugin points were added to the board; three faced the front for receiving the input from the inside ball, outside ball, and toe sensors, while one at the back received the input from the heel sensor.  These pressure sensor plugins were female 2x1 0.1&quot; 90 degree headers that allowed for the standard 22 gauge wire from the sensors to plug into the board directly.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The MicroSD female plugin was placed near the back of the board where it was relatively protected from the other plugins while still allowing room to access an SD card.  The SD card was set up for communication over SPI protocol with MOSI and MISO pins driven from the ATtiny 44.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The milling machine chosen to fabricate the PCB was the monoFab SRM-20 Compact Milling Machine.  The smallest end mill available was the 1/64&quot; (15.625 mil) end mill meaning the clearance between traces would have to be at least 16 mil for every trace on the board.  Trace width could not be smaller than approximately 10 mil because under this trace width, the copper on the board would be pulled up by the end mill.  The board would have to be single-layer and no larger than 6&quot; x 8&quot; which was the available cutting area.  No vias or through-hole components could be used easily as the copper only coated the surface meaning all parts had to be surface-mount.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-8&quot;&gt;
+        &lt;figure&gt;
+          &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img6.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+          &lt;figcaption&gt;
+            Milling the traces for the Proto 2 motherboard
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+        &lt;figure&gt;
+          &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img7.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+          &lt;figcaption&gt;
+            Completed board
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      Manufacturing the board on the SRM-20 milling machine began with exporting a monochrome traces file so that a toolpath could be generated.  The traces were milled using a 1/64&quot; end mill which was just small enough to handle all of the clearances on the board. The outer dimension of the board - cutting it out of the stock material - was done with a 1/32&quot; end mill and a separate cut file.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Once the board was complete, it was removed from the milling machine bed and finished with fine-grained sandpaper to remove any copper edges remaining.  Visual inspection revealed no manufacturing defects and no unintended shorts between neighboring traces.  The depth of the cuts into the board were consistent across the surface which indicates effective Z-axis zeroing.
+    &lt;/p&gt;&lt;p&gt;
+      The board was hand-soldered - all components were surface-mount with visible pins to make soldering possible without solder paste and more complex reflow equipment.  Since milling the boards from copper meant they did not have soldermask or silkscreen, the boards were handled extremely delicately to prevent traces from being ripped off.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img8.jpg&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Assembled Proto 2 motherboard. The SD Card is omitted from this version in order to test FTDI serial data out first before adding the SD card.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;h2&gt;Mechanical Design&lt;/h2&gt;
+    &lt;p&gt;
+      The customized dimensions of the main PCB and other electronics embedded in the insoles meant that a custom-designed physical insole was needed for Protos 2 and 3.  The insoles were designed to be simple and based off of the dimensions of the insole used in Proto 1 with multiple layers to accommodate the different electronics.
+    &lt;/p&gt;&lt;p&gt;
+      All physical designs were produced using solid and surface modeling techniques in Autodesk Fusion 360.  The physical production of the insoles was done by 3D printing the pieces using the Formlabs Form 2, a stereolithography 3D printer.  The two resins used were Tough V5 and Flexible V2 resin, also from Formlabs.
+    &lt;/p&gt;&lt;p&gt;
+      The Proto 2 physical design was intended to be the simplest possible insole shape that would support all of the relevant electronics. To maintain simplicity, no surface modeling techniques were used and the entire insole was constructed from dimensioned geometries and splines.  The insole was broken into three primary layers shown below.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img9.png&quot; class=&quot;img-fluid py-3 px-3&quot;&gt;
+      &lt;figcaption&gt;
+        Distinct layers of the Proto 2 Mechanical insole design.  Yellow layers include electronics, blue layers are solely for physical support.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The base layer of the insole is 0.10&quot; thick. This layer is where the force sensors are placed in order to ensure they have a solid base under them for accurate measurements.  Three circular force sensitive resistors are placed in the front portion of the foot in a 0.02&quot; recess corresponding to the height of the pressure sensor. There is a deeper 0.05&quot; recess beyond the end of the pressure sensor to allow for routing of the wires from the pressure sensor back to the motherboard layer.  An identical recess layout is used for the heel force sensitive resistor.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The base layer is split into three pieces to allow for manufacture on the Form 2 printer which has a build platform of only 5.7&quot; by 5.7&quot; by 6.9&quot;.  The insole's front-to-back length is just over 10&quot; meaning it could not be printed all as one piece.  The three pieces have cut-outs to allow for alignment and puzzle-piece style fitting during assembly.  Alignment nubs are also included on the top of the base layer for vertical alignment between this and the motherboard layer.  The nubs are 0.5&quot; diameter circles at a height/depth of 0.05&quot; to allow for smooth alignment.  They are placed away from the pressure sensors and not intended to concentrate the force on a particular area.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img10.png&quot; class=&quot;img-fluid py-3 px-5&quot;&gt;
+      &lt;figcaption&gt;
+        The Base (Sensor) Layer of the Proto 2 insole.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The middle layer of this design is for the motherboard. Since the motherboard was a single-layer board, it needed a total surface footprint of 2.00&quot; by 1.50&quot; plus additional room for connectors hanging off the board.  As a result, it needed to be on its own layer or it would have interfered with the pressure sensors. The motherboard is placed in a recess with a depth of 0.0825&quot; just ahead of the heel pressure sensor.  Since the PCB width is 0.063&quot; and the tallest components in the final assembly measure 0.1&quot; above the top of the board, the total height of this recess is 0.173&quot; to accommodate with 0.01&quot; of additional headroom.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img11.png&quot; class=&quot;img-fluid py-3 px-5&quot;&gt;
+      &lt;figcaption&gt;
+        The Motherboard Layer of the Proto 2 insole.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The top layer is purely structural and exists for provide a relatively comfortable surface for the user to walk on while hiding away the rest of the electronics.  It has a total z-height of just 0.11&quot; and includes small 0.01&quot; bumps where the four pressure sensors are housed.  The rendering is also black for the top layer since it will be produced from the Flexible V2 resin.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img12.png&quot; class=&quot;img-fluid py-3 px-5&quot;&gt;
+      &lt;figcaption&gt;
+        The Top Layer of the Proto 2 insole.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The total stackup height of the three layers was 0.43&quot; which is thicker than the target 0.40&quot;, but still within the design specifications.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img13.png&quot; class=&quot;img-fluid py-3 px-5&quot;&gt;
+      &lt;figcaption&gt;
+        Expanded view of all three layers of Proto 2.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+    &lt;h2&gt;Signal Processing&lt;/h2&gt;
+    &lt;p&gt;
+      For early graphs, the Arduino IDE built-in Serial Plotter was sufficient to receive incoming step data and generate a graph in real time.  The persistence of &quot;memory&quot; in this graph was limited to approximately the previous 5 seconds that were visible on the graph at any given time.  The Arduino plotter also did not present any way to change the default color set, line width, or other properties related to the graph displayed.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img14.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Pressure profile underfoot while walking at a normal pace.  Graph generated with Arduino IDE built-in serial plotter.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      This graph shows the relative underfoot pressures measured by the force sensitive resistors during a regular walking pattern.  This data clearly shows the distinction between ``step&quot; moments where the pressure is high and non-step moments where the pressure is low.
+    &lt;/p&gt;
+    &lt;p&gt;
+      A similar distinction can be seen in graphs where the user is simply rocking back and forth without taking unique steps.  The key distinction here is that the heel pressure (yellow line) does not lead the three measurements taken from the front of the foot, but rather is entirely within phase.  This data is meaningful for later informing the step-counting algorithm.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img15.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Pressure profile underfoot rocking back and forth on feet without taking discrete steps.  Graph generated with Arduino IDE built-in serial plotter
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      Similarly, running data was collected which can be thought of as higher frequency walking data.  The running data helps define a minimum data sampling rate to ensure no steps are lost.  In this case, a data frequency of 50 Hz was sufficient to capture the fasts steps resulting from running, which could be upwards of 8 steps in one second at higher speeds.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img16.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Pressure profile underfoot from running.  Graph generated with Arduino IDE built-in serial plotter.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The Arduino IDE build-in serial plotter does not allow for data to be written to a file.  Another serial monitor program called CoolTerm allows for output to be captured to a text file, so it was used to collect longer time-horizon data.  CoolTerm also allowed for time-stamping of the data which, despite a timestamp resolution too low to capture times lower than on the order of seconds, was helpful in tracking the overall data-rate and sample time durations.
+    &lt;/p&gt;
+    &lt;h3&gt;Data Filtering and Processing&lt;/h3&gt;
+    &lt;p&gt;
+      The raw data collected from a wearer's step profile contained a high degree of noise due to the relatively high sampling rate of 50 Hz.  The sample below shows a large amount of noise across 10 steps.  It should be noted that, as in the previous sample of waling data, it is clear that the heel leads the sensors at the front of the foot.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img17.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Step profile of a user walking at a standard pace for 10 steps
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The raw 50 Hz data plotted here shows several examples of high frequency noise.  The outside ball sensor (green) in particular shows large spikes in the first step of the sample data.  In order to apply some sort of thresholding calculation to convert the raw step data into a binary format, high frequency noise like this must first be eliminated.
+    &lt;/p&gt;
+    &lt;p&gt;
+      A low-pass filter in the form of a simple moving average was applied to the data to smooth out high frequency noise.  In this implementation, the pressure value at a given time is the average of the pressure reading taken at that time averaged with some number n of values before that time.  A good value of n is one that allows the maximum and minimum steady-state values of the data to remain unaffected while smoothing out higher frequencies in the transitions between.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The figures below show examples of the processed data after smoothing with values n = 0, 5, 10, 20.  For simplicity, only one of the four FSR measurements is shown to better demonstrate the effects of the simple moving average smoothing.  As the n used for smoothing gets higher, the peaks in the data become more and more triangular.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img18.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        No smoothing, n = 0
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img19.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Some smoothing, n = 5
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img20.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Heavier smoothing, n = 10
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img21.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Very heavy smoothing, n = 20
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      A smoothing value of n = 10 was chosen in order to strike a balance between filtering out as much noise as possible while still maintaining the peaks and valleys of faster movement patterns like running.  This low-pass filter was applied to all four channels of data in order to eliminate the high frequency noise, as seen below.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img22.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Comparison of raw data to filtered data using 10-point simple moving average
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      One trend across all samples of step data was that the three sensors at the front of the foot (inside ball, outside ball, and toe) were nearly always in phase while the heel was in a leading position.  Furthermore, different terrain and environmental conditions could shift the relative distributions of weight in the front-of-foot sensors, but they would usually average out to the same value.  In order to simplify the binary classification of the data, the three sensors at the front of the foot were averaged together after filtering.  Instead of four pressure values, only two pressure values representing the front and back of the foot were considered.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img23.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Four-channel data compared to simplified two-channel front-back data after averaging
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The final step in processing the data was to convert the data into a set of binary values over time that could be fed into the step-counting algorithm. An asymmetric threshold system with hysteresis was set up to determine when to switch between the &quot;stepped&quot; and &quot;in-the-air&quot; states.  This thresholding was applied to the &quot;front&quot; and &quot;back&quot; step data separately.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The algorithm worked by starting at the beginning of the data and stepping through forward in time.  The &quot;in-the-air&quot; state was represented by a 0 and was where the system began.  Successive values were checked against a threshold and, when a value exceeded 80% of the maximum value (determined on a separate pass through the data) the state of the system changed from &quot;in the air&quot; to &quot;stepped&quot;.
+    &lt;/p&gt;&lt;p&gt;
+      Once in the &quot;stepped&quot; state, the threshold to change back to the &quot;in-the-air&quot; state required the pressure value to drop below 20% of the maximum value.  This asymmetric thresholding ensured that steady-state values between 20% and 80% of the maximum value were not errantly counted as steps.  This asymmetric thresholding allowed for rejection of standing and sitting steady-forces on the pressure sensors
+    &lt;/p&gt;
+    &lt;p&gt;
+      Once this algorithm was run on the data set, the analog pressure values over time were converted to a set of digital pressure values over time that are visible in the figure below.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img24.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Algorithm converting analog step data into binary step data
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      The resulting data had enough information for processing by a step-counting algorithm to output the health statistics specified in the project's sensor specification.
+    &lt;/p&gt;
+    &lt;h3&gt;Step-counting Algorithm&lt;/h3&gt;
+    &lt;p&gt;
+      The state of the pressure sensors in a shoe at any given time can be defined by the front sensors reading a 0 or 1 as well as the back sensor reading a 0 or 1.  This gives four possible states of the system as shown below.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img25.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Process of taking a step, walking forward at a normal pace
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      A finite state machine can be set up characterizing the flow of the system between states to determine when steps are counted.  The finite state machine has four possible states at time n and the same four possible states at time n-1 meaning there are sixteen &quot;transitions&quot;.  Four of these are represent a transition from a state to itself - these are omitted.  The other twelve transitions cover unique transitions between system states.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img26.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Finite state machine loop diagram showing transitions. Green states are ones that are counted as a step.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      All twelve possible transitions are shown in the finite state diagram above with the states and the transitions documented.  Three states shown in green are identified as the transitions on which a &quot;step&quot; should be counted and added to the total.  A better representation of the physical meaning of each of the FSM transitions is shown below.
+    &lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/projects/2019-04-qst-insole/img27.png&quot; class=&quot;img-fluid py-3&quot;&gt;
+      &lt;figcaption&gt;
+        Finite state machine showing transitions between pressure states. The three transitions outlined in green are the ones on which a &quot;step&quot; is counted.
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;p&gt;
+      This FSM algorithm was tested against 20 samples of data from standard walking.  The algorithm was very effective, successfully classifying 202 out of the 203 steps taken across all samples for a 99.51% success rate.
+    &lt;/p&gt;
+    &lt;p&gt;
+      This page only captures a sampling of the work completed as part of this senior thesis project. The full thesis is available upon request or available to be checked out from the Harvard University Library System.
+    &lt;/p&gt;
+
+
+
+
+
+&lt;/div&gt;</content><author><name></name></author><category term="engineering" /><summary type="html"></summary></entry><entry><title type="html">HackHarvard 2018</title><link href="http://localhost:4000/events/hackharvard" rel="alternate" type="text/html" title="HackHarvard 2018" /><published>2018-10-21T00:00:00-04:00</published><updated>2018-10-21T00:00:00-04:00</updated><id>http://localhost:4000/events/hackharvard-2018</id><content type="html" xml:base="http://localhost:4000/events/hackharvard">&lt;div class=&quot;row&quot;&gt;
+
+&lt;p&gt;
+  HackHarvard is a &lt;strong&gt;hackathon&lt;/strong&gt;: a hybrid programming competition and developer conference hosted entirely by students for students.  HackHarvard 2018 was the fourth installation of the annual event and was held the weekend of October 18-20, 2018 on the campus of Harvard University. There were over 600 attendees from over 100 universities representing 23 countries.
+&lt;/p&gt;&lt;p&gt;
+  For this event, I was a &lt;strong&gt; senior director &lt;/strong&gt; meaning I oversaw all team operations including logistics, partnerships, design, and hacker experience. I managed a team of 35 people and mentored new members on the daily operations of hosting a large hackathon. I specifically took a large role on the partnerships team managing inbound partnership leads.
+&lt;/p&gt;
+&lt;p&gt;
+  In addition to the afforementioned roles, I produced significant documentation on best practices for the hackathon to preserve institutional knowledge. I set up an organizational chart and designed reporting hierarchies to maximize success of the team. I developed a sales training program for our newly recruited members.
+&lt;/p&gt;
+&lt;p&gt;
+  The gallery below is a selection of pictures from the event.
+&lt;/p&gt;
+
+&lt;div class=&quot;row pb-4&quot;&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img1.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img1-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img2.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img2-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img3.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img3-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img4.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img4-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img5.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img5-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img6.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img6-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img7.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img7-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img8.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img8-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img9.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img9-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img10.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img10-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img11.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img11-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-10-hackharvard-2018/img12.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/img12-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+
+
+&lt;h2&gt; Organizational Structure &lt;/h2&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-12&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/orgchart.png&quot; class=&quot;img-fluid py-3&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;
+  The team organization chart is documented above.  There are four teams - Logistics, Partnerships, Hacker Experience, and Design - each of which has a &lt;strong&gt;director&lt;/strong&gt; (diamonds with solid border, x4) responsible for managing the whole team of 2-10 people. The chief executive who is responsible for keeping the team on schedule is the &lt;strong&gt;program manager&lt;/strong&gt; (grey diamond, x1).
+&lt;/p&gt;&lt;p&gt;
+  Within each team, any member who wishes to take a management role is a &lt;strong&gt;project manager&lt;/strong&gt; (diamonds without border) with two direct-reports. The direct-reports are always &lt;strong&gt;board members&lt;/strong&gt; (circles) who are first or second year members interested in learning how the hackathon works without the responsibility of managing others.
+&lt;/p&gt;
+&lt;p&gt;
+  The last key feature of this organizational structure was designation of responsibility.  Every individual was responsible for &lt;strong&gt;ensuring a set of tasks get done&lt;/strong&gt;. How they got those tasks done, who they assigned them to, what internal deadlines that person set was at their own discretion. This is notable because &quot;responsibility to ensure things get done&quot; is distinctly separated from the notion of &quot;responsibility to do things&quot;.
+&lt;/p&gt;
+&lt;p&gt;
+  Here's an example: a project manager on logistics will be responsible for all event food (let's call this person Jordan).  Jordan has two people on his team, Carrie and Peter. Jordan can assign 50% of the work to Carrie and 50% to Peter. He can also give 33% to himself and 33% to the other two. No matter how he assigns the work, he is responsible for turning in a complete 100% at the end, regardless of who does it.
+&lt;/p&gt;
+&lt;p&gt;
+  This system makes managers accountable to the work they're supposed to complete. It makes it impossible for managers to throw their direct-reports under the bus when work is late because it is the manager's responsibility. This particular organizational structure and training creates stronger managers from HackHarvard who go on to lead in other organizations.
+&lt;/p&gt;
+&lt;h2&gt; Press Mentions &lt;/h2&gt;
+HackHarvard has also garnered several mentions in the media both in the Harvard community and greater hackathon community over the past four years.
+&lt;/p&gt;
+&lt;div class=&quot;row pb-4&quot;&gt;
+  &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+    &lt;figure&gt;
+      &lt;a href=&quot;https://www.seas.harvard.edu/news/2018/11/community-of-coders&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media1.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+        A community of coders - Harvard SEAS, Nov 2018
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+    &lt;figure&gt;
+      &lt;a href=&quot;https://harvardmagazine.com/2017/07/college-hackathons&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media2.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+        Why Hack? - Harvard Magazine, Jul 2017
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://news.stonybrook.edu/homespotlight/stony-brook-computer-science-senior-hacks-his-way-to-harvard/&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media6.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          Stony Brook Computer Science Senior Hacks His Way to Harvard - Stony Brook University News, Dec 2018
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+        &lt;figure&gt;
+          &lt;a href=&quot;http://theconcordian.com/2018/11/four-montreal-students-take-first-place-at-hackharvard//&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media7.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+          &lt;figcaption&gt;
+            Four Montreal students take first place at HackHarvard - The Concordian, Nov 2018
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://www.thejustice.org/article/2018/11/brandeis-hackathon-victory&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media5.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          A hack for progress - Brandeis University's The Justice, Nov 2018
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+    &lt;figure&gt;
+      &lt;a href=&quot;https://www.seas.harvard.edu/news/2017/10/using-technology-for-good&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media3.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+        Using technology for good - Oct 2017
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;/div&gt;
+      &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+        &lt;figure&gt;
+          &lt;a href=&quot;http://polycentric.cpp.edu/2017/01/brothers-teaming-up-translates-into-hackharvard-win/&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media9.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+          &lt;figcaption&gt;
+            Brothers Teaming Up Translates into HackHarvard Win - CalPoly News, Jan 2017
+          &lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+    &lt;figure&gt;
+      &lt;a href=&quot;https://news.harvard.edu/gazette/story/2015/11/hackharvard-makes-the-majors/&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media4.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+        HackHarvard makes the majors - Harvard Gazette, Nov 2015
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://www.thecrimson.com/article/2015/11/16/hack-harvard-code-event/&quot;&gt;&lt;img src=&quot;/assets/events/2018-10-hackharvard-2018/media8.png&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          Students Code for 36 Hours at HackHarvard - Harvard Crimson, Nov 2015
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;</content><author><name></name></author><category term="events" /><summary type="html"></summary></entry><entry><title type="html">Introduction to Quantum Computing</title><link href="http://localhost:4000/teaching/hsylc-2018" rel="alternate" type="text/html" title="Introduction to Quantum Computing" /><published>2018-08-15T00:00:00-04:00</published><updated>2018-08-15T00:00:00-04:00</updated><id>http://localhost:4000/teaching/hsylc-2018</id><content type="html" xml:base="http://localhost:4000/teaching/hsylc-2018">&lt;div class=&quot;row&quot;&gt;
+  &lt;p&gt;
+    In August 2018, I was invited to be a teacher at the Harvard Summit for Young Leaders in China in Hangzhou. The week-and-a-half-long program is an intensive Harvard liberal-arts style education program for high school students in China.
+  &lt;/p&gt;
+  &lt;p&gt;
+    After teaching courses in Electronics (2017) and Robotics (2016), I decided to prepare an introductory curriculum for quantum computing for my 2018 seminar. The seminar took place over 6 days with lectures every day, two problem sets, and a final exam.  The course balanced mathematical rigor that students could be comfortable with at the advanced high school level with qualitative learnings about the nature of quantum mechanics and its applications to quantum computing. Video lectures for the seminar are included below.
+  &lt;/p&gt;
+  &lt;div class=&quot;row d-flex flex-row align-items-center justify-content-center pb-4&quot;&gt;
+    &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+      &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/xjot7YNGX6s&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+      &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/N9o7cnsBgTg&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+      &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/m7frPkFXMME&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+      &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/pNNwoI2BilI&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+      &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/9Y4oLS0kdcg&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+      &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/TGcKRXPYHbg&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p&gt;
+    Reviews from students for the course were overwhelmingly positive, with most praising the course's ability to provide the students exposure to concepts usually reserved for 3rd or 4th year physics students in a college program. All of the course materials are also available upon request.
+  &lt;/p&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="teaching" /><summary type="html">In August 2018, I was invited to be a teacher at the Harvard Summit for Young Leaders in China in Hangzhou. The week-and-a-half-long program is an intensive Harvard liberal-arts style education program for high school students in China. After teaching courses in Electronics (2017) and Robotics (2016), I decided to prepare an introductory curriculum for quantum computing for my 2018 seminar. The seminar took place over 6 days with lectures every day, two problem sets, and a final exam. The course balanced mathematical rigor that students could be comfortable with at the advanced high school level with qualitative learnings about the nature of quantum mechanics and its applications to quantum computing. Video lectures for the seminar are included below. Reviews from students for the course were overwhelmingly positive, with most praising the course's ability to provide the students exposure to concepts usually reserved for 3rd or 4th year physics students in a college program. All of the course materials are also available upon request.</summary></entry><entry><title type="html">VHacks 2018</title><link href="http://localhost:4000/events/vhacks" rel="alternate" type="text/html" title="VHacks 2018" /><published>2018-03-11T00:00:00-05:00</published><updated>2018-03-11T00:00:00-05:00</updated><id>http://localhost:4000/events/vhacks</id><content type="html" xml:base="http://localhost:4000/events/vhacks">&lt;div class=&quot;row&quot;&gt;
+  &lt;p&gt;
+    On the weekend of March 8-11, 2018, the Vatican City hosted the first ever &lt;a href=&quot;https://vhacks.org&quot;&gt;VHacks&lt;/a&gt; hackathon. The hackathon event was a collaboration between a student team consisting of me and several Harvard/MIT colleagues as well as &lt;a href=&quot;http://www.optictechnology.org/index.php/en/&quot;&gt;OPTIC&lt;/a&gt;, an organization focused on research and development in connection with the Vatican.
+  &lt;/p&gt;
+  &lt;p&gt;
+    The idea for the event originated from the student team. I served as an &lt;strong&gt;event director&lt;/strong&gt; primarily with regard to managing attendees and design the competition experience.  I worked with other directors and led a small team of MBA and undergraduate students to meet event objectives. Beyond these responsibilities, I negotiated sponsorship contracts with VPs at major technology companies and wrote many of the public-facing materials used for communicating the mission statement and objectives of the event.
+  &lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-12&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/img1.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;p&gt;
+    The event brought 120 college students from countries around the world to Rome, Italy where they worked for 36 hours in teams of 5 on projects related to the three topic areas: social inclusion, interfaith dialogue, and migrants &amp; refugees.  Each team was multi-national and diverse, assigned in advance of the event and balanced to include people with a variety of skills.
+  &lt;/p&gt;
+  &lt;p&gt;
+    The hackathon was supported at the highest levels of the Vatican City, receiving a formal endorsement from the Prime Minister of the Vatican as well as the blessing of the Pope at &lt;a href=&quot;https://www.youtube.com/watch?v=w7UDFW5BFT0&quot;&gt;his weekly Angelus prayer&lt;/a&gt;.  VHacks garnered incredible interest from the media, including stories from The Guardian and Wired magazine.
+  &lt;/p&gt;
+  &lt;div class=&quot;row pb-4&quot;&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://www.theguardian.com/world/2018/mar/07/vatican-hosts-first-hackathon-to-tackle-global-issues&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/media1.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          Vatican hosts first hackathon to tackle global issues - The Guardian
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://www.wired.com/story/inside-vhacks-first-ever-vatican-hackathon/&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/media2.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          Inside the Vatican's First-Ever Hackathon - Wired Magazine
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://aleteia.org/2018/02/27/these-120-hackers-have-pope-francis-support/&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/media3.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          These 120 hackers have Pope Francis' support - Aleteia
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://www.thecrimson.com/article/2018/3/21/0-hackathon-at-vatican/&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/media4.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          Harvard Students Bring Hackathon to the Vatican
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://www.catholicnewsagency.com/news/holy-see-to-be-hacked-by-first-vatican-hackathon-74172&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/media5.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          Holy See to be 'hacked' by first Vatican hackathon - Catholic News Agency
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-6 col-sm-4 px-1&quot;&gt;
+      &lt;figure&gt;
+        &lt;a href=&quot;https://mitsloan.mit.edu/ideas-made-to-matter/mit-students-heading-to-rome-first-ever-vatican-hackathon&quot;&gt;&lt;img src=&quot;/assets/events/2018-03-vhacks/media6.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+        &lt;figcaption&gt;
+          MIT students heading to Rome for first ever Vatican hackathon - MIT Sloan News
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+
+
+&lt;/div&gt;</content><author><name></name></author><category term="events" /><summary type="html">On the weekend of March 8-11, 2018, the Vatican City hosted the first ever VHacks hackathon. The hackathon event was a collaboration between a student team consisting of me and several Harvard/MIT colleagues as well as OPTIC, an organization focused on research and development in connection with the Vatican. The idea for the event originated from the student team. I served as an event director primarily with regard to managing attendees and design the competition experience. I worked with other directors and led a small team of MBA and undergraduate students to meet event objectives. Beyond these responsibilities, I negotiated sponsorship contracts with VPs at major technology companies and wrote many of the public-facing materials used for communicating the mission statement and objectives of the event. The event brought 120 college students from countries around the world to Rome, Italy where they worked for 36 hours in teams of 5 on projects related to the three topic areas: social inclusion, interfaith dialogue, and migrants &amp; refugees. Each team was multi-national and diverse, assigned in advance of the event and balanced to include people with a variety of skills. The hackathon was supported at the highest levels of the Vatican City, receiving a formal endorsement from the Prime Minister of the Vatican as well as the blessing of the Pope at his weekly Angelus prayer. VHacks garnered incredible interest from the media, including stories from The Guardian and Wired magazine. Vatican hosts first hackathon to tackle global issues - The Guardian Inside the Vatican's First-Ever Hackathon - Wired Magazine These 120 hackers have Pope Francis' support - Aleteia Harvard Students Bring Hackathon to the Vatican Holy See to be 'hacked' by first Vatican hackathon - Catholic News Agency MIT students heading to Rome for first ever Vatican hackathon - MIT Sloan News</summary></entry><entry><title type="html">MakeHarvard 2018</title><link href="http://localhost:4000/events/makeharvard" rel="alternate" type="text/html" title="MakeHarvard 2018" /><published>2018-02-01T00:00:00-05:00</published><updated>2018-02-01T00:00:00-05:00</updated><id>http://localhost:4000/events/makeharvard-2018</id><content type="html" xml:base="http://localhost:4000/events/makeharvard">&lt;div class=&quot;row&quot;&gt;
+&lt;p&gt;
+  MakeHarvard is an engineering makeathon, or a hackathon intended for engineers. The 36-hour event encourages teams of students to develop an independent engineering project purely for learning and improving their engineering skills. MakeHarvard 2018 was the first-ever makeathon at Harvard University and took place the weekend of February 2-4, 2018.
+&lt;/p&gt;&lt;p&gt;
+  I founded MakeHarvard in May 2017 and spent a little over half a year developing the organizing team before our February 2018.  Over the summer and at the start of the Fall, I was the &lt;strong&gt;program manager&lt;/strong&gt; for the event before transitioning those responsibilities to another member in the Fall. After this transition, I continued to support the event as a senior advisor, supporting the logistics, partnerships, design, and maker experience teams.
+&lt;/p&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img13.png&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;figcaption&gt;
+        MakeHarvard website at &lt;a href=&quot;http://makeharvard.io&quot;&gt;http://makeharvard.io&lt;/a&gt;
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+  MakeHarvard differs from HackHarvard because, as an engineering makeathon, the material requirements are far more extensive. HackHarvard requires attendees to bring laptops and provides scattered hardware; MakeHarvard gives participants raw materials like wood and metal and access to machine shops and power tools. We partnered with the Harvard School of Engineering and Applied Sciences to cover these large capital costs.
+&lt;/p&gt;&lt;p&gt;
+  There are other differences: MakeHarvard is a 24-hour event with about 200 participants and an organizing team of 15 students. HackHarvard is a 36-hour event that has closer to 600 participants with an organizing team of 35 people. The gallery below shows pictures from the event.
+&lt;/p&gt;
+
+&lt;div class=&quot;row pb-4&quot;&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img1.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img1-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img2.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img2-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img3.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img3-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img4.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img4-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img5.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img5-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img6.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img6-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img7.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img7-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img8.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img8-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img9.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img9-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img10.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img10-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img11.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img11-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-3 px-1&quot;&gt;
+    &lt;a href=&quot;/assets/events/2018-02-makeharvard-2018/img12.jpg&quot;&gt;&lt;img src=&quot;/assets/events/2018-02-makeharvard-2018/img12-sm.jpg&quot; class=&quot;img-fluid py-1 px-1&quot;&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+  The second-annual MakeHarvard engineering makeathon took place on the weekend of February 1-2, 2019 a year after the first event. I served as a senior advisor to the team for this event in a reduced capacity from the first year.  MakeHarvard 2019 was successful, nearly doubling the number of participants while providing an expanded array of tools to paricipants.
+&lt;/p&gt;
+
+
+&lt;/div&gt;</content><author><name></name></author><category term="events" /><summary type="html">MakeHarvard is an engineering makeathon, or a hackathon intended for engineers. The 36-hour event encourages teams of students to develop an independent engineering project purely for learning and improving their engineering skills. MakeHarvard 2018 was the first-ever makeathon at Harvard University and took place the weekend of February 2-4, 2018. I founded MakeHarvard in May 2017 and spent a little over half a year developing the organizing team before our February 2018. Over the summer and at the start of the Fall, I was the program manager for the event before transitioning those responsibilities to another member in the Fall. After this transition, I continued to support the event as a senior advisor, supporting the logistics, partnerships, design, and maker experience teams. MakeHarvard website at http://makeharvard.io</summary></entry><entry><title type="html">Science Olympiad</title><link href="http://localhost:4000/events/science-olympiad" rel="alternate" type="text/html" title="Science Olympiad" /><published>2018-01-31T00:00:00-05:00</published><updated>2018-01-31T00:00:00-05:00</updated><id>http://localhost:4000/events/science-olympiad</id><content type="html" xml:base="http://localhost:4000/events/science-olympiad">&lt;div class=&quot;row&quot;&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;https://www.soinc.org/&quot;&gt;Science Olympiad&lt;/a&gt; is one of the preeminent science competitions for high school students. The format resembles a track meet, but instead of athletic events, teams from each school compete in science events. Each team of 15 students competes in 23 events, with 2 students from the team competing in each event (students each compete in several events). Events include topics like chemistry lab, remote sensing, and glider engineering.
+&lt;/p&gt;
+&lt;p&gt;
+  Official competitions are hosted by the national science olympiad organization, but invitational tournaments can be held by any university hoping to help their local teams gain some practice. The first-ever Harvard University Science Olympiad Invitational tournament was held on January 28, 2018. Nearly 500 students representing 30 high school teams participated in the one-day event.
+&lt;/p&gt;
+&lt;p&gt;
+  Along with three friends, I was a &lt;strong&gt;co-founder&lt;/strong&gt; of the event as well as &lt;strong&gt;logistics director.&lt;/strong&gt; I was involved in booking spaces for the event, coordinating aspects of setup, and general logistics for the day of the event.  I managed a small team and mentored the members that would go on to lead the event in future years.
+&lt;/p&gt;
+&lt;p&gt;
+  Organizing this tournament was a wonderful way to give back to the Science Olympiad community and provide a valuable resource to local high schools.  I was a participant in Science Olympiad competitions in high school and it played an important role in my early development as an engineer.
+&lt;/p&gt;
+
+&lt;/div&gt;</content><author><name></name></author><category term="events" /><summary type="html"></summary></entry><entry><title type="html">Outpatient Medical Wearable Motherboard</title><link href="http://localhost:4000/projects/wearable-motherboard" rel="alternate" type="text/html" title="Outpatient Medical Wearable Motherboard" /><published>2017-12-01T00:00:00-05:00</published><updated>2017-12-01T00:00:00-05:00</updated><id>http://localhost:4000/projects/wearable-motherboard</id><content type="html" xml:base="http://localhost:4000/projects/wearable-motherboard">&lt;div class=&quot;row&quot; style=&quot;margin-bottom:0px&quot;&gt;
+    &lt;p&gt;
+      For my junior design project at Harvard, I had a chance to work in a consulting role to the &lt;a href=&quot;https://www.dana-farber.org/&quot;&gt;Dana Farber Cancer Institute&lt;/a&gt; and &lt;a href=&quot;https://www.dana-farber.org/global-health-initiative/&quot;&gt;Global Health Initiative&lt;/a&gt; to develop the electronics for a medical device to help pediatric cancer patients. This &lt;strong&gt;outpatient wearable&lt;/strong&gt; is a small wristwatch device that has an integrated temperature sensor that monitors a patient's temperature.
+    &lt;/p&gt;
+      &lt;p&gt;
+        An elevated temperature in a child's body after they have been diagnosed with some form of cancer can often mean they are highly at risk. This temperature monitor is worn by the child at all times to mitigate the risk of an elevated temperature going unnoticed by a parent or guardian.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The project won the &lt;a href=&quot;https://www.astellas.com/us/news/3696&quot;&gt;2018 Astellas Oncology C3 prize&lt;/a&gt; of $25,000 after a pitch by the project leads, garnering several press mentions included below.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12 col-md-4&quot; style=&quot;text-align:center&quot;&gt;
+          &lt;a href=&quot;https://www.bostonglobe.com/business/2018/09/28/working-better-lives-pediatric-cancer-patients-poor-countries/TxZhrUo4F8PMfDn1dkxLyO/story.html&quot;&gt;
+            &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/press1.png&quot; class=&quot;img-fluid img-thumbnail&quot;&gt;
+            &lt;p&gt;Harvard students work to better lives of young cancer patients in poor countries - Boston Globe&lt;/p&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-12 col-md-4&quot; style=&quot;text-align:center&quot;&gt;
+          &lt;a href=&quot;https://markets.businessinsider.com/news/stocks/astellas-oncology-announces-c3-prize-celebrity-partnership-and-category-winners-1027555123&quot;&gt;
+            &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/press3.png&quot; class=&quot;img-fluid img-thumbnail&quot;&gt;
+            &lt;p&gt;Astellas Oncology Announces C3 Prize Winners - Business Insider&lt;/p&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-12 col-md-4&quot; style=&quot;text-align:center&quot;&gt;
+          &lt;a href=&quot;https://www.seas.harvard.edu/news/2018/01/engineering-solutions-target-deadly-disparity&quot;&gt;
+            &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/press2.png&quot; class=&quot;img-fluid img-thumbnail&quot;&gt;
+            &lt;p&gt;Engineering solutions target deadly disparity - Harvard SEAS&lt;/p&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;p&gt;
+      I was the &lt;strong&gt;lead electrical engineer&lt;/strong&gt; for the project, responsible for board design in Altium Designer and component selection. There was a mechanical component to the medical device that was completed by a separate team - only the electrical part is documented here.
+    &lt;/p&gt;
+
+&lt;!--
+&lt;div class=&quot;col-6&quot; style=&quot;background-color:#eee; padding:8px; margin-bottom:0px; padding-bottom:0px&quot;&gt;
+  &lt;ol&gt;
+    &lt;h6 style=&quot;font-size:9pt; margin:0px;&quot;&gt;&lt;b&gt;Contents&lt;/b&gt;&lt;/h6&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;&lt;a href=&quot;#section1&quot; style=&quot;color:#005883&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;&lt;a href=&quot;#section2&quot; style=&quot;color:#005883&quot;&gt;Schematic Capture&lt;/a&gt;&lt;/li&gt;
+      &lt;ul style=&quot;list-style:none; margin-top:0px; margin-bottom:0px&quot;&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.1&quot; style=&quot;color:#005883&quot;&gt;2.1 Microcontroller: ATtiny44&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.2&quot; style=&quot;color:#005883&quot;&gt;2.2 Audio Transducer Circuit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.3&quot; style=&quot;color:#005883&quot;&gt;2.3 Temperature Sensor&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.4&quot; style=&quot;color:#005883&quot;&gt;2.4 Battery Charge Circuit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.5&quot; style=&quot;color:#005883&quot;&gt;2.5 Battery Check Circuit&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.6&quot; style=&quot;color:#005883&quot;&gt;2.6 Information Read-Out LEDs&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section2.7&quot; style=&quot;color:#005883&quot;&gt;2.7 Programming Headers&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;&lt;a href=&quot;#section3&quot; style=&quot;color:#005883&quot;&gt;Board Layout and Routing&lt;/a&gt;&lt;/li&gt;
+      &lt;ul style=&quot;list-style:none; margin-top:0px; margin-bottom:0px&quot;&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section3.1&quot; style=&quot;color:#005883&quot;&gt;3.1 Board Stackup&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section3.2&quot; style=&quot;color:#005883&quot;&gt;3.2 Board Layout: Top Layer&lt;/a&gt;&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;&lt;a href=&quot;#section3.3&quot; style=&quot;color:#005883&quot;&gt;3.3 Board Layout: Bottom Layer&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;&lt;a href=&quot;#section4&quot; style=&quot;color:#005883&quot;&gt;DFM, Fabrication, and Soldering&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;br&gt;
+--&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+        &lt;a name=&quot;section1&quot;&gt;&lt;/a&gt;
+        &lt;h2 style=&quot;padding-bottom:0px; margin-bottom:0px&quot;&gt; Overview &lt;/h2&gt;&lt;hr style=&quot;margin:0px; padding:0px; margin-bottom:15px&quot;&gt;
+        &lt;p&gt;
+          Fundamentally, the electronics for this device include microcontroller, temperature sensor, and LEDs to indicate when the temperature sensor detects a reading that is too high. Beyond that, there is some battery management circuitry.  I will break down each component of the overall schematic separately.
+        &lt;/p&gt;
+        &lt;a name=&quot;section2&quot;&gt;&lt;/a&gt;
+        &lt;h2 style=&quot;padding-bottom:0px; margin-bottom:0px&quot;&gt; Schematic Capture &lt;/h2&gt;&lt;hr style=&quot;margin:0px; padding:0px; margin-bottom:15px&quot;&gt;
+        &lt;p&gt;
+          Selecting components was the first step toward getting the motherboard to the point where it could be fabricated.  The components selected had to have form factors selected for which footprints could be found for producing the board in Altium Designer.
+        &lt;/p&gt;&lt;p&gt;
+          Standard libraries don’t exist for most components used on the board, but a free library at snapeda.com has a large enough sample library of parts from Digikey that it wasn’t too hard to find all of the parts on there. A few components had to be switched out for other components because finding the footprint or a mechanical diagram for them was impossible. Most notably was the waterproof micro-USB port which switched from a JAE electronics part to a MOLEX part, and the audio transducer which was chosen because it was the only part in that family of parts for which a footprint could be found.
+        &lt;/p&gt;
+        &lt;a name=&quot;section2.1&quot;&gt;&lt;/a&gt;
+        &lt;h3 style=&quot;font-size:16pt&quot;&gt;Microcontroller: ATtiny44&lt;/h3&gt;
+        &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img1.jpg&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            The ATTiny44 is at the center of the whole motherboard and with good reason - it takes in the input from the temperature sensor, calculates the temperature reading, and then outputs to the LEDs and audio transducer if needed. The ATtiny44-20SSU comes in the 14-SOIC package with two lines of 7 pins on either side of the IC. This form factor was chosen for two reasons: (1) it is a relatively compact form factor compared to something like a DIP package and (2) it is solderable by hand because there is approximately a 15 mil spacing between the pads which is plenty.
+          &lt;/p&gt; &lt;p&gt;
+            Even more notable here is that every single GPIO pin on the ATtiny is used: out of the 12 GPIO pins, 3 are used for LEDs, 2 for the temperature sensor, 1 for the speaker, 3 for programming, 2 for FTDI debugging, and 1 as a hardware reset. This processor is optimized perfectly for the number of inputs and outputs our device had.  And with a dedicated hardware PWM for the speaker, the processor saved us the need to include a transducer driver chip.
+          &lt;/p&gt;
+          &lt;a name=&quot;section2.2&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Audio Transducer Circuit&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img2.jpg&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            The audio transducer is a simple MOSFET driver for an inductive load using a Schottky diode for protection on the speaker. The 220 ohm resistor at the gate of the MOSFET is for frequency compensation but could potentially be left out since the highest frequency we reach for this driver is only around 4kHz. The transducer comes in a 3 pin package in which only 2 of the pins are used which makes for very simple wiring.
+          &lt;/p&gt;&lt;p&gt;
+            The Schottky diode came in the miniscule SOD-323 package which is only 1.7mm by 1.25mm package and tiny 0.8 square mm pads. This component was the second-most-difficult to solder behind the micro-USB (7 mil traces with 7 mil spacing).  What made the SOD-323 so difficult was the fact that the soldering iron tip was significantly bigger than the pad, so a kludgy rework system was the only way to ensure a good solder joint.
+          &lt;/p&gt;
+          &lt;a name=&quot;section2.3&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Temperature Sensor&lt;/h3&gt;
+          &lt;p&gt;
+            From a motherboard perspective, the temperature sensor was the easiest component to account for. The temperature sensor we were using came on a separate PCB and connected to the motherboard using three 30-gauge wires that carried the ENABLE, DATA_OUT, and GND signals to the other board.  The VCC and ENABLE lines were tied together on that board meaning the temperature sensor was always on.
+          &lt;/p&gt;&lt;p&gt;
+            To accommodate these on the motherboard, three through-hole solder points would be needed to connect the 30-gauge wire from the temperature sensor. These through-hole points would then route to the microcontroller which would be able to read in the values. The temperature sensor communicated an analog voltage back to the microcontroller so the DATA_OUT signal is routed to PA7 (pin 6 on the microcontroller) which has a built in ADC for reading in that value.
+          &lt;/p&gt;
+          &lt;a name=&quot;section2.4&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Battery Charge Circuit&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img3.jpg&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            A key aspect of allowing the outpatient wearable to be usable in low-middle income settings was allowing users to charge it using a cable or system they are familiar with. The micro-USB receptacle here serves the sole purpose of allowing the user to charge via a standard micro-USB cable such as the kind that ships with most Android phones.
+          &lt;/p&gt; &lt;p&gt;
+            Only the +5V bus and GND lines of the micro-USB are used - the other two lines are left disconnected because instead of allowing in-system programming on the ATtiny44 using an FTDI RS-232 chip, all of our systems are one-time flash with no option to reprogram once they are completed and sealed away.
+          &lt;/p&gt; &lt;p&gt;
+            The chip that handles the battery charging is the MCP73831T which ships on standard Adafruit chargers such as the one that comes with our 150mAH battery. This is a fully integrated charge controller that can determine when a battery is full and when it is time to stop charging. The 10K resistor sets the charge rate at 100mA which is a safe value for the 150mAH battery. This means our charge time is approximately 90 minutes from empty for our battery.
+          &lt;/p&gt; &lt;p&gt;
+            The capacitor on the left side of the circuit is for noise filtering and charge stabilization.  The 5V supply line is not used anywhere except as input to the battery charge circuitry.
+          &lt;/p&gt;
+          &lt;a name=&quot;section2.5&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Battery Check Circuit&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img4.jpg&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            In order to let the user know when the battery on the device had run out of power, we installed a very basic LED connected across the leads of the battery with a small push-button.  Press the button and, as long as the button is pressed, the RGB LED on the board should light up green.
+          &lt;/p&gt; &lt;p&gt;
+            An RGB LED was chosen here because it serves double purpose by also letting the user know when the device is plugged in and successfully charging. This LED will turn red because it is connected to a “status” output on the charge controller that lets the user know when the device is plugged into a micro-USB and successfully charging.
+          &lt;/p&gt;
+          &lt;a name=&quot;section2.6&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Information Read-Out LEDs&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img5.jpg&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            These are the most important LEDs as they are the ones that allow the user to know when their health is potentially compromised from a higher than usual body temperature. They are of the 1206 SMT value which was large enough to be visible from a healthy distance while still fitting in between the programming headers that would also have to be included on the board.
+          &lt;/p&gt; &lt;p&gt;
+            Each LED is complemented with a 1k ohm resistor which limits the current and allows the brightness of the LED to be at an acceptable level.
+          &lt;/p&gt;
+          &lt;a name=&quot;section2.7&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Programming Headers&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img6.jpg&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            In what is perhaps the least aesthetically pleasing design decision on this board, two sets of headers were added to assist in the research and development of this board.  These ugly gold pads only show up on prototype boards and would surely be removed if the device ever went to mass production.
+          &lt;/p&gt; &lt;p&gt;
+            The 2x3 rectangular 0.100” header is important for programming the board - it connects to the MISO and MOSI pins of the ATtiny44 to allow it to be programmed by most in-system programmers via something like Atmel Studio or AVRdude from the computer.
+          &lt;/p&gt; &lt;p&gt;
+            The other 1x6 long 0.100” header serves a debugging purpose by allowing an FTDI connection to a computer. There are two massive benefits to having this FTDI header for debugging: (1) it allows us to power up the board to 3.3V without having the battery connected which is an important safety consideration for detecting shorts and other malfunctions within the board.
+          &lt;/p&gt; &lt;p&gt;
+            Another benefit is that (2) the FTDI cable has a built in RS-232 chip that allows the computer to communicate with the board via a Serial terminal or something of that sort in Arduino.  “Print” statements from the computer can be printed to the command line and reveal what is going on inside the processor for the purposes of debugging.
+          &lt;/p&gt;
+          &lt;a name=&quot;section3&quot;&gt;&lt;/a&gt;
+          &lt;h2 style=&quot;padding-bottom:0px; margin-bottom:0px&quot;&gt; Board Layout and Routing &lt;/h2&gt;&lt;hr style=&quot;margin:0px; padding:0px; margin-bottom:15px&quot;&gt;
+          &lt;p&gt;
+            After schematic capture, the natural next step in PCB design is to import all of the schematic footprints and netlist to the board layout environment and figure out the best way to fit all of the components and traces onto the predefined board area.  We had a form factor of roughly 1.00” by 0.80” to work with so I had to start with that.
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img7.jpg&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            The empty board above has the board cutout defined on the M1 layer which is pretty standard for Altium Designer. The little notch on the corner creeps up 0.15” on each side and is cut at a 45 degree angle. This notch was added at the request of the mechanical team to help with orienting the board and to give it a little character. It also served a crucial purpose later on in determining the orientation of the RGB LED when soldering.
+          &lt;/p&gt;
+          &lt;a name=&quot;section3.1&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Board Stackup&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img8.jpg&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            Before diving into the nitty-gritty of board trace routing, it became important to chose how many signal layers the board would have. We were heavily constrained on Z height so instead of the standard 0.063” thick FR-4 PCB, we decided to go with the thinner 0.031” thick FR-4 boards instead. The fabrication cost was marginally more but the difference in 0.03” for a device with a total thickness of around 0.25” made a pretty big difference to us.
+          &lt;/p&gt; &lt;p&gt;
+            The original design called for a 4-layer board which is pretty typical - we could use the inner layers as ground and power planes, or use them for signal routing if absolutely necessary.  The FR-4 core is pretty standard and the 1080 prepreg was recommended on the website for Advanced Circuits which was our boardhouse.  Ultimately, we chose green soldermask for the board because it was the cheapest of the options available.
+          &lt;/p&gt;
+          &lt;a name=&quot;section3.2&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Board Layout: Top Layer&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img9.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            The top layer of the board has fewer components - this is because it is flush with the surface of the case and primarily needs to show the user the 3 LEDs determining the temperature status. Since there is so much extra space not taken up by components, this was a perfect place to include the programming and FTDI headers. The programming header is in the Southeast corner next to the RGB LED for checking battery life, and the FTDI header is on the North side of the LEDs.
+          &lt;/p&gt; &lt;p&gt;
+            Silkscreen was printed with a line near the pads of the LEDs to guide assembly - the green line on the actual LED could be matched up to the silkscreen line near the pads to ensure the LED was oriented correctly. The RGB LED had an even easier guide for ensuring its orientation was correct - the notch at the lower right corner of the RGB LED perfectly aligned to the actual form factor of the board itself. They both had a notch cut out of the same corner making alignment simple.
+          &lt;/p&gt; &lt;p&gt;
+            There are many many vias on this board - the reason for that is about halfway through the routing process, it became clear that everything could fit onto a 2-layer board instead of the aforementioned 4-layer board. The requirement to make it all fit on 2 layers is that the board would required 10 mil vias which was right at the lower limit of what Advanced Circuits was capable of.
+          &lt;/p&gt; &lt;p&gt;
+            Note, finally, the presence of the two large plated holes on the left side of the board for directly soldering wires from the battery onto the motherboard. The battery has 22 AWG wires so the holes for mounting the battery are significantly bigger than the holes for the 30 AWG wires of the temperature sensor.
+          &lt;/p&gt;
+          &lt;a name=&quot;section3.3&quot;&gt;&lt;/a&gt;
+          &lt;h3 style=&quot;font-size:16pt&quot;&gt;Board Layout: Bottom Layer&lt;/h3&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img10.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            The bottom layer is where many of the components that make the board work are actually hidden. The center of everything is the ATtiny44, placed centrally because it has traces that run to nearly every other component.  The micro-USB is also placed on the bottom layer and is notable because it has 7 mil traces which pushes the limits of most manufacturing houses.
+          &lt;/p&gt; &lt;p&gt;
+            The battery management circuitry is on the north side of the board because it provides a clean path from the battery mount point to the processor to the micro-USB header. The south side of the board is reserved for signal traces like those for the LEDs and the data from the temperature sensor.  The pushbutton is nested in the southwest corner of the board where it is close to the battery connection points.
+          &lt;/p&gt; &lt;p&gt;
+            The completed board with all electrical layers is shown below in red (top) and blue (bottom):
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img11.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            Mechanical layers define the boundaries of the parts and how they may protrude into other parts or off of the board. The mechanical layers are included in the image below:
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img12.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            One final rendering of the board with all layers, both electrical and mechanical as well as the keep-out layer and silkscreen is shown below:
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img13.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            Altium Designer provides one last feature which is a 3D view of the board. Renderings of the top and bottom of the board with most components included are shown below:
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img14.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            And the bottom layer, with processor and other components included in 3D detail.
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img15.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+
+      &lt;a name=&quot;section4&quot;&gt;&lt;/a&gt;
+      &lt;h2 style=&quot;padding-bottom:0px; margin-bottom:0px&quot;&gt; DFM, Fabrication, and Soldering &lt;/h2&gt;&lt;hr style=&quot;margin:0px; padding:0px; margin-bottom:15px&quot;&gt;
+          &lt;p&gt;
+            Once the board was designed, there were only a few minor Design for Manufacturing (DFM) issues that needed to be resolved before fabrication. The first one related to the proximity of vias to pads in a couple locations, one of which is highlighted below in the white circle:
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img16.jpg&quot; width=&quot;70%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            This type of conflict is only an issue when a through-hole component is being soldered to the hole that ends up in another pad. In this case, the hole was simply a via meant to route the signal that the pad was on anyways. Normally there would be a space left for aesthetics, but the tightness of everything on this board required us to overlook that common design practice to fit everything.
+          &lt;/p&gt; &lt;p&gt;
+            The only other DFM issue was related to the proximity of silkscreen to copper pads. In the library component for the 0603 resistors used in this device, a silkscreen that is right next to the copper pads is defined as shown in the white circle below:
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img17.jpg&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+          &lt;p&gt;
+            The bottom silkscreen is too close to the copper pads which could cause a printing error. These lines on the bottom silkscreen are sort of pointless though - we don’t really care if they’re there or not. To allow the device to pass DFM, we simply asked the program to ignore these silkscreen lines as they served no important purpose.
+          &lt;/p&gt; &lt;p&gt;
+            In our first prototype phase, approximately 50 of these boards were ordered from Advanced Circuits and soldered by hand to test. This process was extremely straightforward as all of the components were carefully chosen to allow for surface-mount soldering using standard techniques. While we had a Zephyrtronics rework station available for use, none of the components were BGA components that required more advanced soldering techniques.
+          &lt;/p&gt;
+          &lt;img src=&quot;/assets/projects/2017-12-wearable-motherboard/img0-1.png&quot; width=&quot;90%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="engineering" /><summary type="html">For my junior design project at Harvard, I had a chance to work in a consulting role to the Dana Farber Cancer Institute and Global Health Initiative to develop the electronics for a medical device to help pediatric cancer patients. This outpatient wearable is a small wristwatch device that has an integrated temperature sensor that monitors a patient's temperature. An elevated temperature in a child's body after they have been diagnosed with some form of cancer can often mean they are highly at risk. This temperature monitor is worn by the child at all times to mitigate the risk of an elevated temperature going unnoticed by a parent or guardian. The project won the 2018 Astellas Oncology C3 prize of $25,000 after a pitch by the project leads, garnering several press mentions included below. Harvard students work to better lives of young cancer patients in poor countries - Boston Globe Astellas Oncology Announces C3 Prize Winners - Business Insider Engineering solutions target deadly disparity - Harvard SEAS</summary></entry><entry><title type="html">Smart Blender</title><link href="http://localhost:4000/projects/smart-blender" rel="alternate" type="text/html" title="Smart Blender" /><published>2017-11-15T00:00:00-05:00</published><updated>2017-11-15T00:00:00-05:00</updated><id>http://localhost:4000/projects/smart-blender</id><content type="html" xml:base="http://localhost:4000/projects/smart-blender">&lt;div class=&quot;row&quot; style=&quot;margin-bottom:0px&quot;&gt;
+    &lt;p&gt; This project page documents an independent venture into product development during which I hope to explore all of the fundamental aspects of product R&amp;amp;D by building a smart blender from beginning to end.  I hope to gain three things out of this project: &lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Improve as an electrical engineer&lt;/b&gt; - since electrical engineering is my concentration, I will take special care to build a smart blender that has electrical systems that are well-constructed and reflect my ability as a senior electrical engineering student at Harvard.&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Improve as a mechanical engineer&lt;/b&gt; - I've had classes before relating to CAD and mechanical design, but none of those classes required me to build the entirety of a project in any sort of CAD software.  This blender is entirely under my creative jurisdiction so the materials and prototyping in CAD are an opportunity to improve as a mechanical engineer.&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Improve as a designer&lt;/b&gt;  - a perfectly-engineered product won't sell unless the design is appealing.  My goal is to design for usability as well as design for aesthetics. There are no heavily-involved theory-based design courses at the undergraduate level at Harvard, but I hope to incorporate elements of good design throughout the process (and I will point them out when I do!)&lt;/p&gt;
+
+&lt;!--
+&lt;div class=&quot;col-6&quot; style=&quot;background-color:#eee; padding:8px; margin-bottom:0px; padding-bottom:0px&quot;&gt;
+  &lt;ol&gt;
+    &lt;h6 style=&quot;font-size:9pt; margin:0px;&quot;&gt;&lt;b&gt;Contents&lt;/b&gt;&lt;/h6&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;Overview&lt;/li&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;Project Planning &amp; Schedule&lt;/li&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;Mechanical Design&lt;/li&gt;
+      &lt;ul style=&quot;list-style:none; margin-top:0px; margin-bottom:0px&quot;&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;3.1 Prototype 1 in Autodesk Inventor&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;3.2 Prototype 2 in Fusion 360&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;3.3 Manufacturing Design&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;li style=&quot;margin:0px; font-size:9pt&quot;&gt;Electrical Design &amp; Programming&lt;/li&gt;
+      &lt;ul style=&quot;list-style:none; margin-top:0px; margin-bottom:0px&quot;&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;4.1 Block Diagram &amp; Motor Driving&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;4.2 Touchscreen&lt;/li&gt;
+        &lt;li style=&quot;margin:0px; font-size:8pt&quot;&gt;4.3 Python Program&lt;/li&gt;
+      &lt;/ul&gt;
+
+  &lt;/ol&gt;
+&lt;/div&gt;--&gt;
+  &lt;!-- Content Goes Here --&gt;
+
+  &lt;h2 style=&quot;padding-bottom:0px; margin-bottom:0px&quot;&gt; Mechanical Design &lt;/h2&gt;&lt;hr style=&quot;margin:0px; padding:0px; margin-bottom:15px&quot;&gt;
+  &lt;p&gt; The most significant amount of the work on this project turned out to be on the aspects related to building a housing to contain the blender. The hardest part of creating the blender body was not just determining the sizes and arrangements of the various parts, but rather preparing those parts for manufacturing and actually getting them manufactured. I went through several iterations that are documented below.
+
+    &lt;h3 style=&quot;font-size:16pt&quot;&gt;Prototype #1 in Autodesk Inventor&lt;/h3&gt;
+    &lt;p&gt;
+      The first prototype for the body of the blender was based mainly around the measurements of an actual blender I took apart to examine the insides of.  The blender was the cheapest model I could find on Amazon - a &lt;a href=&quot;https://www.amazon.com/gp/product/B00HTFARRU/&quot;&gt; Black+Decker Counter-Top Blender&lt;/a&gt; that only cost $17.99 at the time of purchase.  I spent a week taking apart this blender to understand some of how it worked before setting a course for building up my own blender.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img1.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      The Black+Decker blender runs off of an AC motor and a TRIAC circuit for switching the current to the motor at various speeds. The entire switch housing is kept in a cleverly-engineered spring-loaded box that only allows for one button to be pressed at a time.  There is a lot of space left in the bottom of the blender underneath the motor assembly to allow for cooling of the motor. For an AC motor like this one, there is a fan attached to the motor that blows air in and around the motor while it is operating.
+    &lt;/p&gt;
+    &lt;p&gt;
+      Starting with the dimensions of the Black+Decker Motor, I went about creating a shell for the device in Autodesk Inventor. I chose Autodesk Inventor for making my first prototype because it functions very similarly to Solidworks and has a pretty effective export-to-3D print function.  Most of my blender will be built through parametric modeling, so I don't need the sculpting and surface-modeling features provided by some other CAD programs.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img2.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      I built up the side profile of the blender using two constraints to primarily drive the design - the first was the size of the motor. I'm using a XYD-6D 24V motor which requires approximately 5 square inches of mounting board to attach to. The &quot;top&quot; of the blender, where the pitcher sits, is sized with the intent of allowing the motor to attach to it.  The second constraint was the size of the LCD touch screen. The screen measured 2.25&quot; long meaning the &quot;chin&quot; that sticks out of the blender needed to be at least that long. Every other measurement is chosen for aesthetics.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img3.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      Hexagonal slots are cut into the site of the blender in part to save on material costs, but also to allow ventilation to the motor during normal operation. The front &quot;ridge&quot; serves the same purpose, helping better airflow in to the motor.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img4.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      The compartment into which the touchscreen is placed is engineered to allow the screen to comfortably press-fit into it. A slot at the back allows the wires from the GPIO part of the Raspberry Pi to exit and power the primary motor of the blender.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img5.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      This prototype served its purpose but was never manufactured at the actual scale of the device. My original intent was to 3D print the entire assembly.  There are large-scale 3D printers that could print a device with the dimensions of 5&quot; by 7&quot; by 6&quot; as my blender would have been, but cost and availability were concerns.  I needed to simplify the design and reduce the size to make it more easily printable.  I kept those considerations in mind when moving to the second prototype.
+    &lt;/p&gt;
+    &lt;h3 style=&quot;font-size:16pt&quot;&gt;Prototype #2 in Fusion 360&lt;/h3&gt;
+    &lt;p&gt;
+      A second prototype came with the use of a new CAD software: Fusion 360. I'd never used Fusion 360 for a large CAD project before this point but wanted to give it a try because it has very powerful tools for designing something for manufacturing.  I started by building up the same model as prototype #1, but I knew I would have to shrink the depth of the model as well as the height in order to make it manufacturable on my rapid-prototyping equipment.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img6.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img7.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      An opportunity presented itself during the design process - if I reduced the total 3D printed material down to just angle and corner brackets, I could complete my prints on the Formlabs Form 2 SLA printer and have much higher quality pieces than on a standard FDM printer.  For the in-between portions, I could just laser-cut those from acryllic and the design would look the same.  I got to work hollowing out the in-between portions to create something that would look very much like my final prototype.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/gif1.gif&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      The final stages of the creation process in the GIF above show two notable steps. The first was my decision to change the body material from Formlabs Grey Resin over to the Tough Resin which has a blue color. Since these angle brackets would be holding up the weight of the motor used in the blender, I thought it would be very important that they are strong. The Tough Resin has much better mechanical properties than the Formlabs Grey resin and, since the lab had it in stock, I decided to make the switch.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img8.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      Also notable is the decision to slice the model into 10 smaller parts. The bed size of the Formlabs Form 2 printer is only about 5 inches by 5 inches - smaller parts print much more easily than larger parts. There is also a lower failure rate when the parts are small.  With these two things in mind, I simplified the &quot;cuts&quot; in the blender body and cut it into pieces to prepare for manufacturing.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img9.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      The touchscreen slot has also undergone a transformation - instead of a single wide slot to fit all the outgoing wires, three specific cuts have been made to accomodate the audio jack, HDMI plug, and microUSB cable which will be used to power the device.  The slits on the front of the device have been removed because the Z height has been reduced making them unecessary.  The hexagonal cut-outs on the side of the blender remain as they were before, but now are cuts in acrylic instead of being 3D printed.
+    &lt;/p&gt;
+    &lt;p&gt;
+      A final render of the CAD model is included below with the motor and touchscreen added in for fun: all ready for manufacturing now!
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img10.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h3 style=&quot;font-size:16pt&quot;&gt;Manufacturing Design&lt;/h3&gt;
+    &lt;p&gt;
+      I finished designing the pieces I would need to assembly the blender, but then came the issue of actually manufacturing those pieces so that the entire blender could be assembled. I started out with the 3D-printed corner brackets for the main blender housing.  The three images below show the three manufacturing sets I needed to setup in order to print all of the necessary parts.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img11.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      The back pieces of the blender were the thinnest, so I was able to fit the largest number of them onto the Form 2 build platform. Since the front pieces are a little bulkier (to support the special well that the touchscreen sits in) I had to print the lower part of that and upper part as two separate prints.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img12.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      The diagonal orientation of the pieces serves a two-fold purpose. Diagonal pieces make good use of the entire build volume inside the printer allowing me to fit larger pieces into the printer. Additionally, the same SLA printing works requires peeling the piece off of the surface of the bottom of the tank - lower cross-sectional area reduces the chance of failure and minimizes manufacturing time because I don't lose days because of failed prints.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img13.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      I had to set up each bracket in Preform, the Formlabs Form 2 print software, before being able to sent it to the printer. In stereolithography (SLA) printers, it is best to print the model using supports so that it is elevated of the surface of the build platform and smooth edges come out nicer.  The print time for each set up brackets was approximately 11 hours, so I started most of these prints in the evening and let them run overnight.  The final pieces came out resin-soaked, but with beautiful edges.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img14.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      SLA printing produces beautiful parts, but those parts have to undergo a wash and cure process before they are ready to use. I had to wash the resin-soaked parts in isopropyl alcohol (IPA) in 20 minutes to remove any leftover resin. After the IPA bath, I had to let the parts dry and then move them over to a UV cure station where they were cured under UV light for 120 minutes. This process was complex and time-consuming, but led to beautiful parts like show below.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img15.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      With all of the parts 3D-printed, I could assemble a wire-frame for the blender. This was very beautiful, but didn't feel complete without the laser cut in-between parts. I moved on to designing the files for that shortly after finishing 3D-printing.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img16.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      Laser cutting was a relatively straightforward process - I quickly designed the pieces in Fusion 360 based off of the area remaining in the original blender model once I reduced it to just corner pieces.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img17.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      Since I used 1/4&quot; clear acrylic, I needed relatively powerful laser cut settings in order to cut clean through the material. I ended up using a speed of 8% and a power of 100 on the laser at 5000Hz.  This created very clean cuts and meant a total cut time of about 13 minutes per sheet.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img18.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;h2 style=&quot;padding-bottom:0px; margin-bottom:0px&quot;&gt; Electrical Design &amp; Programming&lt;/h2&gt;&lt;hr style=&quot;margin:0px; padding:0px; margin-bottom:15px&quot;&gt;
+    &lt;p&gt; The electrical aspect of this project mainly involved driving a DC motor from an LCD touchscreen. There are several layers of abstraction here, but fundamentally, the Raspberry Pi has the ability to supply a PWM signal which will be used in a power MOSFET circuit to drive the DC motor.  The motor I am using is originally used in electric scooters and therefore has plenty of torque for blending.
+
+      &lt;h3 style=&quot;font-size:16pt&quot;&gt;Block Diagram &amp; Motor Driving&lt;/h3&gt;
+      &lt;p&gt;
+        I started off the electrical design by putting together an electrical block diagram that shows all of the essential parts of the circuit. Additional sensors like temperature sensors or capsense level sense devices are simple GPIO devices that just require an ADC pin or a couple pins to communicate over SPI or I2C. These devices can be added later but will clutter the block diagram if added too early.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img19.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+        The motor is a highly inductive load and has to have a diode to protect it for safety. I chose to use the XYD-6D motor which runs at 24V ideally and provides 2600rpm at top speed which corresponds to roughly 43rps which is plenty for blending soft things like fruits and vegetables.  I am driving the motor via a power MOSFET and a PWM signal that comes straight from the Raspberry Pi. The rest of the circuit is mostly straightforward.
+      &lt;/p&gt;
+      &lt;h3 style=&quot;font-size:16pt&quot;&gt;Touchscreen&lt;/h3&gt;
+      &lt;p&gt;
+        I found an &lt;a href=&quot;https://www.amazon.com/gp/product/B01N3JROH8/&quot;&gt;LCD touchscreen&lt;/a&gt; that only costs $17.99 on Amazon made by Elegoo. It runs off of the XPT2046 touch controller and has a curious amount of control circuitry on the back of the PCB.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img20.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+        Probing these pins on the small ICs isn't necessary unless something goes terribly wrong with the LCD screen touchscreen. If I had more time to explore this PCB, it would be very interesting to understand why a 12-bit ripple counter was necessary to the operation of this device.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img21.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+        After connecting the touchscreen to the Raspberry Pi, I promptly entered driver hell. The standard operating system for a Raspberry Pi is called Raspbian and is based off of the Debian Linux OS.  The user guide for the Elegoo touchscreen recommended installing a custom flavor of Raspbian that actually had the touchscreen drivers pre-installed on it. I needed to format an SD card using the Windows virtual machine on my Mac, and then write the IMG file of this custom OS onto that card so it could be booted from the Raspberry Pi.
+      &lt;/p&gt;
+      &lt;p&gt;
+        I used a helpful program called &quot;Etcher&quot; to write the Raspbian image to the SD card and it took about 25 minutes to complete. When I booted up the Raspberry Pi by plugging in a Micro-USB power source, the touch screen just showed a blank image
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img22.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+        I tried a separate SD card before finally determining the source of the error was the disk IMG being corrupted, not the writing to the SD card. I decided to go a separate route at this point and installed the drivers separately on a clean installation of Raspbian.  This was a complex process because the Raspbian IMG file is just over 4GB in size - I had to locate a 8GB SD card since the 4GB ones I had been using would not be big enough. I burned the disk image to the SD card and had to connect the system to an external monitor for setup.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img23.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+        Connecting the Raspberry Pi to Harvard University wireless turned out to be a rabbit hole of its own - Harvard networks require users to register devices by their MAC address in order to allow them to connect to Harvard Wifi. Turns out the Raspberry Pi MAC address is accessible from the command line.  I had to type the command &lt;code&gt;ifconfig eth0&lt;/code&gt; which then caused the following to display, in which the MAC address is embedded.
+        &lt;pre&gt;&lt;code&gt;eth0 Link encap:Ethernet  HWaddr &lt;b&gt;c7:35:ce:fd:8e:a1&lt;/b&gt;
+inet addr:192.168.0.16  Bcast:192.168.0.255  Mask:255.255.255.0
+inet6 addr: fe80::ba27:ebff:fefc:9fd2/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1&lt;/code&gt;&lt;/pre&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        I took this MAC address to the Harvard new device registration portal at &lt;a href=&quot;https://getonline.harvard.edu/guest/mac_create.php&quot;&gt;https://getonline.harvard.edu/guest/mac_create.php&lt;/a&gt; and began setting up the new device. Once it was created, it required 60 seconds to official become available to connect.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img24.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+        Only after this was all said and done, I could get the Raspberry Pi online. From there, I needed to download the drivers for the touchscreen from a special Git repo hosted by the company that makes the touchscreen.  After many terminal commands and frustration, I finally managed to load the touchscreen without having the external monitor there as well.
+      &lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/projects/2017-11-smart-blender/img25.jpg&quot; class=&quot;img-fluid py-2&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;h3 style=&quot;font-size:16pt&quot;&gt;Python Program&lt;/h3&gt;
+      &lt;p&gt;
+        The final step of the puzzle was to allow the Raspberry Pi to output PWM that could control the motor. This was a non-trivial step as the Raspberry Pi is abstracted far enough away from the hardware programming of something like Arduino that correctly accessing the GPIO pins necessary to pulse width modulate the motor was a daunting task.
+      &lt;/p&gt;
+      &lt;p&gt;
+        I decided to do this portion of the code in Python since I have some experience in it and it is a language for which there is a ton of Raspberry Pi support. I needed to initialize the pins as outputs and then cause the Raspberry Pi to pulse-width modulate on them to turn the motor.
+      &lt;/p&gt;
+      &lt;p&gt;
+        The basic outline of the code is borrowed from &lt;a href=&quot;&quot;&gt;this Circuit Digest article&lt;/a&gt; with the ports and exact duty-cycle adjusted to match my hardware configuration.  The code is excerpted below:
+      &lt;/p&gt;
+      &lt;xmp&gt;
+import RPi.GPIO as IO
+
+import time
+
+IO.setmode (IO.BCM)
+
+IO.setup(26,IO.OUT)
+
+p = IO.PWM(26,100)
+p.start(0)
+
+while 1:
+for x in range (50):
+p.ChangeDutyCycle(x)
+time.sleep(0.1)
+
+for x in range (50):
+p.ChangeDutyCycle(50-x)
+time.sleep(0.1)
+      &lt;/xmp&gt;
+      &lt;p&gt;
+        I was able to control PWM on the GPIO pin which, combined with the MOSFET circuit from above, allowed me to change the speed of the motor at will. When controlled from the touchscreen, this creates a system where no buttons are needed to input controls to the primary blender motor.
+      &lt;/p&gt;&lt;p&gt;
+        A completed working demo of the blender motor control circuit is included below! In future development it would be important to establish waterproofing and food-safe design for the project. For the time being, it is a solid design prototype.
+      &lt;/p&gt;
+      &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/BmIxkZV7KEE?rel=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; gesture=&quot;media&quot; allow=&quot;encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;&lt;br&gt;</content><author><name></name></author><category term="engineering" /><summary type="html">This project page documents an independent venture into product development during which I hope to explore all of the fundamental aspects of product R&amp;amp;D by building a smart blender from beginning to end. I hope to gain three things out of this project:</summary></entry><entry><title type="html">Teaching Fellow at Harvard University</title><link href="http://localhost:4000/teaching/harvard-teaching-fellow" rel="alternate" type="text/html" title="Teaching Fellow at Harvard University" /><published>2017-09-01T00:00:00-04:00</published><updated>2017-09-01T00:00:00-04:00</updated><id>http://localhost:4000/teaching/harvard-tf</id><content type="html" xml:base="http://localhost:4000/teaching/harvard-teaching-fellow">&lt;div class=&quot;row&quot;&gt;
+&lt;p&gt;
+  While a student at Harvard University, I worked as a Teaching Fellow on four separate occasions for two classes.  I taught for the class ENG-SCI 50 for three semesters, in Fall 2015, Fall 2016, and Fall 2017.  I taught for the class Physics 123 (also called ENG-SCI 153) for one semester, in Spring 2016.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row d-flex flex-row align-items-center justify-content-center pb-4&quot;&gt;
+  &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+    &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/sUnVvgP043g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;!--&lt;img src=&quot;/assets/camakk-full.jpg&quot; class=&quot;img-fluid p-1&quot;&gt;&lt;br&gt;--&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-sm-6 d-flex flew-column align-items-center justify-content-center justify-content-sm-end pt-3&quot;&gt;
+    &lt;iframe width=&quot;340&quot; height=&quot;190&quot; src=&quot;https://www.youtube.com/embed/DCaXYcJEEdU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;!--&lt;img src=&quot;/assets/camakk-full.jpg&quot; class=&quot;img-fluid p-1&quot;&gt;&lt;br&gt;--&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+
+&lt;p&gt;
+  &lt;strong&gt;ENG-SCI 50&lt;/strong&gt; is the introductory electrical engineering class at Harvard. Enrollment for the class is between 50-80 students every semester and it covers everything a standard undergraduate introductory electrical engineering class covers. As a teaching fellow, I facilitated lab sessions for students and ran homework help sections meant to assist students in completing the problem sets.
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Physics 123&lt;/strong&gt; (ENG-SCI 153) is an advanced circuits class primarily intended for graduate students and advanced undergraduates. It covers analog and digital circuits in depth and the final project for the class is the construction of a complete computer system that is programmed in assembly language. As a teaching fellow for the class, I ran homework help sessions and assisted students in completing the weekly lab exercises.
+&lt;/p&gt;
+&lt;p&gt;
+  I love teaching and pride myself in my ability to help the students who have the most difficult time understanding the course content. I like to provide very fundamentally-sound, physical explanations for difficult concepts to allow students to gain an appreciation for not just how things work, but why they work at a fundamental level.
+&lt;/p&gt;
+
+&lt;/div&gt;</content><author><name></name></author><category term="teaching" /><summary type="html">While a student at Harvard University, I worked as a Teaching Fellow on four separate occasions for two classes. I taught for the class ENG-SCI 50 for three semesters, in Fall 2015, Fall 2016, and Fall 2017. I taught for the class Physics 123 (also called ENG-SCI 153) for one semester, in Spring 2016.</summary></entry><entry><title type="html">Volunteer Flag Football Head Coach</title><link href="http://localhost:4000/teaching/coaching-flag-football" rel="alternate" type="text/html" title="Volunteer Flag Football Head Coach" /><published>2017-03-15T00:00:00-04:00</published><updated>2017-03-15T00:00:00-04:00</updated><id>http://localhost:4000/teaching/coaching-flag-football</id><content type="html" xml:base="http://localhost:4000/teaching/coaching-flag-football">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-12&quot;&gt;
+      &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img0.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt; &lt;br&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p&gt;
+      From January to March 2017, I had the opportunity to coach a youth flag football team of 12-13 year old kids as part of the Cal Youth Flag Football League based out of San Jose, CA. The format of the league is 5v5 and my team had 9 total players.  The teams are named after NFL teams and my team was named the Seahawks.
+    &lt;/p&gt;&lt;p&gt;
+      My job as a flag football coach is to put my players in the best position to succeed. That means striking a balance between playing to win and playing to have fun.  A competitive experience is a good experience because it makes my players better.  But if the experience is too competitive, frustration will push out any opportunities for learning.
+    &lt;/p&gt;&lt;p&gt;
+      Outside of running practices and calling the plays for the players during games, my job as head coach also involved communicating with parents and keeping them satisfied.  I sent out weekly update emails to parents announcing the practices times and game times.  I advised parents on the best type of cleats and other equipment to purchase for their players.  I helped parents find the location for the game field and various practice fields.
+    &lt;/p&gt;&lt;p&gt;
+      On the field, I would always have to remember that &lt;b&gt;flag football is a very different game from tackle football&lt;/b&gt;.  Additionall, football at the 12-13 year old level is significantly different than professional football.  As a coach, I need to coach for the team I have, not the professional team I dream of havinh.  I need to coach for the game we're playing, not the game I wish we were playing.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img1.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt; &lt;br&gt;&lt;br&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h2&gt; What are the biggest differences in 12-13 flag football?&lt;/h2&gt;
+    &lt;p&gt;
+      (1) &lt;b&gt;Good flag-pulling is essential&lt;/b&gt;  Seriously, I cannot emphasize this enough.  Coaches in flag football nearly always focus on offense because it's more attractive and there's more glory to be had.  Every single one of the five defenders must be a proficient flag-puller.  Short passes turn into touchdowns when the defense misses on flag-pulls.  I believe defense comes first - I want to trust in my defense with the game on the line.
+    &lt;/p&gt;&lt;p&gt;
+      (2) Flag football is a &lt;b&gt;run-after-the-catch game&lt;/b&gt;, not a deep passing game.  With three downs to get to midfield (30 yard distance) and three downs to score after that, every play needs to be a positive play to keep the team moving toward its goal.  As a result, nearly all of the plays in our playbook need to be short passes or runs.  Based on the arm strength of the 12-13 year old kids alone, passes beyond 15 yards are nearly impossible and incredibly risky.
+    &lt;/p&gt;
+    &lt;p&gt;
+      (3) &lt;b&gt;Misdirection is extremely effective&lt;/b&gt;.  In regular football, the other team has 11 players able to stop you. In flag football, the defense has 5 players to stop the offense's 5 players.  Spreading the defense out in the pros might mean you only have to get past 2 or 3 defenders to break free - if done correctly, flag football can be a one-on-one path to the end zone every single play.  All the plays I design are intended to get the ballcarrier moving up field with few defenders around.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img2.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt; &lt;br&gt;&lt;br&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      My approach toward football is pretty old school.  I can summarize the above into three main points:
+      &lt;ol&gt;
+        &lt;li&gt;Play strong defense&lt;/li&gt;
+        &lt;li&gt;Mostly short passes and runs on offense&lt;/li&gt;
+        &lt;li&gt;Don't be predictable&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/p&gt;&lt;p&gt;
+      With those points in mind, I set about to create a playbook that best set up my team for success.  And beyond just creating the playbooks, I wanted to figure out how to teach the playbook to my kids without overwhelming them.  The most well-crafted playbook in the world is useless if your players can't learn it.
+    &lt;/p&gt;
+
+    &lt;h2&gt; Drafting a playbook &lt;/h2&gt;
+    &lt;p&gt;
+      These early sketches were when I began to play with formations and general layouts for playcalling. There was one thing I decided from the very start - the quarterback and center should be positioned consistently between plays. Beyond that, nearly all plays would have the quarterback taking snaps from under center. The risk of dropping a snap (instantly ends the play) goes down and the center gets a much faster route-running release when it's a short snap.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img3.jpg&quot; alt=&quot;Coaching&quot; width=100%&quot; style=&quot;display: inline; margin: auto;&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img4.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: inline; margin: auto;&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img5.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: inline; margin: auto;&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+     Following my third principle of misdirection and one-on-one match-ups, I drew up very few &quot;traditional&quot; football plays that involved passing over the middle of the field. Nearly all routes were designed to beat man-on-man coverage with horizontally breaking routes. In the rare event that the other team's defense played zone defense, I prepared a few &quot;flood&quot; plays meant to disrupt a zone defense. All pass plays had mostly short routes.
+   &lt;/p&gt;&lt;p&gt;
+      Another decision I made was to have every player &quot;available&quot; on every play. As in, there are no useless routes - every player has a chance to receive the ball on every play. That being said, there is a primary receiver and a secondary player called on every play (usually a short dump-off pass). This makes the decision really easy on the quarterback. If the main receiver is open, throw to him. If not, dump it off short with an easy pass to either the center or running back.
+    &lt;/p&gt;&lt;p&gt;
+      Since any receiver can be designated the &quot;primary&quot; on any given play, that means each play is actually 4 different plays. This play design makes it much simpler on the quarterback - he only needs to know the primary receiver's route on the play.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img6.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt; &lt;br&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;
+      The last question was the question of formation. How many plays would I be able to run out of any given formation?  The more the merrier. Different formations would give away different plays immediately. If I were to start small and build up, I would start with multiple plays out of the same formation.
+    &lt;/p&gt;&lt;p&gt;
+      There is intentionally a runningback in every single formation. This is highly unorthodox - some teams don't even have a single run play in their flag football playbook.  I wanted to carry over the run-pass balance of tackle football into my flag football strategy.  If there is the threat of a run play, the defense is always a little slower to react.  That split second of indecision can allow receivers to get open.
+    &lt;/p&gt;&lt;p&gt;
+      For the first week, I decided to just draw up 6 good plays. In each play, four different players could be designated as the primary receiver/runner, so it was really 24 distinct plays if executed correctly. These plays are run out of just two formations.  The playbook is shown below:
+    &lt;/p&gt;
+    &lt;h2&gt; Seahawks 2017 CYFF Playbook &lt;/h2&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/playbook.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      Every week, the players learn and get up to speed on three new plays.  If the players can run the three plays seamlessly, we integrate the play into our routine.  At practice, we will use this playbook and other drills (for flag pulling and route running) to improve on the fundamentals and prepare for the game.
+    &lt;/p&gt;
+    &lt;h2&gt; Spring 2017 Season Results &lt;/h2&gt;
+    &lt;table style=&quot;text-align:center&quot; width=&quot;100%&quot;&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; Game # &lt;/th&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; Date &lt;/th&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; W/L &lt;/th&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; Away &lt;/th&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; Home &lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 1 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 2/12 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; L &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Seahawks 0 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Vikings 28&lt;/b&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 2 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 2/19 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; W &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks 20&lt;/b&gt; &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Chiefs 6 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 3 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 2/25 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; T &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Seahawks 13&lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Raiders 13&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 4 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 3/5 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; W &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks 39&lt;/b&gt; &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Saints 18&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 5 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 3/12 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; W &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks 14&lt;/b&gt; &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 49ers 6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 6 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 3/12 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; L &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Seahawks 6&lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Vikings 8&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; WC &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 3/19 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; W &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks 20&lt;/b&gt;&lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Raiders 6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; DIV &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 3/19 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; W &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks 20&lt;/b&gt;&lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 49ers 14&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; CHAMP &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Sun 3/19 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; W &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks 13&lt;/b&gt;&lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Vikings 0&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;
+      It was a championship-winning season that began and ended with games against the same team.  At one point the team was 1-1-1, but they went on to win 5 out of the next 6 to become league champions.
+    &lt;/p&gt;
+    &lt;p&gt;
+      These were the standings at the end of the regular season:
+    &lt;/p&gt;
+    &lt;table&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; Seed &lt;/th&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; Team &lt;/th&gt;
+        &lt;th style=&quot;padding:10px&quot;&gt; W-L-T &lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 1 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Vikings &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 5-1-0 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 2 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 49ers &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 4-2-0 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;3&lt;/b&gt; &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;Seahawks&lt;/b&gt; &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; &lt;b&gt;3-2-1&lt;/b&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 4 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Chiefs &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 3-3-0 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 5 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Saints&lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 2-4-0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr style=&quot;padding:10px&quot;&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 6 &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; Raiders &lt;/td&gt;
+        &lt;td style=&quot;padding:5px&quot;&gt; 0-5-1 &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;p&gt;
+      Our Seahawks' 3-2-1 win/loss/tie record meant we were the #3 seed going into the playoffs.  The Seahawks played three games in a row in the playoffs, defeating the #6 seed Raiders 20-6, defeating the #2 seed 49ers 20-14, and defeating the #1 seed Vikings 13-0 to win the championship game.
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img7.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+  &lt;h2&gt; Thoughts from a Coach &lt;/h2&gt;
+    &lt;p&gt;
+      In my first season ever as a flag football coach, our team won six games, lost two games, and tied one game.  I'm very satisfied with my performance and perhaps in the future when I have more free time, I'll volunteer to coach again.  It's certainly a different experience seeing football from a coach's perspective.  Football is far more like chess than most people realize. You have a collection of pieces, each with different strengths and weaknesses, and as a coach, it is your job to place them in the best position to succeed.
+    &lt;/p&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;
+        &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img8.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;&lt;p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+      Of course football isn't entirely like chess - what stands out in football is that it is asymmetric. The pieces you are given aren't necessarily identical to what your opponent has. You may end up with three bishops playing an opponent with four knights. This is where the strategic element of football really comes in. Being a good coach is about understanding who you have on your team, their strengths and weaknesses, and playing this game of asymmetric chess to maximize your advantages and minimize your disadvantages. And of course - this is amateur youth flag football. To make the parents happy, you make sure each player gets a decent amount of play time
+    &lt;/p&gt;&lt;p&gt;
+      Adding further to the complexity is the situational well-being of every player. You can't just settle on 5 &quot;best&quot; players and leave them in the whole game - apart from really upsetting the parents whose kids are benched, this strategy tires out your best players quickly. These kids are amateur athletes - their stamina is limited. This adds another dimension to the game of chess - it is important to cycle through your players and keep each of them fresh throughout the course of the game. As a strategist, this is also a way to gain an advantage. If I notice that a player on the opposing team is getting tired from having to run too many plays in a row, I might choose to target that weakness in the defense. I'll put in a fresh player and naturally, I'll watch as scissors beats paper.&lt;/p&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-12&quot;&gt;
+          &lt;img src=&quot;/assets/teaching/2017-03-coaching-flag-football/img9.jpg&quot; alt=&quot;Coaching&quot; width=&quot;100%&quot; style=&quot;display: block; margin: auto;&quot;&gt;&lt;br&gt;&lt;p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      The strategic element of football is half the job, but &quot;being coach&quot; is the much larger, much more significant half. This isn't a game of chess because I'm not dealing with chess pieces - I'm dealing with players. Each player needs motivation, encouragement, and guidance in order to succeed out on the field. It's one thing to plan where each player should be in any given play - it's another thing altogether to have to communicate that to the players clearly when under pressure in the middle of a game. Players also don't always listen. The game is long and by the end of it, players are more likely to play by instinct than play by a rigid game plan made by the coach. That's why the strategy needs flexibility - it needs to include checks and fallbacks for when the initial plan doesn't work.
+    &lt;/p&gt;&lt;p&gt;
+      That's plenty of a glimpse into the mind of a coach.  It was a joy to be Coach Cameron to the players and I look forward to the next chance I have to get involved in football.
+    &lt;/p&gt;
+    &lt;br&gt;
+
+  &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="teaching" /><summary type="html">From January to March 2017, I had the opportunity to coach a youth flag football team of 12-13 year old kids as part of the Cal Youth Flag Football League based out of San Jose, CA. The format of the league is 5v5 and my team had 9 total players. The teams are named after NFL teams and my team was named the Seahawks. My job as a flag football coach is to put my players in the best position to succeed. That means striking a balance between playing to win and playing to have fun. A competitive experience is a good experience because it makes my players better. But if the experience is too competitive, frustration will push out any opportunities for learning. Outside of running practices and calling the plays for the players during games, my job as head coach also involved communicating with parents and keeping them satisfied. I sent out weekly update emails to parents announcing the practices times and game times. I advised parents on the best type of cleats and other equipment to purchase for their players. I helped parents find the location for the game field and various practice fields. On the field, I would always have to remember that flag football is a very different game from tackle football. Additionall, football at the 12-13 year old level is significantly different than professional football. As a coach, I need to coach for the team I have, not the professional team I dream of havinh. I need to coach for the game we're playing, not the game I wish we were playing. What are the biggest differences in 12-13 flag football? (1) Good flag-pulling is essential Seriously, I cannot emphasize this enough. Coaches in flag football nearly always focus on offense because it's more attractive and there's more glory to be had. Every single one of the five defenders must be a proficient flag-puller. Short passes turn into touchdowns when the defense misses on flag-pulls. I believe defense comes first - I want to trust in my defense with the game on the line. (2) Flag football is a run-after-the-catch game, not a deep passing game. With three downs to get to midfield (30 yard distance) and three downs to score after that, every play needs to be a positive play to keep the team moving toward its goal. As a result, nearly all of the plays in our playbook need to be short passes or runs. Based on the arm strength of the 12-13 year old kids alone, passes beyond 15 yards are nearly impossible and incredibly risky. (3) Misdirection is extremely effective. In regular football, the other team has 11 players able to stop you. In flag football, the defense has 5 players to stop the offense's 5 players. Spreading the defense out in the pros might mean you only have to get past 2 or 3 defenders to break free - if done correctly, flag football can be a one-on-one path to the end zone every single play. All the plays I design are intended to get the ballcarrier moving up field with few defenders around. My approach toward football is pretty old school. I can summarize the above into three main points: Play strong defense Mostly short passes and runs on offense Don't be predictable With those points in mind, I set about to create a playbook that best set up my team for success. And beyond just creating the playbooks, I wanted to figure out how to teach the playbook to my kids without overwhelming them. The most well-crafted playbook in the world is useless if your players can't learn it.</summary></entry></feed>

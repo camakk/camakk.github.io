@@ -1,0 +1,35 @@
+---
+
+layout: article
+title: Discrete FSM Stoplight (without Microcontroller)
+short-title: Stoplight
+category: electrical
+technologies: [Discrete DIP Electronic Components]
+description: Completed as part of Physics 123 at Harvard, Spring 2015
+thumbnail: /assets/projects/2015-05-stoplight/thumbnail.jpg
+permalink: /projects/stoplight
+
+---
+
+<!-- MAIN CONTENT STARTS HERE -->
+
+<div class="row">
+  <div class="twelve columns">
+        <div style="margin:auto; text-align:center; padding-bottom:10px">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xgbeJGVDE-Q" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p>
+          As a final project for the class Physics 123 at Harvard College, I designed and built the control logic for a circuit that would control a stoplight.  The timing for the "green" and "red" sequences of the stoplight was programmable through two DIP-switches and the "yellow" sequence was hard-wired.  Three 74HC74 dual D flip-flops are used to control the state from between red, yellow, green.  Though each 74HC74 contained two flip-flops, only one was used on each chip to keep the wires on one side of the board.
+        </p>
+        <img src="/assets/projects/2015-05-stoplight/img1.jpg" width="90%" style="display: block; margin: auto;"> <br>
+
+        <p>
+          Three separate 74HC164 counters determine the length of time that each light is on.  DIP switches control the value loaded into each counter. By adjusting the load value, the time each light is on can be changed. The Cout of each counter triggers the enable on the following light advancing the FSM
+        </p>
+        <img src="/assets/projects/2015-05-stoplight/img2.jpg" width="90%" style="display: block; margin: auto;"> <br>
+
+    <br>
+      <div class="navigationbar"></div>
+
+  </div>
+</div>

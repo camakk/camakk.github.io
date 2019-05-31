@@ -1,0 +1,102 @@
+---
+layout: default
+permalink: /
+---
+<img src="assets/thin_line.png" style="width:100%"></img>
+
+
+<div class="row d-flex flex-row align-items-center justify-content-center pb-4">
+  <div class="col-sm-6 d-flex flew-row align-items-center justify-content-center justify-content-sm-end pt-3">
+    <iframe width="340" height="190" src="https://www.youtube.com/embed/DNZyLKyiVCo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <!--<img src="/assets/camakk-full.jpg" class="img-fluid p-1"><br>-->
+  </div>
+  <div class="col-sm-6">
+    <h2 style="font-size:20pt"><strong>Cameron Akker</strong></h2>
+    <p style="font-size:13pt">Engineer, developer, and project manager obsessed with good documentation and clear communication.</p>
+    <p style="font-size:11pt">B.S. Electrical Engineering | Harvard University</p>
+  </div>
+</div>
+
+<div class="d-flex flex-row align-items-center justify-content-center">
+</div>
+
+
+<!-- Electrical Engineering Projects -->
+<h3 class="py-2"><strong>Engineering Projects </strong><!--<span id="engineering-toggle" style="font-size:9pt; padding-left:1px"> <a style="text-decoration:none; color:#4881E8;">show all</a></span>--></h3>
+<div class="row">
+  {% for post in site.posts %}
+		{% if post.category == "engineering" %}
+		<div class="col-6 col-sm-2 py-1 {% if post.featured != true %} d-none eng-thumbnail-toggle {% endif %}">
+			<a href="{{ post.url }}" style="text-decoration: none;">
+				<div class="projecttile">
+					<img src="{{ post.thumbnail }}" style="width:100%; {{ post.stack-style }}" class="home-thumbnail-img"></img>
+					<p class="home-thumbnail-title"> {{ post.short-title }}</p>
+          <p class="home-thumbnail-date"> {% if post.display-date%} {{ post.display-date }} {% else %} {{ post.date | date: "%B %Y" }} {% endif %} </p>
+			</div>
+			</a>
+		</div>
+		{% endif %}
+  {% endfor %}
+</div>
+
+
+<!-- Project Management -->
+<h3 class="py-2"><b> Project Management </b></h3>
+<div class="row">
+  {% for post in site.posts %}
+		{% if post.category == "events" %}
+		<div class="col-6 col-sm-2 py-1">
+			<a href="{{ post.url }}" style="text-decoration: none;">
+				<div class="projecttile">
+					<img src="{{ post.thumbnail }}" style="width:100%;{{ post.stack-style }}" class="home-thumbnail-img"></img>
+          <p class="home-thumbnail-title"> {{ post.short-title }}</p>
+					<p class="home-thumbnail-date"> {% if post.display-date%} {{ post.display-date }} {% else %} {{ post.date | date: "%B %Y" }} {% endif %} </p>
+			</div>
+			</a>
+		</div>
+		{% endif %}
+  {% endfor %}
+</div>
+
+
+<!-- Teaching -->
+<h3 class="py-2"><b> Teaching </b></h3>
+<div class="row">
+  {% for post in site.posts %}
+		{% if post.category == "teaching" %}
+		<div class="col-6 col-sm-2 py-1">
+			<a href="{{ post.url }}" style="text-decoration: none;">
+				<div class="projecttile">
+					<img src="{{ post.thumbnail }}" style="width:100%;{{ post.stack-style }}" class="home-thumbnail-img"></img>
+          <p class="home-thumbnail-title"> {{ post.short-title }}</p>
+          <p class="home-thumbnail-date"> {% if post.display-date%} {{ post.display-date }} {% else %} {{ post.date | date: "%B %Y" }} {% endif %} </p>
+			</div>
+			</a>
+		</div>
+		{% endif %}
+  {% endfor %}
+</div>
+
+
+<img src="assets/thin_line.png" style="width:100%"></img>
+
+<!-- Blog
+<h3 class="py-2"><b> Blog </b></h3>
+<div class="row">
+  {% for post in site.posts %}
+		{% if post.category == "blog" %}
+		<div class="col-6 col-sm-3 py-1">
+			<a href="{{ post.url }}" style="text-decoration: none;">
+				<div class="projecttile">
+					<img src="{{ post.thumbnail }}" style="width:100%;" class="img-fluid home-thumbnail-img"></img>
+					<p class="home-thumbnail-title"> {{ post.short-title }}</p>
+          <p class="home-thumbnail-date"> {% if post.display-date%} {{ post.display-date }} {% else %} {{ post.date | date: "%B %Y" }} {% endif %} </p>
+			</div>
+			</a>
+		</div>
+		{% endif %}
+  {% endfor %}
+</div>
+-->
+  {{ content }}

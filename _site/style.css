@@ -1,0 +1,47 @@
+
+
+.home-thumbnail-img:hover {
+    /* Un-prefixed. Prefix `transform` for all target browsers. */
+    transform: scale(1.01);
+    opacity: 0.95;
+}
+
+.home-thumbnail-title {
+  text-align:center;
+  margin:0px;
+  color:black;
+  font-size:10pt;
+  padding:1px;
+}
+
+.home-thumbnail-date {
+  text-align:center;
+  font-size:9.5pt;
+  color:grey
+}
+
+a {
+  text-decoration:underline;
+  color:inherit;
+}
+
+.nav-link {
+  text-decoration:none;
+  color:inherit;
+}
+
+h2 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  padding-top:30px;
+  padding-bottom:10px;
+}
+
+figcaption {
+  color:grey;
+  text-align:center;
+  font-size:0.8em
+}

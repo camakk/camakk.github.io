@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="docs-section" style="padding-left:0px; padding-top:5px; padding-right:0px; max-width:800px; margin:auto;">
+  <div style="margin:0px">
+
+    {{ page.representative-image }}
+
+    <h1 style="margin-bottom:0px"><b> {{ page.title }}</b></h1>
+    <h4 style="color:#555; padding-top:5px; margin-left:0px; margin-bottom:0px; margin:0px"> {{ page.subtitle }}</h4>
+    <div width="200px" class="py-1 my-1 d-flex align-items-center">
+      <div width="70px" height="70px" class="d-inline-flex">
+        <img src="/assets/camakk.jpg" class="rounded-circle p-1" width="60px" height="60px" style="display:inline">
+      </div>
+      <div width="140px" class="pl-2" style="line-height:1.2">
+        <span class="m-0 p=0">Cameron Akker</span><br>
+        <span class="m-0 p-0" style="color:grey; font-size:0.9em"> {{ page.date | date: "%b %Y" }} • {{ page.category }}</span>
+      </div>
+    </div>
+
+    <div class="container py-2">
+      {{ content }}
+    </div>
+
+    <!-- Display Title at Top -->
+    <p style="color:#555; padding-top:0px; margin-left:0px; margin-bottom:0px; margin:0px">
+      {% for tech in page.technologies %}
+        <button type="button" class="btn-sm btn-secondary m-1" disabled> {{ tech }} </button>
+      {% endfor %}
+    </p>
+    <hr>
+
+    <div width="200px" class="py-1 my-1 d-flex align-items-center">
+      <div width="70px" height="70px" class="d-inline-flex">
+        <img src="/assets/camakk.jpg" class="rounded-circle p-1" width="60px" height="60px" style="display:inline">
+      </div>
+      <div width="140px" class="pl-2" style="line-height:1.2">
+        <span class="m-0 p=0">Cameron Akker</span><br>
+        <span class="m-0 p-0" style="color:grey; font-size:0.9em"> Harvard '19 | B.S. Electrical Engineering</span>
+      </div>
+    </div>
