@@ -11,21 +11,33 @@ GEM
     eventmachine (1.2.7)
     ffi (1.11.1)
     forwardable-extended (2.6.0)
+<<<<<<< HEAD
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jekyll (3.8.6)
+=======
+    jekyll (3.6.3)
+>>>>>>> 41f5d1979264e5fa3ebf7702f4b3753c6203034a
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
       i18n (~> 0.7)
       jekyll-sass-converter (~> 1.0)
+<<<<<<< HEAD
       jekyll-watch (~> 2.0)
+=======
+      jekyll-watch (~> 1.1)
+>>>>>>> 41f5d1979264e5fa3ebf7702f4b3753c6203034a
       kramdown (~> 1.14)
       liquid (~> 4.0)
       mercenary (~> 0.3.3)
       pathutil (~> 0.9)
+<<<<<<< HEAD
       rouge (>= 1.7, < 4)
+=======
+      rouge (>= 1.7, < 3)
+>>>>>>> 41f5d1979264e5fa3ebf7702f4b3753c6203034a
       safe_yaml (~> 1.0)
     jekyll-feed (0.11.0)
       jekyll (~> 3.3)
@@ -48,11 +60,19 @@ GEM
       jekyll-seo-tag (~> 2.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+<<<<<<< HEAD
     public_suffix (3.1.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     rouge (3.5.1)
+=======
+    public_suffix (3.1.0)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
+    rouge (2.2.1)
+>>>>>>> 41f5d1979264e5fa3ebf7702f4b3753c6203034a
     ruby_dep (1.5.0)
     safe_yaml (1.0.5)
     sass (3.7.4)
@@ -65,7 +85,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   jekyll (>= 3.6.3)
+=======
+  jekyll (= 3.6.3)
+>>>>>>> 41f5d1979264e5fa3ebf7702f4b3753c6203034a
   jekyll-feed (~> 0.6)
   minima (~> 2.0)
   tzinfo-data
